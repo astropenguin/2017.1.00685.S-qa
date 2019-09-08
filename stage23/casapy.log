@@ -1,0 +1,337 @@
+2019-01-28 20:11:43	INFO	hif_checkproductsize::pipeline.infrastructure.basetask::	Starting execution for stage 23
+2019-01-28 20:11:44	INFO	hif_checkproductsize::pipeline.infrastructure.basetask::	Equivalent CASA call: hif_checkproductsize(maxproductsize=350.0, maxcubesize=40.0, maxcubelimit=60.0)
+2019-01-28 20:11:44	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms
+2019-01-28 20:11:44	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:11:44	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :22
+2019-01-28 20:11:44	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,10,14,16,20,22
+2019-01-28 20:11:44	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47
+2019-01-28 20:11:48	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 535080 out of  48764304 rows.
+2019-01-28 20:11:48	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 22]
+2019-01-28 20:11:49	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:13:07	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.06676e+06 wavelengths
+2019-01-28 20:13:07	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.0966783 arcsec
+2019-01-28 20:13:07	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 512
+2019-01-28 20:13:07	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 335442, 149231 wavelengths
+2019-01-28 20:13:07	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = -0.867687 * u + 0.0113117 * v
+2019-01-28 20:13:07	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 19566.7 wavelengths
+2019-01-28 20:13:07	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:13:07	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms
+2019-01-28 20:13:07	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:13:07	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :22
+2019-01-28 20:13:07	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,10,14,16,20,22
+2019-01-28 20:13:07	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47
+2019-01-28 20:13:11	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 535080 out of  48764544 rows.
+2019-01-28 20:13:11	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 22]
+2019-01-28 20:13:11	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:14:30	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.16781e+06 wavelengths
+2019-01-28 20:14:30	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.0883127 arcsec
+2019-01-28 20:14:30	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 576
+2019-01-28 20:14:30	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 382406, 43580.1 wavelengths
+2019-01-28 20:14:30	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = 0.0522915 * u + -0.128762 * v
+2019-01-28 20:14:30	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 16208.8 wavelengths
+2019-01-28 20:14:30	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:14:30	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms
+2019-01-28 20:14:30	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:14:30	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :22
+2019-01-28 20:14:30	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,9,11,13,16,17,20,21
+2019-01-28 20:14:30	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45
+2019-01-28 20:14:32	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 313490 out of  32724699 rows.
+2019-01-28 20:14:32	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 22]
+2019-01-28 20:14:32	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:15:18	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 806888 wavelengths
+2019-01-28 20:15:18	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.127815 arcsec
+2019-01-28 20:15:18	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 384
+2019-01-28 20:15:18	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 288795, 29478.5 wavelengths
+2019-01-28 20:15:18	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = -0.0883208 * u + -0.128774 * v
+2019-01-28 20:15:18	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 9036.66 wavelengths
+2019-01-28 20:15:18	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:15:18	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms
+2019-01-28 20:15:18	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:15:18	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :22
+2019-01-28 20:15:18	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,10,14,16,20,22
+2019-01-28 20:15:18	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47||ANTENNA1==48
+2019-01-28 20:15:22	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 557375 out of  50112349 rows.
+2019-01-28 20:15:22	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 22]
+2019-01-28 20:15:22	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:16:41	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.21372e+06 wavelengths
+2019-01-28 20:16:41	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.084972 arcsec
+2019-01-28 20:16:41	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 576
+2019-01-28 20:16:41	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 360602, 169038 wavelengths
+2019-01-28 20:16:41	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = 0.761982 * u + -0.0154829 * v
+2019-01-28 20:16:41	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 21801.6 wavelengths
+2019-01-28 20:16:41	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:16:41	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms
+2019-01-28 20:16:41	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:16:41	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :22
+2019-01-28 20:16:41	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,9,11,13,16,17,20,21,24,26,29
+2019-01-28 20:16:41	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46
+2019-01-28 20:16:45	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 513240 out of  47679291 rows.
+2019-01-28 20:16:45	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 22]
+2019-01-28 20:16:45	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:18:01	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 668041 wavelengths
+2019-01-28 20:18:01	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.15438 arcsec
+2019-01-28 20:18:01	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 320
+2019-01-28 20:18:01	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 219216, 82855 wavelengths
+2019-01-28 20:18:01	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = -0.585588 * u + -0.0613288 * v
+2019-01-28 20:18:01	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 12286.3 wavelengths
+2019-01-28 20:18:01	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:18:01	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms
+2019-01-28 20:18:01	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:18:01	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :22
+2019-01-28 20:18:01	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,9,11,13,16,18,21,23,26,28,30
+2019-01-28 20:18:01	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47||ANTENNA1==48
+2019-01-28 20:18:05	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 557375 out of  50909775 rows.
+2019-01-28 20:18:05	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 22]
+2019-01-28 20:18:06	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:19:20	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.18878e+06 wavelengths
+2019-01-28 20:19:20	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.0867548 arcsec
+2019-01-28 20:19:20	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 576
+2019-01-28 20:19:20	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 379907, 59239.2 wavelengths
+2019-01-28 20:19:20	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = 0.182427 * u + -0.121248 * v
+2019-01-28 20:19:20	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 18548.9 wavelengths
+2019-01-28 20:19:20	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:19:20	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms
+2019-01-28 20:19:20	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:19:20	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :22
+2019-01-28 20:19:20	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,9,11,13,16,18,20,21
+2019-01-28 20:19:20	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47||ANTENNA1==48
+2019-01-28 20:19:23	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 361375 out of  35983003 rows.
+2019-01-28 20:19:23	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 22]
+2019-01-28 20:19:23	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:20:17	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.13665e+06 wavelengths
+2019-01-28 20:20:17	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.0907335 arcsec
+2019-01-28 20:20:17	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 540
+2019-01-28 20:20:17	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 370092, 42166 wavelengths
+2019-01-28 20:20:17	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = -0.0744394 * u + -0.128333 * v
+2019-01-28 20:20:17	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 11933.2 wavelengths
+2019-01-28 20:20:17	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:20:17	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms
+2019-01-28 20:20:17	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:20:17	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :24
+2019-01-28 20:20:17	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,10,14,16,20,22
+2019-01-28 20:20:17	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47
+2019-01-28 20:20:21	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 535080 out of  48764304 rows.
+2019-01-28 20:20:21	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 24]
+2019-01-28 20:20:22	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:21:37	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.06061e+06 wavelengths
+2019-01-28 20:21:37	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.0972385 arcsec
+2019-01-28 20:21:37	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 512
+2019-01-28 20:21:37	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 336237, 149012 wavelengths
+2019-01-28 20:21:37	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = -0.867971 * u + 0.0113653 * v
+2019-01-28 20:21:37	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 19498.8 wavelengths
+2019-01-28 20:21:37	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:21:38	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms
+2019-01-28 20:21:38	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:21:38	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :24
+2019-01-28 20:21:38	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,10,14,16,20,22
+2019-01-28 20:21:38	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47
+2019-01-28 20:21:42	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 535080 out of  48764544 rows.
+2019-01-28 20:21:42	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 24]
+2019-01-28 20:21:42	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:23:00	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.16108e+06 wavelengths
+2019-01-28 20:23:00	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.0888244 arcsec
+2019-01-28 20:23:00	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 576
+2019-01-28 20:23:00	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 380262, 43252.1 wavelengths
+2019-01-28 20:23:00	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = 0.0521741 * u + -0.128711 * v
+2019-01-28 20:23:00	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 16076.1 wavelengths
+2019-01-28 20:23:00	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:23:00	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms
+2019-01-28 20:23:00	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:23:00	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :24
+2019-01-28 20:23:00	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,9,11,13,16,17,20,21
+2019-01-28 20:23:00	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45
+2019-01-28 20:23:03	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 313490 out of  32724699 rows.
+2019-01-28 20:23:03	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 24]
+2019-01-28 20:23:03	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:23:48	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 802240 wavelengths
+2019-01-28 20:23:48	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.128556 arcsec
+2019-01-28 20:23:48	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 384
+2019-01-28 20:23:48	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 287032, 29367.3 wavelengths
+2019-01-28 20:23:48	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = -0.0884554 * u + -0.128721 * v
+2019-01-28 20:23:48	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 8982.9 wavelengths
+2019-01-28 20:23:48	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:23:48	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms
+2019-01-28 20:23:48	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:23:48	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :24
+2019-01-28 20:23:48	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,10,14,16,20,22
+2019-01-28 20:23:48	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47||ANTENNA1==48
+2019-01-28 20:23:53	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 557375 out of  50112349 rows.
+2019-01-28 20:23:53	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 24]
+2019-01-28 20:23:53	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:25:13	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.20673e+06 wavelengths
+2019-01-28 20:25:13	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.0854644 arcsec
+2019-01-28 20:25:13	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 576
+2019-01-28 20:25:13	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 365159, 167562 wavelengths
+2019-01-28 20:25:13	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = 0.760605 * u + -0.0155975 * v
+2019-01-28 20:25:13	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 22070.6 wavelengths
+2019-01-28 20:25:13	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:25:14	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms
+2019-01-28 20:25:14	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:25:14	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :24
+2019-01-28 20:25:14	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,9,11,13,16,17,20,21,24,26,29
+2019-01-28 20:25:14	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46
+2019-01-28 20:25:17	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 513240 out of  47679291 rows.
+2019-01-28 20:25:17	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 24]
+2019-01-28 20:25:18	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:26:33	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 664192 wavelengths
+2019-01-28 20:26:33	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.155275 arcsec
+2019-01-28 20:26:33	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 320
+2019-01-28 20:26:33	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 218424, 82524.8 wavelengths
+2019-01-28 20:26:33	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = -0.58516 * u + -0.0614998 * v
+2019-01-28 20:26:33	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 12211 wavelengths
+2019-01-28 20:26:33	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:26:33	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms
+2019-01-28 20:26:33	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:26:33	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :24
+2019-01-28 20:26:33	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,9,11,13,16,18,21,23,26,28,30
+2019-01-28 20:26:33	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47||ANTENNA1==48
+2019-01-28 20:26:37	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 557375 out of  50909775 rows.
+2019-01-28 20:26:37	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 24]
+2019-01-28 20:26:38	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:27:51	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.18193e+06 wavelengths
+2019-01-28 20:27:51	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.0872575 arcsec
+2019-01-28 20:27:51	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 576
+2019-01-28 20:27:51	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 377701, 58475.1 wavelengths
+2019-01-28 20:27:51	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = 0.181979 * u + -0.121244 * v
+2019-01-28 20:27:51	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 18384 wavelengths
+2019-01-28 20:27:51	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:27:51	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms
+2019-01-28 20:27:51	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:27:51	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :24
+2019-01-28 20:27:51	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,9,11,13,16,18,20,21
+2019-01-28 20:27:51	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47||ANTENNA1==48
+2019-01-28 20:27:54	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 361375 out of  35983003 rows.
+2019-01-28 20:27:54	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 24]
+2019-01-28 20:27:54	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:28:45	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.1301e+06 wavelengths
+2019-01-28 20:28:45	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.0912592 arcsec
+2019-01-28 20:28:45	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 540
+2019-01-28 20:28:45	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 370784, 42330.6 wavelengths
+2019-01-28 20:28:45	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = -0.074537 * u + -0.12814 * v
+2019-01-28 20:28:45	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 11899.5 wavelengths
+2019-01-28 20:28:45	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:28:45	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms
+2019-01-28 20:28:45	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:28:45	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :26
+2019-01-28 20:28:45	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,10,14,16,20,22
+2019-01-28 20:28:45	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47
+2019-01-28 20:28:49	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 535080 out of  48764304 rows.
+2019-01-28 20:28:49	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 26]
+2019-01-28 20:28:50	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:30:08	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.00318e+06 wavelengths
+2019-01-28 20:30:08	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.102805 arcsec
+2019-01-28 20:30:08	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 500
+2019-01-28 20:30:08	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 322504, 150231 wavelengths
+2019-01-28 20:30:08	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = -0.869986 * u + 0.0113602 * v
+2019-01-28 20:30:08	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 19176.4 wavelengths
+2019-01-28 20:30:08	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:30:08	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms
+2019-01-28 20:30:08	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:30:08	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :26
+2019-01-28 20:30:08	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,10,14,16,20,22
+2019-01-28 20:30:08	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47
+2019-01-28 20:30:12	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 535080 out of  48764544 rows.
+2019-01-28 20:30:12	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 26]
+2019-01-28 20:30:12	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:31:30	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.09821e+06 wavelengths
+2019-01-28 20:31:30	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.0939095 arcsec
+2019-01-28 20:31:30	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 576
+2019-01-28 20:31:30	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 359245, 40843.3 wavelengths
+2019-01-28 20:31:30	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = 0.0520916 * u + -0.128714 * v
+2019-01-28 20:31:30	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 15146.1 wavelengths
+2019-01-28 20:31:30	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:31:30	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms
+2019-01-28 20:31:30	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:31:30	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :26
+2019-01-28 20:31:30	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,9,11,13,16,17,20,21
+2019-01-28 20:31:30	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45
+2019-01-28 20:31:34	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 313490 out of  32724699 rows.
+2019-01-28 20:31:34	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 26]
+2019-01-28 20:31:34	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:32:19	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 758799 wavelengths
+2019-01-28 20:32:19	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.135915 arcsec
+2019-01-28 20:32:19	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 384
+2019-01-28 20:32:19	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 270607, 27589 wavelengths
+2019-01-28 20:32:19	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = -0.0884059 * u + -0.12859 * v
+2019-01-28 20:32:19	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 8466.82 wavelengths
+2019-01-28 20:32:19	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:32:19	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms
+2019-01-28 20:32:19	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:32:19	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :26
+2019-01-28 20:32:19	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,10,14,16,20,22
+2019-01-28 20:32:19	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47||ANTENNA1==48
+2019-01-28 20:32:24	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 557375 out of  50112349 rows.
+2019-01-28 20:32:24	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 26]
+2019-01-28 20:32:25	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:33:45	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.14139e+06 wavelengths
+2019-01-28 20:33:45	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.0903572 arcsec
+2019-01-28 20:33:45	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 576
+2019-01-28 20:33:45	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 344862, 157859 wavelengths
+2019-01-28 20:33:45	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = 0.760131 * u + -0.015602 * v
+2019-01-28 20:33:45	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 20856.8 wavelengths
+2019-01-28 20:33:45	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:33:45	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms
+2019-01-28 20:33:45	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:33:45	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :26
+2019-01-28 20:33:45	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,9,11,13,16,17,20,21,24,26,29
+2019-01-28 20:33:45	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46
+2019-01-28 20:33:49	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 513240 out of  47679291 rows.
+2019-01-28 20:33:49	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 26]
+2019-01-28 20:33:49	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:35:09	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 628227 wavelengths
+2019-01-28 20:35:09	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.164164 arcsec
+2019-01-28 20:35:09	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 320
+2019-01-28 20:35:09	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 206024, 77547.6 wavelengths
+2019-01-28 20:35:09	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = -0.585476 * u + -0.0613428 * v
+2019-01-28 20:35:09	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 11504 wavelengths
+2019-01-28 20:35:09	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:35:09	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms
+2019-01-28 20:35:09	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:35:09	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :26
+2019-01-28 20:35:09	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,9,11,13,16,18,21,23,26,28,30
+2019-01-28 20:35:09	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47||ANTENNA1==48
+2019-01-28 20:35:14	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 557375 out of  50909775 rows.
+2019-01-28 20:35:14	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 26]
+2019-01-28 20:35:14	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:36:27	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.11793e+06 wavelengths
+2019-01-28 20:36:27	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.0922529 arcsec
+2019-01-28 20:36:27	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 576
+2019-01-28 20:36:27	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 357563, 55546.6 wavelengths
+2019-01-28 20:36:27	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = 0.182207 * u + -0.121299 * v
+2019-01-28 20:36:27	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 17373.6 wavelengths
+2019-01-28 20:36:27	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:36:27	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Performing selection on MeasurementSet : /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms
+2019-01-28 20:36:27	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on fields : NGC1097
+2019-01-28 20:36:27	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on spectral windows expression :26
+2019-01-28 20:36:27	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting on scan : 8,9,11,13,16,18,20,21
+2019-01-28 20:36:27	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selecting via TaQL : ANTENNA1==0||ANTENNA1==1||ANTENNA1==2||ANTENNA1==3||ANTENNA1==4||ANTENNA1==5||ANTENNA1==6||ANTENNA1==7||ANTENNA1==8||ANTENNA1==9||ANTENNA1==10||ANTENNA1==11||ANTENNA1==12||ANTENNA1==13||ANTENNA1==14||ANTENNA1==15||ANTENNA1==16||ANTENNA1==17||ANTENNA1==18||ANTENNA1==19||ANTENNA1==20||ANTENNA1==21||ANTENNA1==22||ANTENNA1==23||ANTENNA1==24||ANTENNA1==25||ANTENNA1==26||ANTENNA1==27||ANTENNA1==28||ANTENNA1==29||ANTENNA1==30||ANTENNA1==31||ANTENNA1==32||ANTENNA1==33||ANTENNA1==34||ANTENNA1==35||ANTENNA1==36||ANTENNA1==37||ANTENNA1==38||ANTENNA1==39||ANTENNA1==40||ANTENNA1==41||ANTENNA1==42||ANTENNA1==43||ANTENNA1==44||ANTENNA1==45||ANTENNA1==46||ANTENNA1==47||ANTENNA1==48
+2019-01-28 20:36:30	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected 361375 out of  35983003 rows.
+2019-01-28 20:36:30	INFO	pipeline.infrastructure.basetask::imager::setDataOnThisMS()	Selected : [3840 chans in spw 26]
+2019-01-28 20:36:30	INFO	pipeline.infrastructure.basetask::imager::advise() 	Advising image properties
+2019-01-28 20:37:21	INFO	pipeline.infrastructure.basetask::imager::advise() 	Maximum uv distance = 1.06891e+06 wavelengths
+2019-01-28 20:37:21	INFO	pipeline.infrastructure.basetask::imager::advise() +	Recommended cell size < 0.0964837 arcsec
+2019-01-28 20:37:21	INFO	pipeline.infrastructure.basetask::imager::advise() 	Recommended number of pixels = 540
+2019-01-28 20:37:21	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in uv, w distance = 351335, 40069.1 wavelengths
+2019-01-28 20:37:21	INFO	pipeline.infrastructure.basetask::imager::advise() +	Best fitting plane is w = -0.0746425 * u + -0.128161 * v
+2019-01-28 20:37:21	INFO	pipeline.infrastructure.basetask::imager::advise() +	Dispersion in fitted w = 11273.6 wavelengths
+2019-01-28 20:37:21	INFO	pipeline.infrastructure.basetask::imager::advise() +	Wide field cleaning is not necessary
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.heuristics.imageparams_base::	Using previously calculated beam of {'major': {'unit': 'arcsec', 'value': 0.373}, 'positionangle': {'value': 82.97754669189453, 'unit': 'deg'}, 'minor': {'unit': 'arcsec', 'value': 0.303}} for Field NGC1097 Intent TARGET SPW 22
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.domain.measurementset::	Selecting representative target source NGC1097 for data set uid___A002_Xd3c7c2_Xb7f9.ms
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.heuristics.checkproductsize::	Cube size for Field NGC1097 SPW 22 nchan 3840 nbin 1 imsize 648 x 648 is 6.45 GB
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.heuristics.checkproductsize::	Cube size for Field NGC1097 SPW 24 nchan 3840 nbin 1 imsize 648 x 648 is 6.45 GB
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.heuristics.checkproductsize::	Cube size for Field NGC1097 SPW 26 nchan 3840 nbin 1 imsize 648 x 648 is 6.45 GB
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.heuristics.checkproductsize::	Default imaging leads to a maximum cube size of 6.44972544 GB and a product size of 38.708430336 GB
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.heuristics.checkproductsize::	Allowed maximum cube size: 40.0 GB. Allowed cube size limit: 60.0 GB. Allowed maximum product size: 350.0 GB.
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.tasks.checkproductsize.checkproductsize::	CheckProductSize:
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.tasks.checkproductsize.checkproductsize::+	 Status: OK
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.tasks.checkproductsize.checkproductsize::+	 Reason: No size mitigation needed
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.tasks.checkproductsize.checkproductsize::+	 Allowed maximum cube size: 40 GB
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.tasks.checkproductsize.checkproductsize::+	 Allowed maximum cube limit: 60 GB
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.tasks.checkproductsize.checkproductsize::+	 Predicted maximum cube size: 6.45 GB
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.tasks.checkproductsize.checkproductsize::+	 Mitigated maximum cube size: 6.45 GB
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.tasks.checkproductsize.checkproductsize::+	 Allowed maximum product size: 350 GB
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.tasks.checkproductsize.checkproductsize::+	 Initial predicted product size: 38.7 GB
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.tasks.checkproductsize.checkproductsize::+	 Predicted product size after cube size mitigation: 38.7 GB
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.tasks.checkproductsize.checkproductsize::+	 Mitigated product size: 38.7 GB
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.tasks.checkproductsize.checkproductsize::+	 Mitigation parameters:
+2019-01-28 20:37:21	INFO	hif_checkproductsize::pipeline.hif.tasks.checkproductsize.checkproductsize::+	  status: OK

@@ -1,0 +1,2676 @@
+
+
+
+
+    <link href="resources/css/select2.css" rel="stylesheet"/>
+    <link href="resources/css/select2-bootstrap.css" rel="stylesheet"/>
+    <script src="resources/js/select2.js"></script>
+
+    <!-- include required files and styles for histograms -->
+    <script src="resources/js/d3.v3.js"></script>
+
+<script>
+$(document).ready(function () {
+    pipeline.pages.detail_plots.ready();
+
+    var scores_dict = $('#scores').data('scores');
+
+    // create a new filter pipeline, and tell it to filter based on the scores
+    // in the scores_dict JSON dictionary that is set in the template.
+    var filterPipeline = new FILTERS.FilterPipeline();
+    filterPipeline.setScores(scores_dict);
+
+    // create filters that listen for events on the .select2 input fields we just
+    // created, and add them to the filter pipeline, filtering on the appropriate
+    // dictionary key
+    filterPipeline.addFilter(FILTERS.createMatchFilter('vis', '#select-vis'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('spw', '#select-spw'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('intent', '#select-intent'));
+
+});
+</script>
+
+<div data-scores="{&quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;AMPLITUDE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png&quot;}, &quot;stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;intent&quot;: &quot;BANDPASS&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png&quot;}}" id="scores"></div>
+
+
+
+
+
+<div class="page-header">
+    <h1>Median Normalised T<sub>sys</sub> vs channel for all data<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+
+
+    
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="select-vis" class="control-label">Measurement Set</label>
+                    <select id="select-vis" class="form-control select2" multiple data-placeholder="Show all measurement sets">
+                            <option>uid___A002_Xd1c06f_X545c.ms</option>
+                            <option>uid___A002_Xd3c7c2_Xa6f1.ms</option>
+                            <option>uid___A002_Xd3c7c2_Xb7f9.ms</option>
+                            <option>uid___A002_Xd16a1e_X4327.ms</option>
+                            <option>uid___A002_Xd271e2_X9680.ms</option>
+                            <option>uid___A002_Xd271e2_X9993.ms</option>
+                            <option>uid___A002_Xd395f6_X1401a.ms</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="select-spw" class="control-label">Spectral window filter</label>
+                    <select id="select-spw" class="form-control select2" multiple data-placeholder="Show all spectral windows">
+                            <option>16</option>
+                            <option>18</option>
+                            <option>20</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="select-intent" class="control-label">Observing intent filter</label>
+                    <select id="select-intent" class="form-control select2" multiple data-placeholder="Show all observing intents">
+                            <option>AMPLITUDE</option>
+                            <option>ATMOSPHERE</option>
+                            <option>BANDPASS</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+<br>
+
+
+
+
+
+
+
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 16<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5774662832995104066">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 16 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5774662832995104066" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 16<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 16<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5964204605345445390">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 16 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5964204605345445390" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 16<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 16<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6721052273608262698">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 16 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6721052273608262698" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 16<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 16<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6178517315004803244">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 16 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6178517315004803244" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 16<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 16<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4610662056666965760">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 16 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4610662056666965760" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 16<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 16<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd--3034990989538224128">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 16 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd--3034990989538224128" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 16<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 16<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5791164493280274778">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 16 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5791164493280274778" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 16<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 16<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2549255698195242174">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 16 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2549255698195242174" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 16<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 16<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6136209895793484114">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 16 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6136209895793484114" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 16<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 16<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7299693362958618392">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 16 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7299693362958618392" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 16<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 16<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7721008597299582004">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 16 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7721008597299582004" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 16<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 16<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5496442976433271140">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 16 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5496442976433271140" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 16<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 16<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6358444880661773708">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 16 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6358444880661773708" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 16<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 16<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3680533655904850784">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 16 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3680533655904850784" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 16<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 16<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd--3998331987338904352">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 16 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd--3998331987338904352" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 16<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 16<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-7839724569727972518">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 16 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-7839724569727972518" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 16<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 16<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6257259546721066166">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 16 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6257259546721066166" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 16<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 16<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd--3020189003083665022">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 16 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd--3020189003083665022" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 16<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 16<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1595105693031975388">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 16 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1595105693031975388" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 16<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 16<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2002248754867251472">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 16 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2002248754867251472" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 16<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 16<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd--9140204166513400592">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_16.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 16 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd--9140204166513400592" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 16<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 18<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6020840750355487792">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 18 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6020840750355487792" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 18<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 18<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-286653152365315068">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 18 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-286653152365315068" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 18<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 18<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-9160491938216023300">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 18 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-9160491938216023300" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 18<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 18<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4950451767793471930">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 18 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4950451767793471930" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 18<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 18<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5982896486506207246">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 18 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5982896486506207246" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 18<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 18<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2089554254445677134">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 18 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2089554254445677134" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 18<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 18<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--4212004078543145356">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 18 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--4212004078543145356" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 18<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 18<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2303077780802858352">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 18 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2303077780802858352" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 18<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 18<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6059676420141307360">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 18 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6059676420141307360" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 18<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 18<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--4860509699630859322">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 18 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--4860509699630859322" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 18<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 18<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2596463353347680862">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 18 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2596463353347680862" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 18<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 18<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6699443339277519666">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 18 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6699443339277519666" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 18<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 18<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3644723691161646426">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 18 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3644723691161646426" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 18<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 18<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3926711573233234926">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 18 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3926711573233234926" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 18<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 18<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2252525770435856814">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 18 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2252525770435856814" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 18<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 18<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5400316905152212744">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 18 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5400316905152212744" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 18<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 18<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2706788190686035804">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 18 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2706788190686035804" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 18<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 18<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1647954573244423540">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 18 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1647954573244423540" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 18<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 18<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-8408062878791444746">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 18 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-8408062878791444746" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 18<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 18<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3374483184770493150">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 18 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3374483184770493150" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 18<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 18<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2889346408802640130">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_18.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 18 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2889346408802640130" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 18<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 20<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7137002123023732879">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 20 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7137002123023732879" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 20<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 20<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-1402558523497557853">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 20 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-1402558523497557853" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 20<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 20<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-57172230633481545">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 20 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-57172230633481545" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 20<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 20<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4267243181305807223">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 20 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4267243181305807223" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 20<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 20<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2839886159799285475">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 20 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2839886159799285475" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 20<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 20<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3205459625577920431">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 20 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3205459625577920431" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 20<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 20<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5327909449707388235">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 20 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5327909449707388235" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 20<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 20<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-719108753075375361">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 20 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-719108753075375361" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 20<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 20<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6743109007908973893">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 20 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6743109007908973893" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 20<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 20<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4483170668032152843">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 20 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4483170668032152843" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 20<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 20<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1012238324340196845">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 20 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1012238324340196845" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 20<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 20<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8604290407661109985">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 20 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8604290407661109985" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 20<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 20<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4087315615648836759">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 20 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4087315615648836759" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 20<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 20<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-1909757759037171011">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 20 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-1909757759037171011" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 20<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 20<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3368431141568099599">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 20 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3368431141568099599" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 20<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 20<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1675705845767648455">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 20 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1675705845767648455" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 20<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 20<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4369458561513827797">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 20 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4369458561513827797" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 20<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 20<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd--4790964899951344799">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 20 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd--4790964899951344799" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 20<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 20<br>
+		Intent: AMPLITUDE
+	</div>'
+                       data-plotCommandTarget="#plotcmd--935617488871567417">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_AMPLITUDE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 20 AMPLITUDE"
+                             >
+                    </a>
+
+                    <div id="plotcmd--935617488871567417" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 20<br>
+		AMPLITUDE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 20<br>
+		Intent: ATMOSPHERE
+	</div>'
+                       data-plotCommandTarget="#plotcmd-231472858255572467">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 20 ATMOSPHERE"
+                             >
+                    </a>
+
+                    <div id="plotcmd-231472858255572467" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 20<br>
+		ATMOSPHERE
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 20<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1773441037670397345">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/edgechans_Median_Normalised_Tsys_Median_Normalised_Tsys_v_channel_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_BANDPASS_Field_None_SpW_20.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 20 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1773441037670397345" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 20<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+

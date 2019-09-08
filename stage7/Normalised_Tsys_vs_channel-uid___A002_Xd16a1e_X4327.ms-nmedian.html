@@ -1,0 +1,2412 @@
+
+
+
+
+    <link href="resources/css/select2.css" rel="stylesheet"/>
+    <link href="resources/css/select2-bootstrap.css" rel="stylesheet"/>
+    <script src="resources/js/select2.js"></script>
+
+    <!-- include required files and styles for histograms -->
+    <script src="resources/js/d3.v3.js"></script>
+
+<script>
+$(document).ready(function () {
+    pipeline.pages.detail_plots.ready();
+
+    var scores_dict = $('#scores').data('scores');
+
+    // create a new filter pipeline, and tell it to filter based on the scores
+    // in the scores_dict JSON dictionary that is set in the template.
+    var filterPipeline = new FILTERS.FilterPipeline();
+    filterPipeline.setScores(scores_dict);
+
+    // create filters that listen for events on the .select2 input fields we just
+    // created, and add them to the filter pipeline, filtering on the appropriate
+    // dictionary key
+    filterPipeline.addFilter(FILTERS.createMatchFilter('vis', '#select-vis'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('ant', '#select-ant'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('field', '#select-field'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('spw', '#select-spw'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('pol', '#select-pol'));
+
+});
+</script>
+
+<div data-scores="{&quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_10h34m44s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_10h34m44s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_10h47m38s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_10h47m38s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_11h4m15s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_11h4m15s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_10h37m0s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_10h37m0s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_10h37m0s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_10h37m0s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_10h18m34s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_10h18m34s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_10h56m1s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_10h56m1s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_10h37m0s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_10h37m0s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_11h6m31s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_11h6m31s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_10h47m38s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_10h47m38s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_10h56m1s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_10h56m1s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_11h6m31s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_11h6m31s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_11h4m15s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_11h4m15s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_10h37m0s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_10h37m0s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_10h34m44s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_10h34m44s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_10h18m34s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_10h18m34s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_10h17m23s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_10h17m23s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_10h34m44s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_10h34m44s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_16_Pol_X_Ant__13___DA54___Time_10h8m45s.png&quot;: {&quot;field&quot;: &quot;J0522-3627 (#0)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_16_Pol_X_Ant__13___DA54___Time_10h8m45s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_10h56m1s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_10h56m1s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_10h17m23s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_10h17m23s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_11h6m31s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_11h6m31s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_10h37m0s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_10h37m0s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_16_Pol_Y_Ant__13___DA54___Time_10h8m45s.png&quot;: {&quot;field&quot;: &quot;J0522-3627 (#0)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_16_Pol_Y_Ant__13___DA54___Time_10h8m45s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_11h4m15s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_11h4m15s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_18_Pol_Y_Ant__13___DA54___Time_10h8m45s.png&quot;: {&quot;field&quot;: &quot;J0522-3627 (#0)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_18_Pol_Y_Ant__13___DA54___Time_10h8m45s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_10h17m23s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_10h17m23s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_10h47m38s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_10h47m38s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_11h6m31s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_11h6m31s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_20_Pol_Y_Ant__13___DA54___Time_10h8m45s.png&quot;: {&quot;field&quot;: &quot;J0522-3627 (#0)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_20_Pol_Y_Ant__13___DA54___Time_10h8m45s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_10h56m1s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_10h56m1s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_11h4m15s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_11h4m15s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_11h4m15s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_11h4m15s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_10h37m0s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_10h37m0s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_10h56m1s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_10h56m1s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_11h6m31s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_11h6m31s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_10h34m44s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_10h34m44s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_10h18m34s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_10h18m34s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_11h4m15s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_11h4m15s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_10h18m34s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_10h18m34s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_10h18m34s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_10h18m34s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_18_Pol_X_Ant__13___DA54___Time_10h8m45s.png&quot;: {&quot;field&quot;: &quot;J0522-3627 (#0)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_18_Pol_X_Ant__13___DA54___Time_10h8m45s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_20_Pol_X_Ant__13___DA54___Time_10h8m45s.png&quot;: {&quot;field&quot;: &quot;J0522-3627 (#0)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_20_Pol_X_Ant__13___DA54___Time_10h8m45s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_10h34m44s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_10h34m44s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_10h17m23s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_10h17m23s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_10h56m1s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_10h56m1s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_10h47m38s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_10h47m38s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_10h47m38s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_10h47m38s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_10h17m23s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_10h17m23s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_10h47m38s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_10h47m38s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_11h6m31s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_11h6m31s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_10h17m23s.png&quot;: {&quot;field&quot;: &quot;J0329-2357 (#1)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_10h17m23s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_10h18m34s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_10h18m34s.png&quot;}, &quot;stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_10h34m44s.png&quot;: {&quot;field&quot;: &quot;NGC1097 (#2)&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;DA54&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: null, &quot;thumbnail&quot;: &quot;stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_10h34m44s.png&quot;}}" id="scores"></div>
+
+
+
+
+
+<div class="page-header">
+    <h1>Normalised T<sub>sys</sub> vs channel for uid___A002_Xd16a1e_X4327.ms<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+
+
+    
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="select-field" class="control-label">Field filter</label>
+                    <select id="select-field" class="form-control select2" multiple data-placeholder="Show all fields">
+                            <option>J0329-2357 (#1)</option>
+                            <option>J0522-3627 (#0)</option>
+                            <option>NGC1097 (#2)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="select-spw" class="control-label">Spectral window filter</label>
+                    <select id="select-spw" class="form-control select2" multiple data-placeholder="Show all spectral windows">
+                            <option>16</option>
+                            <option>18</option>
+                            <option>20</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="select-pol" class="control-label">Polarisation filter</label>
+                    <select id="select-pol" class="form-control select2" multiple data-placeholder="Show all polarisations">
+                            <option>X</option>
+                            <option>Y</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+<br>
+
+
+
+
+
+
+
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_10h37m0s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 16<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3668928900596570402">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_10h37m0s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 16 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3668928900596570402" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 16<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_10h37m0s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 16<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5722915286359916619">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_10h37m0s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 16 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5722915286359916619" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 16<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_10h18m34s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 16<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--4624492754348446602">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_10h18m34s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 16 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--4624492754348446602" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 16<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_10h18m34s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 16<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2817726627299299241">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_10h18m34s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 16 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2817726627299299241" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 16<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_10h56m1s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 16<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5625667349025620740">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_10h56m1s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 16 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5625667349025620740" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 16<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_10h56m1s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 16<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--155712937233677349">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_10h56m1s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 16 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--155712937233677349" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 16<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_16_Pol_Y_Ant__13___DA54___Time_10h8m45s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0522-3627 (#0)<br>
+		Spectral Window: 16<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-7922476977141295983">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_16_Pol_Y_Ant__13___DA54___Time_10h8m45s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0522-3627 (#0) spw 16 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-7922476977141295983" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0522-3627 (#0)<br>
+		Spw 16<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_16_Pol_X_Ant__13___DA54___Time_10h8m45s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0522-3627 (#0)<br>
+		Spectral Window: 16<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3353748274339938248">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_16_Pol_X_Ant__13___DA54___Time_10h8m45s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0522-3627 (#0) spw 16 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3353748274339938248" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0522-3627 (#0)<br>
+		Spw 16<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_11h6m31s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 16<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5032077257103702707">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_11h6m31s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 16 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5032077257103702707" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 16<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_11h6m31s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 16<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7813815546596904426">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_11h6m31s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 16 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7813815546596904426" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 16<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_10h34m44s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 16<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5244888508855919479">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_10h34m44s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 16 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5244888508855919479" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 16<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_10h34m44s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 16<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5440012661432808682">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_10h34m44s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 16 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5440012661432808682" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 16<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_10h17m23s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 16<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6625081026883790754">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_Y_Ant__13___DA54___Time_10h17m23s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 16 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6625081026883790754" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 16<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_10h17m23s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 16<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-391984791192877511">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_16_Pol_X_Ant__13___DA54___Time_10h17m23s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 16 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-391984791192877511" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 16<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_10h47m38s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 16<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-1501866132999232482">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_10h47m38s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 16 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-1501866132999232482" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 16<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_10h47m38s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 16<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2626993094121053727">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_10h47m38s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 16 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2626993094121053727" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 16<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_11h4m15s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 16<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--4184654257029458044">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_X_Ant__13___DA54___Time_11h4m15s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 16 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--4184654257029458044" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 16<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_11h4m15s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 16<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2357612745742961131">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_16_Pol_Y_Ant__13___DA54___Time_11h4m15s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 16 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2357612745742961131" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 16<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_18_Pol_Y_Ant__13___DA54___Time_10h8m45s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0522-3627 (#0)<br>
+		Spectral Window: 18<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2631373100071052491">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_18_Pol_Y_Ant__13___DA54___Time_10h8m45s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0522-3627 (#0) spw 18 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2631373100071052491" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0522-3627 (#0)<br>
+		Spw 18<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_18_Pol_X_Ant__13___DA54___Time_10h8m45s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0522-3627 (#0)<br>
+		Spectral Window: 18<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-1674594664201744126">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_18_Pol_X_Ant__13___DA54___Time_10h8m45s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0522-3627 (#0) spw 18 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-1674594664201744126" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0522-3627 (#0)<br>
+		Spw 18<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_11h6m31s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 18<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5415489726067178280">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_11h6m31s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 18 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5415489726067178280" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 18<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_11h6m31s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 18<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-1902021724830843775">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_11h6m31s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 18 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-1902021724830843775" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 18<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_10h37m0s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 18<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5143078563200556239">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_10h37m0s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 18 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5143078563200556239" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 18<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_10h37m0s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 18<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2029495938161050260">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_10h37m0s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 18 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2029495938161050260" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 18<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_10h18m34s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 18<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-7749595960085547497">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_10h18m34s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 18 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-7749595960085547497" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 18<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_10h18m34s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 18<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7306470413757437648">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_10h18m34s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 18 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7306470413757437648" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 18<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_11h4m15s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 18<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-7264294007260182481">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_11h4m15s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 18 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-7264294007260182481" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 18<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_11h4m15s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 18<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6228477817228499398">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_11h4m15s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 18 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6228477817228499398" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 18<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_10h47m38s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 18<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6256667821064626925">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_10h47m38s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 18 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6256667821064626925" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 18<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_10h47m38s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 18<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2932314585883398952">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_10h47m38s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 18 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2932314585883398952" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 18<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_10h17m23s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 18<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5692242177377375797">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_10h17m23s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 18 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5692242177377375797" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 18<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_10h17m23s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 18<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2457576546853192444">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_10h17m23s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 18 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2457576546853192444" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 18<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_10h56m1s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 18<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8276952772299417895">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_X_Ant__13___DA54___Time_10h56m1s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 18 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8276952772299417895" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 18<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_10h56m1s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 18<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--165603346664970790">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_18_Pol_Y_Ant__13___DA54___Time_10h56m1s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 18 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--165603346664970790" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 18<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_10h34m44s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 18<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4284887869187347044">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_Y_Ant__13___DA54___Time_10h34m44s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 18 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4284887869187347044" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 18<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_10h34m44s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 18<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5216554438946906065">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_18_Pol_X_Ant__13___DA54___Time_10h34m44s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 18 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5216554438946906065" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 18<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_10h56m1s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 20<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6917171347586707234">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_10h56m1s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 20 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6917171347586707234" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 20<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_10h56m1s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 20<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-7141316839339978241">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_10h56m1s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 20 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-7141316839339978241" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 20<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_10h47m38s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 20<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5309228269239167017">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_10h47m38s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 20 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5309228269239167017" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 20<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_10h47m38s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 20<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6474599052133508796">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_10h47m38s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 20 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6474599052133508796" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 20<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_11h4m15s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 20<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5986027584808166885">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_11h4m15s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 20 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5986027584808166885" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 20<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_11h4m15s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 20<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8079068593797920498">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_11h4m15s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 20 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8079068593797920498" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 20<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_10h18m34s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 20<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3500402809127266269">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_10h18m34s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 20 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3500402809127266269" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 20<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_10h18m34s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 20<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2648849059595590292">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_10h18m34s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 20 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2648849059595590292" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 20<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_10h17m23s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 20<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--3507469360582707108">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_10h17m23s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 20 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--3507469360582707108" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 20<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_10h17m23s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 20<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5173109414873087917">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_10h17m23s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 20 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5173109414873087917" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 20<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_11h6m31s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 20<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2689522943997983065">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_11h6m31s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 20 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2689522943997983065" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 20<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_11h6m31s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 20<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2872700653811812464">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_11h6m31s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 20 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2872700653811812464" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 20<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_10h37m0s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 20<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7761924173388118148">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_X_Ant__13___DA54___Time_10h37m0s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 20 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7761924173388118148" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 20<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_10h37m0s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0329-2357 (#1)<br>
+		Spectral Window: 20<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-1611391821596324919">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_1_ID_1_SpW_20_Pol_Y_Ant__13___DA54___Time_10h37m0s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0329-2357 (#1) spw 20 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-1611391821596324919" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0329-2357 (#1)<br>
+		Spw 20<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_20_Pol_X_Ant__13___DA54___Time_10h8m45s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0522-3627 (#0)<br>
+		Spectral Window: 20<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1453797772349431031">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_20_Pol_X_Ant__13___DA54___Time_10h8m45s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0522-3627 (#0) spw 20 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1453797772349431031" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0522-3627 (#0)<br>
+		Spw 20<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_20_Pol_Y_Ant__13___DA54___Time_10h8m45s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: J0522-3627 (#0)<br>
+		Spectral Window: 20<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2780129503752960990">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_0_ID_0_SpW_20_Pol_Y_Ant__13___DA54___Time_10h8m45s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field J0522-3627 (#0) spw 20 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2780129503752960990" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		J0522-3627 (#0)<br>
+		Spw 20<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_10h34m44s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 20<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8266832728188792408">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_X_Ant__13___DA54___Time_10h34m44s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 20 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8266832728188792408" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 20<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_10h34m44s.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		Antenna: DA54<br>
+		Field: NGC1097 (#2)<br>
+		Spectral Window: 20<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--662224305189462347">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/_Normalised_Tsys_Normalised_Tsys_v_channel_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Field_2_ID_2_SpW_20_Pol_Y_Ant__13___DA54___Time_10h34m44s.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms DA54, field NGC1097 (#2) spw 20 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--662224305189462347" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		DA54<br>
+		NGC1097 (#2)<br>
+		Spw 20<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+

@@ -1,0 +1,299 @@
+
+<html>
+<head>
+    <script>
+        lazyload();
+    </script>
+</head>
+
+
+
+<div class="page-header">
+    <h1>22. Image Pre-Check<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Task notifications</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="warning alert-warning"><td><span class="glyphicon glyphicon-exclamation-sign"></span> <strong>QA</strong> Robust cannot achieve the PI requested range for one or both axes, due to an elliptical beam, but the best match robust +2.0 (%Diff from mean AR = -26.4%), does produce a predicted beam area that is within the range of requested beam areas.</td></tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+<p>
+<h4>Goals From OT:</h4>
+Representative Target: NGC1097
+<br>
+Representative Frequency: 259.3932 GHz (SPW 22)
+<br>
+Bandwidth for Sensitivity: 64.89 MHz
+(rounded to nearest integer #channels (133), repBW = 64.94 MHz)
+<br>
+Min / Max Acceptable Resolution:
+    0.320 arcsec / 0.480 arcsec
+<br>
+Goal PI sensitivity:
+        0.0800 mJy
+<br>
+Single Continuum:
+    False
+
+<h4>Estimated Synthesized Beam and Sensitivities for the Representative
+Target/Frequency</h4>
+
+Estimates are given for five possible values of the tclean robust
+weighting parameter: robust = -0.5, 0.0, +0.5 (default), +1.0, and +2.0.
+<b>If the "Min / Max Acceptable Resolution" is available
+(&gt;=Cycle 5 12m-array data)</b>,
+the robust value closest to the default (+0.5) that predicts a beam
+that is in range of the PI request (for both axes) according to the
+table row for repBW (Bandwidth for Sensitivity) is chosen. If no robust
+value predicts a beam that is in range, the robust is chosen that yields
+the lowest "&#37;Diff from mean AR" value for the repBW (Bandwidth for
+Sensitivity) rows. The &#37;Diff from mean AR is defined as the percent
+difference between the predicted beam area and the beam area of the
+geometric mean (mean AR) of the PI requested range. When the
+"Min / Max Acceptable Resolution" is not available (or = 0.0 / 0.0),
+robust=+0.5 is used. The chosen robust value is highlighted in green
+and used for all science target imaging. For 12m-array mosaics, 0.0 is
+the most uniform robust value that can be chosen. In addition to an estimate
+for the repBW, an estimate for the aggregate continuum bandwidth (aggBW)
+is also given assuming NO line contamination but accounting for spw
+frequency overlap. If the Bandwidth for Sensitivity (repBW) is &gt; the
+bandwidth of the spw containing the representative frequency (repSPW),
+then the beam is predicted using all spws, otherwise the beam is
+predicted for the repSPW alone. A message appears on the "By Task"
+view if a non-default value of robust (i.e., not +0.5) is chosen.
+Additionally, if the predicted beam is not within the PI requested
+range using one of the five robust values, Warning messages appear on this page.
+<br></br>
+<b>These estimates should always be considered as the BEST CASE SCENARIO.</b>
+These estimates account for Tsys, the observed uv-coverage, and prior
+flagging. The estimates DO NOT account for (1) subsequent science target
+flagging; (2) loss of continuum bandwidth due to the hif_findcont process
+(i.e. removal of lines and other spectral features from the data used
+to image the continuum); (3) Issues that affect the image quality like
+(a) poor match of uv-coverage to image complexity; (b) dynamic range
+effects; (c) calibration deficiencies (poor phase transfer, residual
+baseline based effects, residual antenna position errors, etc.). 
+<table class="table">
+    <thead>
+        <tr>
+            <th>robust</th>
+            <th>uvtaper</th>
+            <th>Synthesized Beam</th>
+            <th>%Diff from mean AR</th>
+            <th>cell</th>
+            <th>bandwidth</th>
+            <th>bwmode</th>
+            <th>Effective Sensitivity</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td>-0.5</td>
+                <td>[]</td>
+                <td>0.215 x 0.172 arcsec @ -85.3 deg</td>
+                <td>-75.9%</td>
+                <td>0.034 x 0.034 arcsec</td>
+                <td>64.94 MHz</td>
+                <td>repBW</td>
+                <td>0.000118 Jy/beam</td>
+            </tr>
+            <tr>
+                <td>-0.5</td>
+                <td>[]</td>
+                <td>0.199 x 0.160 arcsec @ -81.4 deg</td>
+                <td>-79.3%</td>
+                <td>0.032 x 0.032 arcsec</td>
+                <td>5250 MHz</td>
+                <td>aggBW</td>
+                <td>1.22e-05 Jy/beam</td>
+            </tr>
+            <tr>
+                <td>0.0</td>
+                <td>[]</td>
+                <td>0.235 x 0.190 arcsec @ -87.2 deg</td>
+                <td>-70.9%</td>
+                <td>0.038 x 0.038 arcsec</td>
+                <td>64.94 MHz</td>
+                <td>repBW</td>
+                <td>7.86e-05 Jy/beam</td>
+            </tr>
+            <tr>
+                <td>0.0</td>
+                <td>[]</td>
+                <td>0.226 x 0.182 arcsec @ -83.6 deg</td>
+                <td>-73.2%</td>
+                <td>0.036 x 0.036 arcsec</td>
+                <td>5250 MHz</td>
+                <td>aggBW</td>
+                <td>8.12e-06 Jy/beam</td>
+            </tr>
+            <tr>
+                <td>0.5</td>
+                <td>[]</td>
+                <td>0.287 x 0.233 arcsec @ 86.6 deg</td>
+                <td>-56.5%</td>
+                <td>0.047 x 0.047 arcsec</td>
+                <td>64.94 MHz</td>
+                <td>repBW</td>
+                <td>6.01e-05 Jy/beam</td>
+            </tr>
+            <tr>
+                <td>0.5</td>
+                <td>[]</td>
+                <td>0.287 x 0.230 arcsec @ 89.5 deg</td>
+                <td>-57.0%</td>
+                <td>0.046 x 0.046 arcsec</td>
+                <td>5250 MHz</td>
+                <td>aggBW</td>
+                <td>6.22e-06 Jy/beam</td>
+            </tr>
+            <tr>
+                <td>1.0</td>
+                <td>[]</td>
+                <td>0.347 x 0.281 arcsec @ 82.4 deg</td>
+                <td>-36.5%</td>
+                <td>0.056 x 0.056 arcsec</td>
+                <td>64.94 MHz</td>
+                <td>repBW</td>
+                <td>5.42e-05 Jy/beam</td>
+            </tr>
+            <tr>
+                <td>1.0</td>
+                <td>[]</td>
+                <td>0.353 x 0.284 arcsec @ 85.1 deg</td>
+                <td>-34.7%</td>
+                <td>0.057 x 0.057 arcsec</td>
+                <td>5250 MHz</td>
+                <td>aggBW</td>
+                <td>5.61e-06 Jy/beam</td>
+            </tr>
+            <tr bgcolor="lightgreen">
+                <td>2.0</td>
+                <td>[]</td>
+                <td>0.373 x 0.303 arcsec @ 83.0 deg</td>
+                <td>-26.4%</td>
+                <td>0.061 x 0.061 arcsec</td>
+                <td>64.94 MHz</td>
+                <td>repBW</td>
+                <td>5.36e-05 Jy/beam</td>
+            </tr>
+            <tr bgcolor="lightgreen">
+                <td>2.0</td>
+                <td>[]</td>
+                <td>0.380 x 0.307 arcsec @ 85.0 deg</td>
+                <td>-24.0%</td>
+                <td>0.061 x 0.061 arcsec</td>
+                <td>5250 MHz</td>
+                <td>aggBW</td>
+                <td>5.55e-06 Jy/beam</td>
+            </tr>
+    </tbody>
+</table>
+
+
+<div class="clearfix"></div>
+<div class="panel-group" id="details-accordion" role="tablist" aria-multiselectable="true">
+
+    
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Pipeline QA
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+                <table class="table table-bordered" summary="Pipeline QA summary">
+                    <caption>Pipeline QA summary for this task.</caption>
+                    <thead>
+                        <tr>
+                            <th>Score</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="warning alert-warning">
+                        <td>0.50</td>
+                        <td>Robust cannot achieve the PI requested range for one or both axes, due to an elliptical beam, but the best match robust +2.0 (%Diff from mean AR = -26.4%), does produce a predicted beam area that is within the range of requested beam areas.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Input Parameters
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>vis</dt>
+                    <dd>['/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms']</dd>
+                    <dt>output_dir</dt>
+                    <dd>/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Tasks Execution Statistics
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>Start time</dt>
+                    <dd>2019-01-27 11:41:46.127</dd>
+                    <dt>End</dt>
+                    <dd>2019-01-28 20:10:45.926</dd>
+                    <dt>Duration</dt>
+                    <dd>1 day, 8:28:59.799</dd>
+                </dl>
+            Note, WebLog generation is not included in the time.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">CASA logs for stage 22</h3>
+    </div>
+    <div class="panel-body">
+        <ul>
+    
+        <li><a href="stage22/casapy.log" class="replace-pre" data-title="CASA log for stage 22">View</a> or <a href="stage22/casapy.log" download="stage22/casapy.log">download</a> stage22/casapy.log (768.2 KB)</li>
+</ul>
+    </div>
+</div>
+
+</html>

@@ -1,0 +1,5 @@
+# Flag commands for uid___A002_Xd1c06f_X545c.ms
+#
+spw='22' antenna='DA43' reason='nmedian'
+spw='24' antenna='DA43' reason='nmedian'
+spw='26' antenna='DA43' reason='nmedian'

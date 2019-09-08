@@ -1,0 +1,1814 @@
+
+
+
+
+    <link href="resources/css/select2.css" rel="stylesheet"/>
+    <link href="resources/css/select2-bootstrap.css" rel="stylesheet"/>
+    <script src="resources/js/select2.js"></script>
+
+    <!-- include required files and styles for histograms -->
+    <script src="resources/js/d3.v3.js"></script>
+
+<script>
+$(document).ready(function () {
+    pipeline.pages.detail_plots.ready();
+
+    var scores_dict = $('#scores').data('scores');
+
+    // create a new filter pipeline, and tell it to filter based on the scores
+    // in the scores_dict JSON dictionary that is set in the template.
+    var filterPipeline = new FILTERS.FilterPipeline();
+    filterPipeline.setScores(scores_dict);
+
+    // create filters that listen for events on the .select2 input fields we just
+    // created, and add them to the filter pipeline, filtering on the appropriate
+    // dictionary key
+    filterPipeline.addFilter(FILTERS.createMatchFilter('vis', '#select-vis'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('spw', '#select-spw'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('pol', '#select-pol'));
+
+});
+</script>
+
+<div data-scores="{&quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png&quot;}, &quot;stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;thumbnail&quot;: &quot;stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png&quot;}}" id="scores"></div>
+
+
+
+
+
+<div class="page-header">
+    <h1>Baseline vs channels for all data<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+
+
+    
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="select-vis" class="control-label">Measurement Set</label>
+                    <select id="select-vis" class="form-control select2" multiple data-placeholder="Show all measurement sets">
+                            <option>uid___A002_Xd1c06f_X545c.ms</option>
+                            <option>uid___A002_Xd3c7c2_Xa6f1.ms</option>
+                            <option>uid___A002_Xd3c7c2_Xb7f9.ms</option>
+                            <option>uid___A002_Xd16a1e_X4327.ms</option>
+                            <option>uid___A002_Xd271e2_X9680.ms</option>
+                            <option>uid___A002_Xd271e2_X9993.ms</option>
+                            <option>uid___A002_Xd395f6_X1401a.ms</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="select-spw" class="control-label">Spectral window filter</label>
+                    <select id="select-spw" class="form-control select2" multiple data-placeholder="Show all spectral windows">
+                            <option>22</option>
+                            <option>24</option>
+                            <option>26</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="select-pol" class="control-label">Polarisation filter</label>
+                    <select id="select-pol" class="form-control select2" multiple data-placeholder="Show all polarisations">
+                            <option>X</option>
+                            <option>Y</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+<br>
+
+
+
+
+
+
+
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1576556459138315905">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 22 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1576556459138315905" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 22<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5248074624173743898">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 22 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5248074624173743898" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 22<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-8961339548346374846">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 22 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-8961339548346374846" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 22<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5599383745267134231">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 22 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5599383745267134231" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 22<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8325999470709995727">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 22 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8325999470709995727" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 22<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4822484626119450264">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 22 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4822484626119450264" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 22<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-566882050682501220">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 22 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-566882050682501220" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 22<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-8821973999612843117">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 22 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-8821973999612843117" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 22<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4131457246644358481">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 22 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4131457246644358481" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 22<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2293115244282606664">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 22 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2293115244282606664" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 22<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7410914745982496252">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 22 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7410914745982496252" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 22<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6019604499116262397">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 22 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6019604499116262397" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 22<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--3864277885791944281">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 22 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--3864277885791944281" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 22<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral Window: 22<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-8158149698526643854">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_22_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 22 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-8158149698526643854" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 22<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2455375220657933495">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 24 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2455375220657933495" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 24<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4673660215761550032">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 24 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4673660215761550032" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 24<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2901430367880865992">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 24 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2901430367880865992" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 24<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-7312529301982136481">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 24 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-7312529301982136481" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 24<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6314319192714028487">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 24 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6314319192714028487" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 24<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6756995521346588498">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 24 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6756995521346588498" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 24<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-857902804536188034">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 24 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-857902804536188034" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 24<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-1339940016542019211">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 24 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-1339940016542019211" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 24<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5191561596599501977">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 24 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5191561596599501977" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 24<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--942444750997427634">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 24 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--942444750997427634" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 24<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5149762378417444478">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 24 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5149762378417444478" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 24<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6295034525110495899">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 24 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6295034525110495899" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 24<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6140098331635889263">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 24 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6140098331635889263" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 24<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral Window: 24<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1890725484497811976">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_24_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 24 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1890725484497811976" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 24<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd--4323372072150506341">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 26 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--4323372072150506341" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 26<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2678575098031104898">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 26 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2678575098031104898" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 26<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2186289016983120570">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 26 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2186289016983120570" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 26<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--4942746419692364237">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 26 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--4942746419692364237" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 26<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6639971692396096581">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 26 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6639971692396096581" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 26<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--4677736944893970484">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 26 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--4677736944893970484" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 26<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-688788097612242000">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 26 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-688788097612242000" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 26<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5735784393314723143">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 26 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5735784393314723143" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 26<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4009551199714617701">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 26 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4009551199714617701" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 26<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6182100925064592020">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 26 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6182100925064592020" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 26<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4068768098890681360">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 26 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4068768098890681360" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 26<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4712787399395708041">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 26 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4712787399395708041" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 26<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: X
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4702705712073097667">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 26 X polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4702705712073097667" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 26<br>
+		Pol X
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage4/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral Window: 26<br>
+		Polarisation: Y
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5488690411170110262">
+                        <img class="lazyload"
+                             data-src="stage4/thumbs/_Mean_amplitude_Baseline_vs_channels_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 26 Y polarisation"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5488690411170110262" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 26<br>
+		Pol Y
+	
+                    </div>
+                </div>
+            </div>
+

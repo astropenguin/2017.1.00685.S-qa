@@ -1,0 +1,901 @@
+
+
+
+
+    <link href="resources/css/select2.css" rel="stylesheet"/>
+    <link href="resources/css/select2-bootstrap.css" rel="stylesheet"/>
+    <script src="resources/js/select2.js"></script>
+
+    <!-- include required files and styles for histograms -->
+    <script src="resources/js/d3.v3.js"></script>
+
+<script>
+$(document).ready(function () {
+    pipeline.pages.detail_plots.ready();
+
+    var scores_dict = $('#scores').data('scores');
+
+    // create a new filter pipeline, and tell it to filter based on the scores
+    // in the scores_dict JSON dictionary that is set in the template.
+    var filterPipeline = new FILTERS.FilterPipeline();
+    filterPipeline.setScores(scores_dict);
+
+    // create filters that listen for events on the .select2 input fields we just
+    // created, and add them to the filter pipeline, filtering on the appropriate
+    // dictionary key
+    filterPipeline.addFilter(FILTERS.createMatchFilter('vis', '#select-vis'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('spw', '#select-spw'));
+
+});
+</script>
+
+<div data-scores="{&quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_48_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_48_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_47_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_47_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_48_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_48_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_46_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_46_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_47_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_47_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_46_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_46_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_48_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_48_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_45_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_45_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_48_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_48_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_47_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_47_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_45_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_45_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_47_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_47_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_45_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_45_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_47_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;24&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_47_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_48_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_48_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_48_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_48_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_48_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_48_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_48_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_48_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_48_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_48_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_47_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_47_.png&quot;}, &quot;stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_46_.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;22&quot;, &quot;ant&quot;: &quot;0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_46_.png&quot;}}" id="scores"></div>
+
+
+
+
+
+<div class="page-header">
+    <h1>Time vs Antenna1 plots for all data<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+
+
+    
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="select-vis" class="control-label">Measurement Set</label>
+                    <select id="select-vis" class="form-control select2" multiple data-placeholder="Show all measurement sets">
+                            <option>uid___A002_Xd1c06f_X545c.ms</option>
+                            <option>uid___A002_Xd3c7c2_Xa6f1.ms</option>
+                            <option>uid___A002_Xd3c7c2_Xb7f9.ms</option>
+                            <option>uid___A002_Xd16a1e_X4327.ms</option>
+                            <option>uid___A002_Xd271e2_X9680.ms</option>
+                            <option>uid___A002_Xd271e2_X9993.ms</option>
+                            <option>uid___A002_Xd395f6_X1401a.ms</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="select-spw" class="control-label">Spectral window filter</label>
+                    <select id="select-spw" class="form-control select2" multiple data-placeholder="Show all spectral windows">
+                            <option>22</option>
+                            <option>24</option>
+                            <option>26</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+<br>
+
+
+
+
+
+
+
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_46_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 22
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3109948739058277114">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_46_.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 22"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3109948739058277114" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd16a1e_X4327.ms<br>
+		<span class="text-center">Spw 22</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_45_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 22
+	</div>'
+                       data-plotCommandTarget="#plotcmd-1565937587245996644">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_45_.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 22"
+                             >
+                    </a>
+
+                    <div id="plotcmd-1565937587245996644" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd1c06f_X545c.ms<br>
+		<span class="text-center">Spw 22</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_47_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 22
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1210544957860292445">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_47_.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 22"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1210544957860292445" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		<span class="text-center">Spw 22</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_48_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 22
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3671281783984991133">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_48_.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 22"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3671281783984991133" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd395f6_X1401a.ms<br>
+		<span class="text-center">Spw 22</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_47_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 22
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5456322997629305881">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_47_.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 22"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5456322997629305881" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		<span class="text-center">Spw 22</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_48_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 22
+	</div>'
+                       data-plotCommandTarget="#plotcmd--3677879126586757403">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_48_.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 22"
+                             >
+                    </a>
+
+                    <div id="plotcmd--3677879126586757403" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd271e2_X9993.ms<br>
+		<span class="text-center">Spw 22</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_48_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 22
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8067530115198539356">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms_gtable__Intent_BANDPASS_Field_None__SpW_22__Ant_0_48_.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 22"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8067530115198539356" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd271e2_X9680.ms<br>
+		<span class="text-center">Spw 22</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_46_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 24
+	</div>'
+                       data-plotCommandTarget="#plotcmd--4920928099351931872">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_46_.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 24"
+                             >
+                    </a>
+
+                    <div id="plotcmd--4920928099351931872" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd16a1e_X4327.ms<br>
+		<span class="text-center">Spw 24</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_45_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 24
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1026313243886812082">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_45_.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 24"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1026313243886812082" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd1c06f_X545c.ms<br>
+		<span class="text-center">Spw 24</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_47_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 24
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7763383628627042971">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_47_.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 24"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7763383628627042971" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		<span class="text-center">Spw 24</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_48_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 24
+	</div>'
+                       data-plotCommandTarget="#plotcmd--201491100573364737">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_48_.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 24"
+                             >
+                    </a>
+
+                    <div id="plotcmd--201491100573364737" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd395f6_X1401a.ms<br>
+		<span class="text-center">Spw 24</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_47_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 24
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7679165199910345647">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_47_.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 24"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7679165199910345647" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		<span class="text-center">Spw 24</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_48_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 24
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4844673765986608219">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_48_.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 24"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4844673765986608219" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd271e2_X9993.ms<br>
+		<span class="text-center">Spw 24</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_48_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 24
+	</div>'
+                       data-plotCommandTarget="#plotcmd-8983061422530609254">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms_gtable__Intent_BANDPASS_Field_None__SpW_24__Ant_0_48_.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 24"
+                             >
+                    </a>
+
+                    <div id="plotcmd-8983061422530609254" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd271e2_X9680.ms<br>
+		<span class="text-center">Spw 24</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_46_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 26
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2282336913579482122">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_46_.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 26"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2282336913579482122" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd16a1e_X4327.ms<br>
+		<span class="text-center">Spw 26</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_45_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 26
+	</div>'
+                       data-plotCommandTarget="#plotcmd-7602839647089258392">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_45_.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 26"
+                             >
+                    </a>
+
+                    <div id="plotcmd-7602839647089258392" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd1c06f_X545c.ms<br>
+		<span class="text-center">Spw 26</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_47_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 26
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7764050298237457537">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_47_.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 26"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7764050298237457537" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		<span class="text-center">Spw 26</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_48_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 26
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2031514193873878857">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_48_.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 26"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2031514193873878857" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd395f6_X1401a.ms<br>
+		<span class="text-center">Spw 26</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_47_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 26
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2952973183868800715">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_47_.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 26"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2952973183868800715" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		<span class="text-center">Spw 26</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_48_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 26
+	</div>'
+                       data-plotCommandTarget="#plotcmd-391761526413554657">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_48_.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 26"
+                             >
+                    </a>
+
+                    <div id="plotcmd-391761526413554657" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd271e2_X9993.ms<br>
+		<span class="text-center">Spw 26</span>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage10/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_48_.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 26
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1261082001752488400">
+                        <img class="lazyload"
+                             data-src="stage10/thumbs/_gain_amplitude_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms_gtable__Intent_BANDPASS_Field_None__SpW_26__Ant_0_48_.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 26"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1261082001752488400" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+        uid___A002_Xd271e2_X9680.ms<br>
+		<span class="text-center">Spw 26</span>
+	
+                    </div>
+                </div>
+            </div>
+

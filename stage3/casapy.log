@@ -1,0 +1,23 @@
+2019-01-23 22:58:39	INFO	hifa_fluxcalflag::pipeline.infrastructure.basetask::	Starting execution for stage 3
+2019-01-23 22:58:39	INFO	hifa_fluxcalflag::pipeline.infrastructure.basetask::	Equivalent CASA call: hifa_fluxcalflag(pipelinemode="automatic")
+2019-01-23 22:58:40	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Spectral window map for flux scaling [-1]
+2019-01-23 22:58:40	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Flagging commands generated
+2019-01-23 22:58:40	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	    None
+2019-01-23 22:58:40	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Spectral window map for flux scaling [-1]
+2019-01-23 22:58:40	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Flagging commands generated
+2019-01-23 22:58:40	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	    None
+2019-01-23 22:58:41	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Spectral window map for flux scaling [-1]
+2019-01-23 22:58:41	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Flagging commands generated
+2019-01-23 22:58:41	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	    None
+2019-01-23 22:58:43	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Spectral window map for flux scaling [-1]
+2019-01-23 22:58:43	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Flagging commands generated
+2019-01-23 22:58:43	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	    None
+2019-01-23 22:58:44	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Spectral window map for flux scaling [-1]
+2019-01-23 22:58:44	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Flagging commands generated
+2019-01-23 22:58:44	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	    None
+2019-01-23 22:58:44	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Spectral window map for flux scaling [-1]
+2019-01-23 22:58:44	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Flagging commands generated
+2019-01-23 22:58:44	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	    None
+2019-01-23 22:58:45	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Spectral window map for flux scaling [-1]
+2019-01-23 22:58:45	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	Flagging commands generated
+2019-01-23 22:58:45	INFO	hifa_fluxcalflag::pipeline.hifa.tasks.fluxcalflag.fluxcalflag::	    None

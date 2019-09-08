@@ -1,0 +1,3 @@
+2019-01-27 11:39:53	INFO	hif_makeimlist::pipeline.infrastructure.basetask::	Starting execution for stage 20
+2019-01-27 11:39:54	INFO	hif_makeimlist::pipeline.infrastructure.basetask::	Equivalent CASA call: hif_makeimlist(per_eb=True, intent='CHECK')
+2019-01-27 11:39:54	INFO	hif_makeimlist::pipeline.hif.tasks.makeimlist.makeimlist::	No check source found.

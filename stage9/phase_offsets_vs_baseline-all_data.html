@@ -1,0 +1,2229 @@
+
+
+
+
+    <link href="resources/css/select2.css" rel="stylesheet"/>
+    <link href="resources/css/select2-bootstrap.css" rel="stylesheet"/>
+    <script src="resources/js/select2.js"></script>
+
+    <!-- include required files and styles for histograms -->
+    <script src="resources/js/d3.v3.js"></script>
+
+<script>
+$(document).ready(function () {
+    pipeline.pages.detail_plots.ready();
+
+    var scores_dict = $('#scores').data('scores');
+
+    // create a new filter pipeline, and tell it to filter based on the scores
+    // in the scores_dict JSON dictionary that is set in the template.
+    var filterPipeline = new FILTERS.FilterPipeline();
+    filterPipeline.setScores(scores_dict);
+
+    // create filters that listen for events on the .select2 input fields we just
+    // created, and add them to the filter pipeline, filtering on the appropriate
+    // dictionary key
+    filterPipeline.addFilter(FILTERS.createMatchFilter('vis', '#select-vis'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('spw', '#select-spw'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('scan', '#select-scan'));
+
+});
+</script>
+
+<div data-scores="{&quot;stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan15.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;scan&quot;: &quot;15&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan15.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan06.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;scan&quot;: &quot;6&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan06.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan03.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;scan&quot;: &quot;3&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan03.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan03.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;scan&quot;: &quot;3&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan03.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan21.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;scan&quot;: &quot;21&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan21.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan15.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;scan&quot;: &quot;15&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan15.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan03.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;scan&quot;: &quot;3&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan03.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan09.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;scan&quot;: &quot;9&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan09.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan25.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;scan&quot;: &quot;25&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan25.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan28.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;scan&quot;: &quot;28&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan28.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan15.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;scan&quot;: &quot;15&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan15.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan10.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;scan&quot;: &quot;10&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan10.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan03.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;scan&quot;: &quot;3&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan03.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan23.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;scan&quot;: &quot;23&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan23.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan06.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;scan&quot;: &quot;6&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan06.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan24.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;scan&quot;: &quot;24&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan24.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan03.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;scan&quot;: &quot;3&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan03.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan06.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;scan&quot;: &quot;6&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan06.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan09.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;scan&quot;: &quot;9&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan09.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan21.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;scan&quot;: &quot;21&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan21.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan12.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;scan&quot;: &quot;12&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan12.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan06.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;scan&quot;: &quot;6&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan06.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan09.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;scan&quot;: &quot;9&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan09.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan20.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;scan&quot;: &quot;20&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan20.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan32.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;scan&quot;: &quot;32&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan32.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan23.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;scan&quot;: &quot;23&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan23.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan06.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;scan&quot;: &quot;6&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan06.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan10.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;scan&quot;: &quot;10&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan10.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan29.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;scan&quot;: &quot;29&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan29.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan23.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;scan&quot;: &quot;23&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan23.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan12.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;scan&quot;: &quot;12&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan12.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan30.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;scan&quot;: &quot;30&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan30.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan18.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;scan&quot;: &quot;18&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan18.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan21.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;scan&quot;: &quot;21&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan21.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan24.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;scan&quot;: &quot;24&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan24.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan18.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;scan&quot;: &quot;18&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan18.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan10.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;scan&quot;: &quot;10&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan10.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan18.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;scan&quot;: &quot;18&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan18.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan03.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;scan&quot;: &quot;3&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan03.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan15.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;scan&quot;: &quot;15&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan15.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan06.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;scan&quot;: &quot;6&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan06.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan15.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;scan&quot;: &quot;15&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan15.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan15.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;scan&quot;: &quot;15&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan15.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan03.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;scan&quot;: &quot;3&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan03.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan06.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;scan&quot;: &quot;6&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan06.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan15.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;scan&quot;: &quot;15&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan15.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan18.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;scan&quot;: &quot;18&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan18.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan12.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;scan&quot;: &quot;12&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan12.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan24.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;scan&quot;: &quot;24&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan24.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan18.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;scan&quot;: &quot;18&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan18.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan19.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;scan&quot;: &quot;19&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan19.png&quot;, &quot;spw&quot;: &quot;26&quot;}, &quot;stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan10.png&quot;: {&quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;scan&quot;: &quot;10&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan10.png&quot;, &quot;spw&quot;: &quot;26&quot;}}" id="scores"></div>
+
+
+
+
+
+<div class="page-header">
+    <h1>Phase offset vs average baseline for all data<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+
+
+    
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="select-vis" class="control-label">Measurement Set</label>
+                    <select id="select-vis" class="form-control select2" multiple data-placeholder="Show all measurement sets">
+                            <option>uid___A002_Xd1c06f_X545c.ms</option>
+                            <option>uid___A002_Xd3c7c2_Xa6f1.ms</option>
+                            <option>uid___A002_Xd3c7c2_Xb7f9.ms</option>
+                            <option>uid___A002_Xd16a1e_X4327.ms</option>
+                            <option>uid___A002_Xd271e2_X9680.ms</option>
+                            <option>uid___A002_Xd271e2_X9993.ms</option>
+                            <option>uid___A002_Xd395f6_X1401a.ms</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="select-scan" class="control-label">Scan filter</label>
+                    <select id="select-scan" class="form-control select2" multiple data-placeholder="Show all scans">
+                            <option>3</option>
+                            <option>6</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>12</option>
+                            <option>15</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>32</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+<br>
+
+
+
+
+
+
+
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan03.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 26<br>
+		Scan: 3
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8989468638072228388">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to magnify plot for spw 26 scan 3"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8989468638072228388" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 26<br>
+		Scan 3
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan06.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 26<br>
+		Scan: 6
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5424874096053089927">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan06.png"
+                             title="Click to magnify plot for spw 26 scan 6"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5424874096053089927" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 26<br>
+		Scan 6
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan10.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 26<br>
+		Scan: 10
+	</div>'
+                       data-plotCommandTarget="#plotcmd-345905800598588572">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan10.png"
+                             title="Click to magnify plot for spw 26 scan 10"
+                             >
+                    </a>
+
+                    <div id="plotcmd-345905800598588572" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 26<br>
+		Scan 10
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan15.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 26<br>
+		Scan: 15
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3910500342617727033">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan15.png"
+                             title="Click to magnify plot for spw 26 scan 15"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3910500342617727033" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 26<br>
+		Scan 15
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 26<br>
+		Scan: 18
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8344135620471929900">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan18.png"
+                             title="Click to magnify plot for spw 26 scan 18"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8344135620471929900" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 26<br>
+		Scan 18
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan23.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 26<br>
+		Scan: 23
+	</div>'
+                       data-plotCommandTarget="#plotcmd-7241840574661646650">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan23.png"
+                             title="Click to magnify plot for spw 26 scan 23"
+                             >
+                    </a>
+
+                    <div id="plotcmd-7241840574661646650" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 26<br>
+		Scan 23
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan28.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 26<br>
+		Scan: 28
+	</div>'
+                       data-plotCommandTarget="#plotcmd--337558787169077551">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan28.png"
+                             title="Click to magnify plot for spw 26 scan 28"
+                             >
+                    </a>
+
+                    <div id="plotcmd--337558787169077551" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 26<br>
+		Scan 28
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan30.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 26<br>
+		Scan: 30
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5226778424739544570">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan30.png"
+                             title="Click to magnify plot for spw 26 scan 30"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5226778424739544570" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 26<br>
+		Scan 30
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan03.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 26<br>
+		Scan: 3
+	</div>'
+                       data-plotCommandTarget="#plotcmd--3757834252184319587">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to magnify plot for spw 26 scan 3"
+                             >
+                    </a>
+
+                    <div id="plotcmd--3757834252184319587" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 26<br>
+		Scan 3
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan06.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 26<br>
+		Scan: 6
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6260748772942162808">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan06.png"
+                             title="Click to magnify plot for spw 26 scan 6"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6260748772942162808" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 26<br>
+		Scan 6
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan10.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 26<br>
+		Scan: 10
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8214841364519621423">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan10.png"
+                             title="Click to magnify plot for spw 26 scan 10"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8214841364519621423" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 26<br>
+		Scan 10
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan15.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 26<br>
+		Scan: 15
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6886043758895655532">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan15.png"
+                             title="Click to magnify plot for spw 26 scan 15"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6886043758895655532" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 26<br>
+		Scan 15
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 26<br>
+		Scan: 18
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5368336202657999865">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan18.png"
+                             title="Click to magnify plot for spw 26 scan 18"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5368336202657999865" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 26<br>
+		Scan 18
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan23.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 26<br>
+		Scan: 23
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5339016664636058889">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan23.png"
+                             title="Click to magnify plot for spw 26 scan 23"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5339016664636058889" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 26<br>
+		Scan 23
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan03.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 26<br>
+		Scan: 3
+	</div>'
+                       data-plotCommandTarget="#plotcmd--707583698549824322">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to magnify plot for spw 26 scan 3"
+                             >
+                    </a>
+
+                    <div id="plotcmd--707583698549824322" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 26<br>
+		Scan 3
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan06.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 26<br>
+		Scan: 6
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6624090477321558587">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan06.png"
+                             title="Click to magnify plot for spw 26 scan 6"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6624090477321558587" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 26<br>
+		Scan 6
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan09.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 26<br>
+		Scan: 9
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6943416634984996492">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan09.png"
+                             title="Click to magnify plot for spw 26 scan 9"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6943416634984996492" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 26<br>
+		Scan 9
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan12.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 26<br>
+		Scan: 12
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5077319384341963736">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan12.png"
+                             title="Click to magnify plot for spw 26 scan 12"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5077319384341963736" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 26<br>
+		Scan 12
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan15.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 26<br>
+		Scan: 15
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1376023464945902177">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan15.png"
+                             title="Click to magnify plot for spw 26 scan 15"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1376023464945902177" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 26<br>
+		Scan 15
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 26<br>
+		Scan: 18
+	</div>'
+                       data-plotCommandTarget="#plotcmd--47225859321936558">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan18.png"
+                             title="Click to magnify plot for spw 26 scan 18"
+                             >
+                    </a>
+
+                    <div id="plotcmd--47225859321936558" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 26<br>
+		Scan 18
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan21.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 26<br>
+		Scan: 21
+	</div>'
+                       data-plotCommandTarget="#plotcmd-8840394973108714002">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan21.png"
+                             title="Click to magnify plot for spw 26 scan 21"
+                             >
+                    </a>
+
+                    <div id="plotcmd-8840394973108714002" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 26<br>
+		Scan 21
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan24.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 26<br>
+		Scan: 24
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3714980094313333783">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan24.png"
+                             title="Click to magnify plot for spw 26 scan 24"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3714980094313333783" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 26<br>
+		Scan 24
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan03.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 26<br>
+		Scan: 3
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2625248941122607859">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to magnify plot for spw 26 scan 3"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2625248941122607859" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 26<br>
+		Scan 3
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan06.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 26<br>
+		Scan: 6
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2499909936136769546">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan06.png"
+                             title="Click to magnify plot for spw 26 scan 6"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2499909936136769546" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 26<br>
+		Scan 6
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan09.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 26<br>
+		Scan: 9
+	</div>'
+                       data-plotCommandTarget="#plotcmd-8876106699089369593">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan09.png"
+                             title="Click to magnify plot for spw 26 scan 9"
+                             >
+                    </a>
+
+                    <div id="plotcmd-8876106699089369593" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 26<br>
+		Scan 9
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan12.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 26<br>
+		Scan: 12
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4642848389138150237">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan12.png"
+                             title="Click to magnify plot for spw 26 scan 12"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4642848389138150237" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 26<br>
+		Scan 12
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan15.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 26<br>
+		Scan: 15
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7800117479288505126">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan15.png"
+                             title="Click to magnify plot for spw 26 scan 15"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7800117479288505126" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 26<br>
+		Scan 15
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 26<br>
+		Scan: 18
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1607753367356609513">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan18.png"
+                             title="Click to magnify plot for spw 26 scan 18"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1607753367356609513" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 26<br>
+		Scan 18
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan21.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 26<br>
+		Scan: 21
+	</div>'
+                       data-plotCommandTarget="#plotcmd-7280123466866045399">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan21.png"
+                             title="Click to magnify plot for spw 26 scan 21"
+                             >
+                    </a>
+
+                    <div id="plotcmd-7280123466866045399" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 26<br>
+		Scan 21
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan24.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 26<br>
+		Scan: 24
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7602282066360370574">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan24.png"
+                             title="Click to magnify plot for spw 26 scan 24"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7602282066360370574" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 26<br>
+		Scan 24
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan03.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 26<br>
+		Scan: 3
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7938188570298850758">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to magnify plot for spw 26 scan 3"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7938188570298850758" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 26<br>
+		Scan 3
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan06.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 26<br>
+		Scan: 6
+	</div>'
+                       data-plotCommandTarget="#plotcmd-489972478316219391">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan06.png"
+                             title="Click to magnify plot for spw 26 scan 6"
+                             >
+                    </a>
+
+                    <div id="plotcmd-489972478316219391" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 26<br>
+		Scan 6
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan09.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 26<br>
+		Scan: 9
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5513805727030677712">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan09.png"
+                             title="Click to magnify plot for spw 26 scan 9"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5513805727030677712" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 26<br>
+		Scan 9
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan12.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 26<br>
+		Scan: 12
+	</div>'
+                       data-plotCommandTarget="#plotcmd--4399247159286248316">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan12.png"
+                             title="Click to magnify plot for spw 26 scan 12"
+                             >
+                    </a>
+
+                    <div id="plotcmd--4399247159286248316" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 26<br>
+		Scan 12
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan15.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 26<br>
+		Scan: 15
+	</div>'
+                       data-plotCommandTarget="#plotcmd-1604531046028648611">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan15.png"
+                             title="Click to magnify plot for spw 26 scan 15"
+                             >
+                    </a>
+
+                    <div id="plotcmd-1604531046028648611" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 26<br>
+		Scan 15
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan18.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 26<br>
+		Scan: 18
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6823630002554420338">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan18.png"
+                             title="Click to magnify plot for spw 26 scan 18"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6823630002554420338" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 26<br>
+		Scan 18
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan21.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 26<br>
+		Scan: 21
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8176706192422518178">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan21.png"
+                             title="Click to magnify plot for spw 26 scan 21"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8176706192422518178" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 26<br>
+		Scan 21
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan24.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 26<br>
+		Scan: 24
+	</div>'
+                       data-plotCommandTarget="#plotcmd-281024495959722587">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan24.png"
+                             title="Click to magnify plot for spw 26 scan 24"
+                             >
+                    </a>
+
+                    <div id="plotcmd-281024495959722587" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 26<br>
+		Scan 24
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan03.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 26<br>
+		Scan: 3
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6551620271265714235">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to magnify plot for spw 26 scan 3"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6551620271265714235" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 26<br>
+		Scan 3
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan06.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 26<br>
+		Scan: 6
+	</div>'
+                       data-plotCommandTarget="#plotcmd--780053904605668674">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan06.png"
+                             title="Click to magnify plot for spw 26 scan 6"
+                             >
+                    </a>
+
+                    <div id="plotcmd--780053904605668674" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 26<br>
+		Scan 6
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan10.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 26<br>
+		Scan: 10
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2783498166125101189">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan10.png"
+                             title="Click to magnify plot for spw 26 scan 10"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2783498166125101189" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 26<br>
+		Scan 10
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan15.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 26<br>
+		Scan: 15
+	</div>'
+                       data-plotCommandTarget="#plotcmd-8331571731969067774">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan15.png"
+                             title="Click to magnify plot for spw 26 scan 15"
+                             >
+                    </a>
+
+                    <div id="plotcmd-8331571731969067774" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 26<br>
+		Scan 15
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan19.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 26<br>
+		Scan: 19
+	</div>'
+                       data-plotCommandTarget="#plotcmd--343444867729863470">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan19.png"
+                             title="Click to magnify plot for spw 26 scan 19"
+                             >
+                    </a>
+
+                    <div id="plotcmd--343444867729863470" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 26<br>
+		Scan 19
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan23.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 26<br>
+		Scan: 23
+	</div>'
+                       data-plotCommandTarget="#plotcmd--2160594263213104607">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan23.png"
+                             title="Click to magnify plot for spw 26 scan 23"
+                             >
+                    </a>
+
+                    <div id="plotcmd--2160594263213104607" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 26<br>
+		Scan 23
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan03.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 26<br>
+		Scan: 3
+	</div>'
+                       data-plotCommandTarget="#plotcmd-799494766168057044">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to magnify plot for spw 26 scan 3"
+                             >
+                    </a>
+
+                    <div id="plotcmd-799494766168057044" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 26<br>
+		Scan 3
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan06.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 26<br>
+		Scan: 6
+	</div>'
+                       data-plotCommandTarget="#plotcmd--529046837919906287">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan06.png"
+                             title="Click to magnify plot for spw 26 scan 6"
+                             >
+                    </a>
+
+                    <div id="plotcmd--529046837919906287" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 26<br>
+		Scan 6
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan10.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 26<br>
+		Scan: 10
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8311874868614676332">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan10.png"
+                             title="Click to magnify plot for spw 26 scan 10"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8311874868614676332" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 26<br>
+		Scan 10
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan15.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 26<br>
+		Scan: 15
+	</div>'
+                       data-plotCommandTarget="#plotcmd-8806071599470910417">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan15.png"
+                             title="Click to magnify plot for spw 26 scan 15"
+                             >
+                    </a>
+
+                    <div id="plotcmd-8806071599470910417" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 26<br>
+		Scan 15
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan20.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 26<br>
+		Scan: 20
+	</div>'
+                       data-plotCommandTarget="#plotcmd--305298035567824239">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan20.png"
+                             title="Click to magnify plot for spw 26 scan 20"
+                             >
+                    </a>
+
+                    <div id="plotcmd--305298035567824239" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 26<br>
+		Scan 20
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan25.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 26<br>
+		Scan: 25
+	</div>'
+                       data-plotCommandTarget="#plotcmd-1023243568520139604">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan25.png"
+                             title="Click to magnify plot for spw 26 scan 25"
+                             >
+                    </a>
+
+                    <div id="plotcmd-1023243568520139604" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 26<br>
+		Scan 25
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan29.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 26<br>
+		Scan: 29
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4834917663223142008">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan29.png"
+                             title="Click to magnify plot for spw 26 scan 29"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4834917663223142008" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 26<br>
+		Scan 29
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan32.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 26<br>
+		Scan: 32
+	</div>'
+                       data-plotCommandTarget="#plotcmd-601659353271923164">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan32.png"
+                             title="Click to magnify plot for spw 26 scan 32"
+                             >
+                    </a>
+
+                    <div id="plotcmd-601659353271923164" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 26<br>
+		Scan 32
+	
+                    </div>
+                </div>
+            </div>
+

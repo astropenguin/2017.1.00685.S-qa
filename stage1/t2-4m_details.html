@@ -1,0 +1,1123 @@
+
+<html>
+<head>
+    <script>
+        lazyload();
+    </script>
+</head>
+
+
+
+<div class="page-header">
+    <h1>1. Import Data<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+
+
+
+
+
+
+<!--
+<ul class="unstyled">
+	<li class="alert alert-info">
+		<strong>To-do</strong> Missing Source.xml + no solar system object or cal known to CASA.
+	</li>
+	<li class="alert alert-info">
+		<strong>To-do</strong> Missing BDFs.
+	</li>
+</ul>
+-->
+
+<p>Data from 7 measurement sets were
+ registered with the pipeline. The imported data 
+are summarised below.</p>
+
+<table class="table table-bordered table-striped table-condensed"
+	   summary="Summary of Imported Measurement Sets">
+	<caption>Summary of Imported Measurement Sets</caption>
+    <thead>
+	    <tr>
+	        <th scope="col" rowspan="2">Measurement Set</th>
+	        <th scope="col" rowspan="2">SchedBlock ID</th>
+			<th scope="col" rowspan="2">Src Type</th>
+			<th scope="col" rowspan="2">Dst Type</th>
+			<th scope="col" colspan="3">Number Imported</th>
+			<th scope="col" rowspan="2">Size</th>
+			<th scope="col" rowspan="2">flux.csv</th>
+		</tr>
+		<tr>
+			<th>Scans</th>
+			<th>Fields</th>
+			<th>Flux Densities</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+			<td>uid://A001/X1284/X1139</td>
+			<td>ASDM</td>
+			<!-- ScanTables are handled in the template for hsd_importdata, so
+				 we can hard-code MS here -->
+			<td>MS</td>
+			<td>24</td>
+			<td>3</td>
+			<!-- count the number of measurements added to the setjy result in
+				 each importdata_result -->
+			<td>6</td>
+			<td>117.4 GB</td>
+			<td><a href="stage1/flux.csv" class="replace-pre" data-title="flux.csv">View</a> or <a href="stage1/flux.csv" download="stage1/flux.csv">download</a></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+			<td>uid://A001/X1284/X1139</td>
+			<td>ASDM</td>
+			<!-- ScanTables are handled in the template for hsd_importdata, so
+				 we can hard-code MS here -->
+			<td>MS</td>
+			<td>24</td>
+			<td>3</td>
+			<!-- count the number of measurements added to the setjy result in
+				 each importdata_result -->
+			<td>6</td>
+			<td>117.4 GB</td>
+			<td><a href="stage1/flux.csv" class="replace-pre" data-title="flux.csv">View</a> or <a href="stage1/flux.csv" download="stage1/flux.csv">download</a></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+			<td>uid://A001/X1284/X1139</td>
+			<td>ASDM</td>
+			<!-- ScanTables are handled in the template for hsd_importdata, so
+				 we can hard-code MS here -->
+			<td>MS</td>
+			<td>23</td>
+			<td>3</td>
+			<!-- count the number of measurements added to the setjy result in
+				 each importdata_result -->
+			<td>6</td>
+			<td>73.8 GB</td>
+			<td><a href="stage1/flux.csv" class="replace-pre" data-title="flux.csv">View</a> or <a href="stage1/flux.csv" download="stage1/flux.csv">download</a></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+			<td>uid://A001/X1284/X1139</td>
+			<td>ASDM</td>
+			<!-- ScanTables are handled in the template for hsd_importdata, so
+				 we can hard-code MS here -->
+			<td>MS</td>
+			<td>24</td>
+			<td>3</td>
+			<!-- count the number of measurements added to the setjy result in
+				 each importdata_result -->
+			<td>6</td>
+			<td>122.2 GB</td>
+			<td><a href="stage1/flux.csv" class="replace-pre" data-title="flux.csv">View</a> or <a href="stage1/flux.csv" download="stage1/flux.csv">download</a></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+			<td>uid://A001/X1284/X1139</td>
+			<td>ASDM</td>
+			<!-- ScanTables are handled in the template for hsd_importdata, so
+				 we can hard-code MS here -->
+			<td>MS</td>
+			<td>30</td>
+			<td>3</td>
+			<!-- count the number of measurements added to the setjy result in
+				 each importdata_result -->
+			<td>6</td>
+			<td>112.9 GB</td>
+			<td><a href="stage1/flux.csv" class="replace-pre" data-title="flux.csv">View</a> or <a href="stage1/flux.csv" download="stage1/flux.csv">download</a></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+			<td>uid://A001/X1284/X1139</td>
+			<td>ASDM</td>
+			<!-- ScanTables are handled in the template for hsd_importdata, so
+				 we can hard-code MS here -->
+			<td>MS</td>
+			<td>32</td>
+			<td>3</td>
+			<!-- count the number of measurements added to the setjy result in
+				 each importdata_result -->
+			<td>6</td>
+			<td>122.9 GB</td>
+			<td><a href="stage1/flux.csv" class="replace-pre" data-title="flux.csv">View</a> or <a href="stage1/flux.csv" download="stage1/flux.csv">download</a></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+			<td>uid://A001/X1284/X1139</td>
+			<td>ASDM</td>
+			<!-- ScanTables are handled in the template for hsd_importdata, so
+				 we can hard-code MS here -->
+			<td>MS</td>
+			<td>23</td>
+			<td>3</td>
+			<!-- count the number of measurements added to the setjy result in
+				 each importdata_result -->
+			<td>6</td>
+			<td>84.6 GB</td>
+			<td><a href="stage1/flux.csv" class="replace-pre" data-title="flux.csv">View</a> or <a href="stage1/flux.csv" download="stage1/flux.csv">download</a></td>
+		</tr>
+	</tbody>
+</table>
+
+<h3>Imported Flux Densities</h3>
+<p>The following flux densities were imported into the pipeline context:</p>
+<table class="table table-bordered table-striped table-condensed"
+	   summary="Flux density results">
+	<caption>Flux densities imported from the ASDM.  Online flux catalog values are used when available for ALMA.</caption>
+    <thead>
+	    <tr>
+	        <th scope="col" rowspan="2">Measurement Set</th>
+	        <th scope="col" rowspan="2">Field</th>
+	        <th scope="col" rowspan="2">SpW</th>
+	        <th scope="col" colspan="4">Flux Density</th>
+	        <th scope="col" rowspan="2">Spix</th>
+	        <th scope="col" rowspan="2">Age Of Nearest <p>Monitor Point (days)</th>
+	    </tr>
+	    <tr>
+	        <th scope="col">I</th>
+	        <th scope="col">Q</th>
+	        <th scope="col">U</th>
+	        <th scope="col">V</th>
+	    </tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td rowspan="6">uid___A002_Xd3c7c2_Xb7f9.ms</td>
+			<td rowspan="3">J0522-3627 (#0)</td>
+			<td>22</td>
+			<td>4.553 Jy</td>
+			<td rowspan="42">0.000 Jy</td>
+			<td rowspan="42">0.000 Jy</td>
+			<td rowspan="42">0.000 Jy</td>
+			<td rowspan="3">-0.186669519495</td>
+			<td rowspan="42">N/A</td>
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>4.558 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>4.606 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			<td rowspan="3">J0329-2357 (#1)</td>
+			<td>22</td>
+			<td>183.200 mJy</td>
+			
+			
+			
+			<td rowspan="3">-0.70986723318</td>
+			
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>184.000 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>191.400 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			<td rowspan="6">uid___A002_Xd3c7c2_Xa6f1.ms</td>
+			<td rowspan="3">J0522-3627 (#0)</td>
+			<td>22</td>
+			<td>4.553 Jy</td>
+			
+			
+			
+			<td rowspan="3">-0.186669519495</td>
+			
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>4.558 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>4.606 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			<td rowspan="3">J0329-2357 (#1)</td>
+			<td>22</td>
+			<td>183.200 mJy</td>
+			
+			
+			
+			<td rowspan="3">-0.70986723318</td>
+			
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>184.000 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>191.400 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			<td rowspan="6">uid___A002_Xd1c06f_X545c.ms</td>
+			<td rowspan="3">J0522-3627 (#0)</td>
+			<td>22</td>
+			<td>4.321 Jy</td>
+			
+			
+			
+			<td rowspan="3">-0.246409023535</td>
+			
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>4.328 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>4.388 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			<td rowspan="3">J0329-2357 (#1)</td>
+			<td>22</td>
+			<td>165.400 mJy</td>
+			
+			
+			
+			<td rowspan="3">-0.873845359658</td>
+			
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>166.300 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>174.600 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			<td rowspan="6">uid___A002_Xd395f6_X1401a.ms</td>
+			<td rowspan="3">J0006-0623 (#0)</td>
+			<td>22</td>
+			<td>1.067 Jy</td>
+			
+			
+			
+			<td rowspan="3">-0.645230946754</td>
+			
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>1.071 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>1.110 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			<td rowspan="3">J0329-2357 (#1)</td>
+			<td>22</td>
+			<td>183.200 mJy</td>
+			
+			
+			
+			<td rowspan="3">-0.70986723318</td>
+			
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>184.000 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>191.400 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			<td rowspan="6">uid___A002_Xd16a1e_X4327.ms</td>
+			<td rowspan="3">J0522-3627 (#0)</td>
+			<td>22</td>
+			<td>4.311 Jy</td>
+			
+			
+			
+			<td rowspan="3">-0.237728603621</td>
+			
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>4.317 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>4.374 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			<td rowspan="3">J0329-2357 (#1)</td>
+			<td>22</td>
+			<td>165.400 mJy</td>
+			
+			
+			
+			<td rowspan="3">-0.873845359658</td>
+			
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>166.300 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>174.600 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			<td rowspan="6">uid___A002_Xd271e2_X9680.ms</td>
+			<td rowspan="3">J0522-3627 (#0)</td>
+			<td>22</td>
+			<td>4.047 Jy</td>
+			
+			
+			
+			<td rowspan="3">-0.268620607596</td>
+			
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>4.053 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>4.114 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			<td rowspan="3">J0329-2357 (#1)</td>
+			<td>22</td>
+			<td>183.200 mJy</td>
+			
+			
+			
+			<td rowspan="3">-0.70986723318</td>
+			
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>184.000 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>191.400 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			<td rowspan="6">uid___A002_Xd271e2_X9993.ms</td>
+			<td rowspan="3">J0522-3627 (#0)</td>
+			<td>22</td>
+			<td>4.047 Jy</td>
+			
+			
+			
+			<td rowspan="3">-0.268620607596</td>
+			
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>4.053 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>4.114 Jy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			<td rowspan="3">J0329-2357 (#1)</td>
+			<td>22</td>
+			<td>183.200 mJy</td>
+			
+			
+			
+			<td rowspan="3">-0.70986723318</td>
+			
+		</tr>
+		<tr>
+			
+			
+			<td>24</td>
+			<td>184.000 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			
+			
+			<td>26</td>
+			<td>191.400 mJy</td>
+			
+			
+			
+			
+			
+		</tr>
+	</tbody>
+</table>
+
+<h3>Representative Target Information</h3>
+<p>The following representative target sources and spws are defined</p>
+<table class="table table-bordered table-striped table-condensed"
+	   summary="Representative target information">
+	<caption>Representative target sources. These are imported from the context or derived from the ASDM.</caption>
+    <thead>
+	    <tr>
+	        <th scope="col" rowspan="2">Measurement Set</th>
+	        <th scope="col" colspan="5">Representative Source</th>
+	    </tr>
+	    <tr>
+	        <th scope="col">Name</th>
+	        <th scope="col">Representative Frequency</th>
+	        <th scope="col">Bandwidth for Sensitivity</th>
+	        <th scope="col">Spw Id</th>
+	        <th scope="col">Chanwidth</th>
+	    </tr>
+    </thead>
+    <tbody>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+			<td rowspan="7">NGC1097</td>
+			<td rowspan="7">259.39320GHz</td>
+			<td rowspan="7">64.89319MHz</td>
+			<td rowspan="7">22</td>
+			<td rowspan="7">0.48828MHz</td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+			
+			
+			
+			
+			
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+			
+			
+			
+			
+			
+		</tr>
+    </tbody>
+</table>
+
+
+<div class="clearfix"></div>
+<div class="panel-group" id="details-accordion" role="tablist" aria-multiselectable="true">
+
+    
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Pipeline QA
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+                <table class="table table-bordered" summary="Pipeline QA summary">
+                    <caption>Pipeline QA summary for this task.</caption>
+                    <thead>
+                        <tr>
+                            <th>Score</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All required calibration intents were found in uid___A002_Xd3c7c2_Xb7f9.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No model data column found in uid___A002_Xd3c7c2_Xb7f9.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No HISTORY entries found in uid___A002_Xd3c7c2_Xb7f9.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>uid___A002_Xd3c7c2_Xb7f9.ms forms one continuous observing session.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All source coordinates OK in uid___A002_Xd3c7c2_Xb7f9.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No polarization calibration intents were found in uid___A002_Xd3c7c2_Xb7f9.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No high frequency ['9', '10'] band data were found in uid___A002_Xd3c7c2_Xb7f9.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Phase calibrations found for all target spws in uid___A002_Xd3c7c2_Xb7f9.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All required calibration intents were found in uid___A002_Xd3c7c2_Xa6f1.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No model data column found in uid___A002_Xd3c7c2_Xa6f1.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No HISTORY entries found in uid___A002_Xd3c7c2_Xa6f1.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>uid___A002_Xd3c7c2_Xa6f1.ms forms one continuous observing session.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All source coordinates OK in uid___A002_Xd3c7c2_Xa6f1.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No polarization calibration intents were found in uid___A002_Xd3c7c2_Xa6f1.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No high frequency ['9', '10'] band data were found in uid___A002_Xd3c7c2_Xa6f1.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Phase calibrations found for all target spws in uid___A002_Xd3c7c2_Xa6f1.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All required calibration intents were found in uid___A002_Xd1c06f_X545c.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No model data column found in uid___A002_Xd1c06f_X545c.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No HISTORY entries found in uid___A002_Xd1c06f_X545c.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>uid___A002_Xd1c06f_X545c.ms forms one continuous observing session.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All source coordinates OK in uid___A002_Xd1c06f_X545c.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No polarization calibration intents were found in uid___A002_Xd1c06f_X545c.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No high frequency ['9', '10'] band data were found in uid___A002_Xd1c06f_X545c.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Phase calibrations found for all target spws in uid___A002_Xd1c06f_X545c.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All required calibration intents were found in uid___A002_Xd395f6_X1401a.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No model data column found in uid___A002_Xd395f6_X1401a.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No HISTORY entries found in uid___A002_Xd395f6_X1401a.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>uid___A002_Xd395f6_X1401a.ms forms one continuous observing session.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All source coordinates OK in uid___A002_Xd395f6_X1401a.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No polarization calibration intents were found in uid___A002_Xd395f6_X1401a.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No high frequency ['9', '10'] band data were found in uid___A002_Xd395f6_X1401a.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Phase calibrations found for all target spws in uid___A002_Xd395f6_X1401a.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All required calibration intents were found in uid___A002_Xd16a1e_X4327.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No model data column found in uid___A002_Xd16a1e_X4327.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No HISTORY entries found in uid___A002_Xd16a1e_X4327.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>uid___A002_Xd16a1e_X4327.ms forms one continuous observing session.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All source coordinates OK in uid___A002_Xd16a1e_X4327.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No polarization calibration intents were found in uid___A002_Xd16a1e_X4327.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No high frequency ['9', '10'] band data were found in uid___A002_Xd16a1e_X4327.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Phase calibrations found for all target spws in uid___A002_Xd16a1e_X4327.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All required calibration intents were found in uid___A002_Xd271e2_X9680.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No model data column found in uid___A002_Xd271e2_X9680.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No HISTORY entries found in uid___A002_Xd271e2_X9680.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>uid___A002_Xd271e2_X9680.ms forms one continuous observing session.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All source coordinates OK in uid___A002_Xd271e2_X9680.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No polarization calibration intents were found in uid___A002_Xd271e2_X9680.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No high frequency ['9', '10'] band data were found in uid___A002_Xd271e2_X9680.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Phase calibrations found for all target spws in uid___A002_Xd271e2_X9680.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All required calibration intents were found in uid___A002_Xd271e2_X9993.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No model data column found in uid___A002_Xd271e2_X9993.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No HISTORY entries found in uid___A002_Xd271e2_X9993.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>uid___A002_Xd271e2_X9993.ms forms one continuous observing session.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>All source coordinates OK in uid___A002_Xd271e2_X9993.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No polarization calibration intents were found in uid___A002_Xd271e2_X9993.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No high frequency ['9', '10'] band data were found in uid___A002_Xd271e2_X9993.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Phase calibrations found for all target spws in uid___A002_Xd271e2_X9993.ms.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>Science spw names match virtual spw lookup table</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Input Parameters
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>dbservice</dt>
+                    <dd>False</dd>
+                    <dt>ocorr_mode</dt>
+                    <dd>ca</dd>
+                    <dt>save_flagonline</dt>
+                    <dd>True</dd>
+                    <dt>asimaging</dt>
+                    <dd>False</dd>
+                    <dt>nocopy</dt>
+                    <dd>False</dd>
+                    <dt>lazy</dt>
+                    <dd>False</dd>
+                    <dt>process_caldevice</dt>
+                    <dd>False</dd>
+                    <dt>vis</dt>
+                    <dd>['/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/rawdata/uid___A002_Xd3c7c2_Xb7f9', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/rawdata/uid___A002_Xd3c7c2_Xa6f1', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/rawdata/uid___A002_Xd1c06f_X545c', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/rawdata/uid___A002_Xd395f6_X1401a', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/rawdata/uid___A002_Xd16a1e_X4327', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/rawdata/uid___A002_Xd271e2_X9680', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/rawdata/uid___A002_Xd271e2_X9993']</dd>
+                    <dt>session</dt>
+                    <dd>['session_8', 'session_7', 'session_3', 'session_6', 'session_2', 'session_5', 'session_5']</dd>
+                    <dt>output_dir</dt>
+                    <dd>/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working</dd>
+                    <dt>createmms</dt>
+                    <dd>false</dd>
+                    <dt>bdfflags</dt>
+                    <dd>True</dd>
+                    <dt>asis</dt>
+                    <dd>Antenna CalAtmosphere CalWVR ExecBlock Receiver SBSummary Source Station</dd>
+                    <dt>overwrite</dt>
+                    <dd>False</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Tasks Execution Statistics
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>Start time</dt>
+                    <dd>2019-01-23 10:42:50.958</dd>
+                    <dt>End</dt>
+                    <dd>2019-01-23 11:12:51.731</dd>
+                    <dt>Duration</dt>
+                    <dd>0:30:00.773</dd>
+                </dl>
+            Note, WebLog generation is not included in the time.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">CASA logs for stage 1</h3>
+    </div>
+    <div class="panel-body">
+        <ul>
+    
+        <li><a href="stage1/casapy.log" class="replace-pre" data-title="CASA log for stage 1">View</a> or <a href="stage1/casapy.log" download="stage1/casapy.log">download</a> stage1/casapy.log (602.5 KB)</li>
+</ul>
+    </div>
+</div>
+
+</html>

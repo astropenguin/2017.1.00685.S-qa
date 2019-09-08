@@ -1,0 +1,17 @@
+# Flag commands for uid___A002_Xd16a1e_X4327.ms
+#
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='22' antenna='DA44&DA57' field='J0522-3627' reason='bad baseline'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='22' antenna='DA44&DV14' field='J0522-3627' reason='bad baseline'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='22' antenna='DA45&DA48' field='J0522-3627' reason='bad baseline'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='22' antenna='DA48&DV13' field='J0522-3627' reason='bad baseline'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='22' antenna='DA57&DA61' timerange='2018/09/01/10:11:05~2018/09/01/10:11:06' field='J0522-3627' reason='ultrahigh baseline timestamp'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='22' antenna='DA57&DV12' timerange='2018/09/01/10:11:05~2018/09/01/10:11:06' field='J0522-3627' reason='ultrahigh baseline timestamp'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='24' antenna='DA44&DA57' field='J0522-3627' reason='bad baseline'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='24' antenna='DA45&DA48' field='J0522-3627' reason='bad baseline'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='24' antenna='DA57&DA61' timerange='2018/09/01/10:11:05~2018/09/01/10:11:06' field='J0522-3627' reason='ultrahigh baseline timestamp'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='24' antenna='DA57&DV12' timerange='2018/09/01/10:11:05~2018/09/01/10:11:06' field='J0522-3627' reason='ultrahigh baseline timestamp'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='24' antenna='DA61&DV12' timerange='2018/09/01/10:11:17~2018/09/01/10:11:18' field='J0522-3627' reason='ultrahigh baseline timestamp'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='26' antenna='DA45&DA48' field='J0522-3627' reason='bad baseline'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='26' antenna='DA57&DA61' timerange='2018/09/01/10:11:05~2018/09/01/10:11:06' field='J0522-3627' reason='ultrahigh baseline timestamp'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='26' antenna='DA57&DV12' timerange='2018/09/01/10:11:05~2018/09/01/10:11:06' field='J0522-3627' reason='ultrahigh baseline timestamp'
+intent='CALIBRATE_BANDPASS#ON_SOURCE' spw='26' antenna='DV06&DV09' field='J0522-3627' reason='bad baseline'

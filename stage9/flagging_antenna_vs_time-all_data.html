@@ -1,0 +1,360 @@
+
+
+
+
+    <link href="resources/css/select2.css" rel="stylesheet"/>
+    <link href="resources/css/select2-bootstrap.css" rel="stylesheet"/>
+    <script src="resources/js/select2.js"></script>
+
+    <!-- include required files and styles for histograms -->
+    <script src="resources/js/d3.v3.js"></script>
+
+<script>
+$(document).ready(function () {
+    pipeline.pages.detail_plots.ready();
+
+    var scores_dict = $('#scores').data('scores');
+
+    // create a new filter pipeline, and tell it to filter based on the scores
+    // in the scores_dict JSON dictionary that is set in the template.
+    var filterPipeline = new FILTERS.FilterPipeline();
+    filterPipeline.setScores(scores_dict);
+
+    // create filters that listen for events on the .select2 input fields we just
+    // created, and add them to the filter pipeline, filtering on the appropriate
+    // dictionary key
+    filterPipeline.addFilter(FILTERS.createMatchFilter('vis', '#select-vis'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('spw', '#select-spw'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('intent', '#select-intent'));
+
+});
+</script>
+
+<div data-scores="{&quot;stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;}, &quot;stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;}, &quot;stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;}, &quot;stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;}, &quot;stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;}, &quot;stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;}, &quot;stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;26&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;None&quot;, &quot;thumbnail&quot;: &quot;stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26___.png&quot;}}" id="scores"></div>
+
+
+
+
+
+<div class="page-header">
+    <h1>Flagging metric view for all data<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+
+
+    
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="select-vis" class="control-label">Measurement Set</label>
+                    <select id="select-vis" class="form-control select2" multiple data-placeholder="Show all measurement sets">
+                            <option>uid___A002_Xd1c06f_X545c.ms</option>
+                            <option>uid___A002_Xd3c7c2_Xa6f1.ms</option>
+                            <option>uid___A002_Xd3c7c2_Xb7f9.ms</option>
+                            <option>uid___A002_Xd16a1e_X4327.ms</option>
+                            <option>uid___A002_Xd271e2_X9680.ms</option>
+                            <option>uid___A002_Xd271e2_X9993.ms</option>
+                            <option>uid___A002_Xd395f6_X1401a.ms</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+<br>
+
+
+
+
+
+
+
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd16a1e_X4327.ms<br>
+		Spectral window: 26<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-690683121047440409">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 26 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-690683121047440409" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 26<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd1c06f_X545c.ms<br>
+		Spectral window: 26<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6494115201513330158">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 26 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6494115201513330158" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 26<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spectral window: 26<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd--200754942892310573">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 26 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd--200754942892310573" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 26<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd395f6_X1401a.ms<br>
+		Spectral window: 26<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-750788872328599986">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 26 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-750788872328599986" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 26<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spectral window: 26<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-956125628282984931">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 26 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-956125628282984931" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 26<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9993.ms<br>
+		Spectral window: 26<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd-1082563855647504296">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 26 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd-1082563855647504296" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 26<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+        uid___A002_Xd271e2_X9680.ms<br>
+		Spectral window: 26<br>
+		Intent: BANDPASS
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8555230339697174019">
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 26 BANDPASS"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8555230339697174019" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 26<br>
+		BANDPASS
+	
+                    </div>
+                </div>
+            </div>
+

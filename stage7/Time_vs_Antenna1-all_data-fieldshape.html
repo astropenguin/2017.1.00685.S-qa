@@ -1,0 +1,1815 @@
+
+
+
+
+    <link href="resources/css/select2.css" rel="stylesheet"/>
+    <link href="resources/css/select2-bootstrap.css" rel="stylesheet"/>
+    <script src="resources/js/select2.js"></script>
+
+    <!-- include required files and styles for histograms -->
+    <script src="resources/js/d3.v3.js"></script>
+
+<script>
+$(document).ready(function () {
+    pipeline.pages.detail_plots.ready();
+
+    var scores_dict = $('#scores').data('scores');
+
+    // create a new filter pipeline, and tell it to filter based on the scores
+    // in the scores_dict JSON dictionary that is set in the template.
+    var filterPipeline = new FILTERS.FilterPipeline();
+    filterPipeline.setScores(scores_dict);
+
+    // create filters that listen for events on the .select2 input fields we just
+    // created, and add them to the filter pipeline, filtering on the appropriate
+    // dictionary key
+    filterPipeline.addFilter(FILTERS.createMatchFilter('vis', '#select-vis'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('spw', '#select-spw'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('pol', '#select-pol'));
+    filterPipeline.addFilter(FILTERS.createMatchFilter('field', '#select-field'));
+
+});
+</script>
+
+<div data-scores="{&quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xb7f9.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd395f6_X1401a.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd3c7c2_Xa6f1.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd1c06f_X545c.ms&quot;, &quot;pol&quot;: &quot;Y&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;16&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd16a1e_X4327.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;20&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9993.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png&quot;}, &quot;stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;: {&quot;field&quot;: &quot;None&quot;, &quot;spw&quot;: &quot;18&quot;, &quot;ant&quot;: &quot;None&quot;, &quot;vis&quot;: &quot;uid___A002_Xd271e2_X9680.ms&quot;, &quot;pol&quot;: &quot;X&quot;, &quot;intent&quot;: &quot;ATMOSPHERE&quot;, &quot;thumbnail&quot;: &quot;stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png&quot;}}" id="scores"></div>
+
+
+
+
+
+<div class="page-header">
+    <h1>Time vs Antenna1 for all data<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+
+
+    
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="select-vis" class="control-label">Measurement Set</label>
+                    <select id="select-vis" class="form-control select2" multiple data-placeholder="Show all measurement sets">
+                            <option>uid___A002_Xd1c06f_X545c.ms</option>
+                            <option>uid___A002_Xd3c7c2_Xa6f1.ms</option>
+                            <option>uid___A002_Xd3c7c2_Xb7f9.ms</option>
+                            <option>uid___A002_Xd16a1e_X4327.ms</option>
+                            <option>uid___A002_Xd271e2_X9680.ms</option>
+                            <option>uid___A002_Xd271e2_X9993.ms</option>
+                            <option>uid___A002_Xd395f6_X1401a.ms</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="select-spw" class="control-label">Spectral window filter</label>
+                    <select id="select-spw" class="form-control select2" multiple data-placeholder="Show all spectral windows">
+                            <option>16</option>
+                            <option>18</option>
+                            <option>20</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="select-pol" class="control-label">Polarisation filter</label>
+                    <select id="select-pol" class="form-control select2" multiple data-placeholder="Show all polarisations">
+                            <option>X</option>
+                            <option>Y</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+<br>
+
+
+
+
+
+
+
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd16a1e_X4327.ms<br>
+        Spectral window: 16<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4144554315303176180">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 16 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4144554315303176180" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+        Spw 16<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd16a1e_X4327.ms<br>
+        Spectral window: 16<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1555462467701666963">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 16 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1555462467701666963" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+        Spw 16<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd1c06f_X545c.ms<br>
+        Spectral window: 16<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-145998332404048938">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 16 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd-145998332404048938" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+        Spw 16<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd1c06f_X545c.ms<br>
+        Spectral window: 16<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3507954135227289219">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 16 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3507954135227289219" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+        Spw 16<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+        Spectral window: 16<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4193840959752545792">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 16 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4193840959752545792" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+        Spw 16<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+        Spectral window: 16<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3549821659023518457">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 16 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3549821659023518457" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+        Spw 16<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd395f6_X1401a.ms<br>
+        Spectral window: 16<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8135366891066265320">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 16 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8135366891066265320" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+        Spw 16<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd395f6_X1401a.ms<br>
+        Spectral window: 16<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--8617660104352098047">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 16 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd--8617660104352098047" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+        Spw 16<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+        Spectral window: 16<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1852471651745016950">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 16 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1852471651745016950" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+        Spw 16<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+        Spectral window: 16<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--6263570585846287389">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 16 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd--6263570585846287389" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+        Spw 16<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd271e2_X9993.ms<br>
+        Spectral window: 16<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--1289833382420473124">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 16 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd--1289833382420473124" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+        Spw 16<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd271e2_X9993.ms<br>
+        Spectral window: 16<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5700932316777744331">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 16 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5700932316777744331" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+        Spw 16<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd271e2_X9680.ms<br>
+        Spectral window: 16<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--3548816201069821350">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 16 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd--3548816201069821350" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+        Spw 16<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd271e2_X9680.ms<br>
+        Spectral window: 16<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-1826613158323113459">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_16_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 16 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd-1826613158323113459" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+        Spw 16<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd16a1e_X4327.ms<br>
+        Spectral window: 18<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6968756127198015882">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 18 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6968756127198015882" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+        Spw 18<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd16a1e_X4327.ms<br>
+        Spectral window: 18<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2557657193096745443">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 18 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2557657193096745443" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+        Spw 18<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd1c06f_X545c.ms<br>
+        Spectral window: 18<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-3518647933655015700">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 18 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd-3518647933655015700" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+        Spw 18<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd1c06f_X545c.ms<br>
+        Spectral window: 18<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7925924968304922995">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 18 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7925924968304922995" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+        Spw 18<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+        Spectral window: 18<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4738394733097752846">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 18 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4738394733097752846" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+        Spw 18<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+        Spectral window: 18<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5220687946639585799">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 18 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5220687946639585799" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+        Spw 18<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd395f6_X1401a.ms<br>
+        Spectral window: 18<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5057007022796334694">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 18 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5057007022796334694" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+        Spw 18<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd395f6_X1401a.ms<br>
+        Spectral window: 18<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-807890177194260303">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 18 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd-807890177194260303" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+        Spw 18<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+        Spectral window: 18<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--4676673463639856652">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 18 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd--4676673463639856652" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+        Spw 18<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+        Spectral window: 18<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-8070053827064851821">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 18 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd-8070053827064851821" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+        Spw 18<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd271e2_X9993.ms<br>
+        Spectral window: 18<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-4962728500517088962">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 18 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd-4962728500517088962" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+        Spw 18<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd271e2_X9993.ms<br>
+        Spectral window: 18<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--5228923624006119461">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 18 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd--5228923624006119461" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+        Spw 18<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd271e2_X9680.ms<br>
+        Spectral window: 18<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6208358399074293892">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 18 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6208358399074293892" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+        Spw 18<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd271e2_X9680.ms<br>
+        Spectral window: 18<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5564563099849269565">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_18_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 18 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5564563099849269565" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+        Spw 18<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd16a1e_X4327.ms<br>
+        Spectral window: 20<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7036385798402023161">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 20 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7036385798402023161" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+        Spw 20<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd16a1e_X4327.ms<br>
+        Spectral window: 20<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7518679011943857138">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd16a1e_X4327.ms spw 20 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7518679011943857138" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd16a1e_X4327.ms<br>
+        Spw 20<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd1c06f_X545c.ms<br>
+        Spectral window: 20<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5354947706057055109">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 20 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5354947706057055109" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+        Spw 20<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd1c06f_X545c.ms<br>
+        Spectral window: 20<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--20481653591880468">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd1c06f_X545c.ms spw 20 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd--20481653591880468" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd1c06f_X545c.ms<br>
+        Spw 20<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+        Spectral window: 20<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7157035818961440053">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 20 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7157035818961440053" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+        Spw 20<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+        Spectral window: 20<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-6893440007367538">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xb7f9.ms spw 20 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd-6893440007367538" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+        Spw 20<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd395f6_X1401a.ms<br>
+        Spectral window: 20<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--3809093223856494713">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 20 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd--3809093223856494713" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+        Spw 20<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd395f6_X1401a.ms<br>
+        Spectral window: 20<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--4452888523081520066">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd395f6_X1401a.ms spw 20 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd--4452888523081520066" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd395f6_X1401a.ms<br>
+        Spw 20<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+        Spectral window: 20<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-415434447253995493">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 20 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd-415434447253995493" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+        Spw 20<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+        Spectral window: 20<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--3833682398348079924">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd3c7c2_Xa6f1.ms spw 20 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd--3833682398348079924" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+        Spw 20<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd271e2_X9993.ms<br>
+        Spectral window: 20<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-5326971955519318735">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 20 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd-5326971955519318735" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+        Spw 20<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd271e2_X9993.ms<br>
+        Spectral window: 20<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd--7054596159325410570">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9993.ms spw 20 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd--7054596159325410570" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9993.ms<br>
+        Spw 20<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd271e2_X9680.ms<br>
+        Spectral window: 20<br>
+		Polarisation: X<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-2647381759358251957">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_X__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 20 polarisation X"
+                             >
+                    </a>
+
+                    <div id="plotcmd-2647381759358251957" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+        Spw 20<br>
+		X<br>
+	
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-3">
+                
+                <div class="thumbnail">
+                    <a href="stage7/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                       data-fancybox="group"
+                       data-caption='<div>
+		uid___A002_Xd271e2_X9680.ms<br>
+        Spectral window: 20<br>
+		Polarisation: Y<br>
+	</div>'
+                       data-plotCommandTarget="#plotcmd-7058480693715522652">
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/fieldshape_Shape_Metric___100_Time_vs_Antenna1_File_uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl_Intent_ATMOSPHERE_Field_None__SpW_20_Pol_Y__.png"
+                             title="Click to magnify plot for uid___A002_Xd271e2_X9680.ms spw 20 polarisation Y"
+                             >
+                    </a>
+
+                    <div id="plotcmd-7058480693715522652" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        
+		uid___A002_Xd271e2_X9680.ms<br>
+        Spw 20<br>
+		Y<br>
+	
+                    </div>
+                </div>
+            </div>
+

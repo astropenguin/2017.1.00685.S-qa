@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+            <!-- Add jQuery library -->
+            <script src="resources/js/jquery-3.3.1.js"></script>
+            <script src="resources/js/bootstrap.js"></script>
+
+            <!-- Add lazy image loading library -->
+            <script src="resources/js/lazyload.js"></script>
+
+            <!--  Add purl-JS URL parsing extension -->
+            <script src="resources/js/purl.js"></script>
+
+            <!-- Add fancybox and pipeline fancybox extension -->
+            <link rel="stylesheet" href="resources/css/jquery.fancybox.css" type="text/css"
+                  media="screen"/>
+            <script src="resources/js/jquery.fancybox.js"></script>
+            <script src="resources/js/plotcmd.js"></script>
+
+            <!--  Add image holder library for missing plots -->
+            <script src="resources/js/holder.js"></script>
+
+            <!--  add FontAwesome -->
+            <link rel="stylesheet" href="resources/css/font-awesome.css">
+
+            <script src="resources/js/pipeline.js"></script>
+            <link href="resources/css/pipeline.css" rel="stylesheet" type="text/css">
+
+    
+
+<title>
+2017.1.00685.S -
+Calibration Tasks</title>
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top hidden-print">
+    <div class="container-fluid">
+	    <div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+	    	<a class="navbar-brand" href="#">
+	    		<img alt="ALMA" 
+	    		     src="resources/img/almalogo.png"/>
+	    	</a>
+	    </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="">
+                	<a href="t1-1.html"><span class="glyphicon glyphicon-home"></span> Home</a>
+                </li>
+                <li class="active">
+                	<a href="t1-3.html">By Topic</a>
+                </li>
+                <li class="">
+                	<a href="t1-4.html">By Task</a>
+                </li>
+            </ul>
+			<p class="navbar-text navbar-right navbar-projectcode">2017.1.00685.S</p>
+        </div>
+    </div>
+</nav>
+
+
+<div id="app-container" class="container-fluid">
+	
+
+
+<div class="page-header">
+	<h1>Calibration Tasks<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th class="span9">Task</th>
+			<th class="span2">QA Score</th>
+			<th class="span1"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage6">6. <strong>h_tsyscal</strong>: Calculate Tsys calibration</a><span class="pull-right">Tsys spw map is complete</span></td>
+			<td><div class="progress" style="margin-bottom:0px;"><div class="progress-bar progress-bar-success" role="progressbar" style="width:100.0%;"><span class="text-center"></span></div></div></td>
+			<td><span class="badge alert-success">1.00</span></td>
+		</tr>
+		<tr>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage8">8. <strong>hifa_antpos</strong>: Correct for antenna position offsets</a><span class="pull-right">Nonzero antenna position offsets</span></td>
+			<td><div class="progress" style="margin-bottom:0px;"><div class="progress-bar progress-bar-info" role="progressbar" style="width:90.5%;"><span class="text-center"></span></div></div></td>
+			<td><span class="badge alert-info">0.90</span></td>
+		</tr>
+		<tr>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage9">9. <strong>hifa_wvrgcalflag</strong>: Calculate and flag WVR calibration</a><span class="pull-right">1.51x improvement</span></td>
+			<td><div class="progress" style="margin-bottom:0px;"><div class="progress-bar progress-bar-info" role="progressbar" style="width:76.920309409%;"><span class="text-center"></span></div></div></td>
+			<td><span class="badge alert-info">0.76</span></td>
+		</tr>
+		<tr>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage11">11. <strong>hif_setmodels</strong>: Set calibrator model visibilities</a><span class="pull-right">All expected flux calibrator measurements present</span></td>
+			<td><div class="progress" style="margin-bottom:0px;"><div class="progress-bar progress-bar-success" role="progressbar" style="width:100.0%;"><span class="text-center"></span></div></div></td>
+			<td><span class="badge alert-success">1.00</span></td>
+		</tr>
+		<tr>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12">12. <strong>hifa_bandpassflag</strong>: Phase-up bandpass calibration and flagging</a><span class="pull-right">Combined flagging and bandpass score</span></td>
+			<td><div class="progress" style="margin-bottom:0px;"><div class="progress-bar progress-bar-success" role="progressbar" style="width:92.8435589041%;"><span class="text-center"></span></div></div></td>
+			<td><span class="badge alert-success">0.92</span></td>
+		</tr>
+		<tr>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage13">13. <strong>hifa_spwphaseup</strong>: Spw phase offsets calibration</a><span class="pull-right">No spw mapping</span></td>
+			<td><div class="progress" style="margin-bottom:0px;"><div class="progress-bar progress-bar-success" role="progressbar" style="width:100.0%;"><span class="text-center"></span></div></div></td>
+			<td><span class="badge alert-success">1.00</span></td>
+		</tr>
+		<tr>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage14">14. <strong>hifa_gfluxscaleflag</strong>: Phased-up flux scale calibration + flagging</a><span class="pull-right">0.00% unflagged data flagged.</span></td>
+			<td><div class="progress" style="margin-bottom:0px;"><div class="progress-bar progress-bar-success" role="progressbar" style="width:100.0%;"><span class="text-center"></span></div></div></td>
+			<td><span class="badge alert-success">1.00</span></td>
+		</tr>
+		<tr>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage15">15. <strong>hifa_gfluxscale</strong>: Transfer fluxscale from amplitude calibrator</a><span class="pull-right">All expected derived fluxes present</span></td>
+			<td><div class="progress" style="margin-bottom:0px;"><div class="progress-bar progress-bar-success" role="progressbar" style="width:100.0%;"><span class="text-center"></span></div></div></td>
+			<td><span class="badge alert-success">1.00</span></td>
+		</tr>
+		<tr>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage16">16. <strong>hifa_timegaincal</strong>: Gain calibration</a><span class="pull-right">X2-X1 deviation</span></td>
+			<td><div class="progress" style="margin-bottom:0px;"><div class="progress-bar progress-bar-success" role="progressbar" style="width:97.424588943%;"><span class="text-center"></span></div></div></td>
+			<td><span class="badge alert-success">0.97</span></td>
+		</tr>
+	</tbody>
+</table>
+
+<h3>Warnings and errors</h3>
+<table class="table table-bordered table-striped table-condensed"
+	   summary="Messages from tasks for this topic">
+	<thead>
+		<tr>
+			<th>Stage</th>
+			<th>Task</th>
+			<th>Type</th>
+			<th>Message</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd16a1e_X4327.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd16a1e_X4327.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>Evaluation of flagging heuristics for uid___A002_Xd16a1e_X4327.ms raised total of 15 flagging command(s)</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd1c06f_X545c.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd1c06f_X545c.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>Evaluation of flagging heuristics for uid___A002_Xd1c06f_X545c.ms raised total of 31 flagging command(s)</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd1c06f_X545c.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd1c06f_X545c.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd1c06f_X545c.ms - for intent BANDPASS (field J0522-3627) and spw 22, the following antennas are fully flagged: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd1c06f_X545c.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd1c06f_X545c.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd1c06f_X545c.ms - for intent BANDPASS (field J0522-3627) and spw 24, the following antennas are fully flagged: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd1c06f_X545c.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd1c06f_X545c.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd1c06f_X545c.ms - for intent BANDPASS (field J0522-3627) and spw 26, the following antennas are fully flagged: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd1c06f_X545c.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd1c06f_X545c.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd1c06f_X545c.ms - the following antennas are fully flagged in all spws for one or more fields with intents among BANDPASS: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd1c06f_X545c.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd1c06f_X545c.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd1c06f_X545c.ms - the following reference antennas are removed from the refant list because they became fully flagged in all spws for one of the intents among BANDPASS: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd3c7c2_Xb7f9.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd3c7c2_Xb7f9.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>Evaluation of flagging heuristics for uid___A002_Xd3c7c2_Xb7f9.ms raised total of 29 flagging command(s)</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd3c7c2_Xb7f9.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd3c7c2_Xb7f9.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms - for intent BANDPASS (field J0522-3627) and spw 22, the following antennas are fully flagged: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd3c7c2_Xb7f9.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd3c7c2_Xb7f9.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms - for intent BANDPASS (field J0522-3627) and spw 24, the following antennas are fully flagged: DV20, DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd3c7c2_Xb7f9.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd3c7c2_Xb7f9.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms - for intent BANDPASS (field J0522-3627) and spw 26, the following antennas are fully flagged: DV20</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd3c7c2_Xb7f9.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd3c7c2_Xb7f9.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms - the following antennas are moved to the end of the refant list because they are fully flagged for one or more spws, in one or more fields with intents among BANDPASS: DV20 and DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd395f6_X1401a.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd395f6_X1401a.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>Evaluation of flagging heuristics for uid___A002_Xd395f6_X1401a.ms raised total of 4 flagging command(s)</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd395f6_X1401a.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd395f6_X1401a.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd395f6_X1401a.ms - for intent BANDPASS (field J0006-0623) and spw 22, the following antennas are fully flagged: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd395f6_X1401a.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd395f6_X1401a.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd395f6_X1401a.ms - the following antennas are moved to the end of the refant list because they are fully flagged for one or more spws, in one or more fields with intents among BANDPASS: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd3c7c2_Xa6f1.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd3c7c2_Xa6f1.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>Evaluation of flagging heuristics for uid___A002_Xd3c7c2_Xa6f1.ms raised total of 46 flagging command(s)</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>Evaluation of flagging heuristics for uid___A002_Xd271e2_X9993.ms raised total of 27 flagging command(s)</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd271e2_X9993.ms - for intent BANDPASS (field J0522-3627) and spw 22, the following antennas are fully flagged: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd271e2_X9993.ms - for intent BANDPASS (field J0522-3627) and spw 24, the following antennas are fully flagged: DV20, DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd271e2_X9993.ms - for intent BANDPASS (field J0522-3627) and spw 26, the following antennas are fully flagged: DV20, DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd271e2_X9993.ms - the following antennas are fully flagged in all spws for one or more fields with intents among BANDPASS: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd271e2_X9993.ms - the following reference antennas are removed from the refant list because they became fully flagged in all spws for one of the intents among BANDPASS: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9993.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd271e2_X9993.ms - the following antennas are moved to the end of the refant list because they are fully flagged for one or more spws, in one or more fields with intents among BANDPASS: DV20</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9680.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9680.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>Evaluation of flagging heuristics for uid___A002_Xd271e2_X9680.ms raised total of 50 flagging command(s)</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9680.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9680.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd271e2_X9680.ms - for intent BANDPASS (field J0522-3627) and spw 22, the following antennas are fully flagged: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9680.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9680.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd271e2_X9680.ms - for intent BANDPASS (field J0522-3627) and spw 24, the following antennas are fully flagged: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9680.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9680.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd271e2_X9680.ms - for intent BANDPASS (field J0522-3627) and spw 26, the following antennas are fully flagged: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9680.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9680.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd271e2_X9680.ms - the following antennas are fully flagged in all spws for one or more fields with intents among BANDPASS: DA62</td>
+		</tr>
+		<tr class="warning">
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9680.ms">12</a></td>
+			<td><a href="t2-4m.html?sidebar=sidebar_stage12&ms=uid___A002_Xd271e2_X9680.ms">hifa_bandpassflag</a></td>
+			<td>Warning</td>
+			<td>uid___A002_Xd271e2_X9680.ms - the following reference antennas are removed from the refant list because they became fully flagged in all spws for one of the intents among BANDPASS: DA62</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+
+
+
+	
+	<div class="footer">
+		
+	</div>
+</div>
+
+</body>
+</html>

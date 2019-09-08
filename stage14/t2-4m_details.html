@@ -1,0 +1,2996 @@
+
+<html>
+<head>
+    <script>
+        lazyload();
+    </script>
+</head>
+
+
+
+<div class="page-header">
+    <h1>14. Phased-up Fluxscale Calibration and Flagging<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
+    This task computes the flagging heuristics on the phase calibrator and flux
+    calibrator by calling hif_correctedampflag which looks for outlier
+    visibility points by statistically examining the scalar difference of
+    corrected amplitudes minus model amplitudes, and flags those outliers. The
+    philosophy is that only outlier data points that have remained outliers
+    after calibration will be flagged. The heuristic works equally well on
+    resolved calibrators and point sources because it is not performing a
+    vector difference, and thus is not sensitive to nulls in the flux density
+    vs. uvdistance domain. Note that the phase of the data is not assessed.
+</p>
+<p>
+    In further detail, the workflow is as follows: an a priori calibration is
+    applied using pre-existing caltables in the calibration state, a
+    preliminary phase and amplitude gaincal solution is solved and applied, the
+    flagging heuristics are run, and any outliers are flagged. Plots are
+    generated at two points in this workflow: after preliminary phase and
+    amplitude calibration but before flagging heuristics are run, and after
+    flagging heuristics have been run and applied. If no points were flagged,
+    the "after" plots are not generated or displayed. The score for this stage
+    is the standard data flagging score, which depends on the fraction of data
+    flagged.
+</p>
+
+<h2>Contents</h2>
+<ul>
+    <li><a href="#flagging_commands">Flagging commands</a></li>
+    <li><a href="#flagged_data_summary">Flagged data summary table</a></li>
+    <li><a href="#amp_vs_time">Amplitude vs time plots for flagging</a></li>
+    <li><a href="#amp_vs_uvdist">Amplitude vs UV distance plots for flagging</a></li>    
+</ul>
+
+
+    <h2 id="flagging_commands" class="jumptarget">Flagging</h2>
+    <table class="table table-bordered table-striped">
+        <caption>Report Files</caption>
+        <thead>
+            <tr>
+                <th>Measurement Set</th>
+                <th>Flagging Commands</th>
+                <th>Number of Statements</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>uid___A002_Xd16a1e_X4327.ms</td>
+                <td><a class="replace-pre" href="stage14/uid___A002_Xd16a1e_X4327.ms-flag_commands.txt">uid___A002_Xd16a1e_X4327.ms-flag_commands.txt</a></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>uid___A002_Xd1c06f_X545c.ms</td>
+                <td><a class="replace-pre" href="stage14/uid___A002_Xd1c06f_X545c.ms-flag_commands.txt">uid___A002_Xd1c06f_X545c.ms-flag_commands.txt</a></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>uid___A002_Xd271e2_X9680.ms</td>
+                <td><a class="replace-pre" href="stage14/uid___A002_Xd271e2_X9680.ms-flag_commands.txt">uid___A002_Xd271e2_X9680.ms-flag_commands.txt</a></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>uid___A002_Xd271e2_X9993.ms</td>
+                <td><a class="replace-pre" href="stage14/uid___A002_Xd271e2_X9993.ms-flag_commands.txt">uid___A002_Xd271e2_X9993.ms-flag_commands.txt</a></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>uid___A002_Xd395f6_X1401a.ms</td>
+                <td><a class="replace-pre" href="stage14/uid___A002_Xd395f6_X1401a.ms-flag_commands.txt">uid___A002_Xd395f6_X1401a.ms-flag_commands.txt</a></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+                <td><a class="replace-pre" href="stage14/uid___A002_Xd3c7c2_Xa6f1.ms-flag_commands.txt">uid___A002_Xd3c7c2_Xa6f1.ms-flag_commands.txt</a></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+                <td><a class="replace-pre" href="stage14/uid___A002_Xd3c7c2_Xb7f9.ms-flag_commands.txt">uid___A002_Xd3c7c2_Xb7f9.ms-flag_commands.txt</a></td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+
+<h2 id="flagged_data_summary" class="jumptarget">Flagged data summary</h2>
+
+<h4>Measurement Set: uid___A002_Xd16a1e_X4327.ms</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged data. Each cell states the amount of data
+		flagged as a fraction of the specified data selection.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>
+				<td>13.1%</td>
+				<td>13.1%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>
+				<td>8.8%</td>
+				<td>8.8%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>
+				<td>8.8%</td>
+				<td>8.8%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>
+				<td>8.2%</td>
+				<td>8.2%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>
+				<td>11.8%</td>
+				<td>11.8%</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Measurement Set: uid___A002_Xd1c06f_X545c.ms</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged data. Each cell states the amount of data
+		flagged as a fraction of the specified data selection.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>
+				<td>11.8%</td>
+				<td>11.8%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>
+				<td>13.6%</td>
+				<td>13.6%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>
+				<td>13.6%</td>
+				<td>13.6%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>
+				<td>12.4%</td>
+				<td>12.4%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>
+				<td>8.6%</td>
+				<td>8.6%</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Measurement Set: uid___A002_Xd271e2_X9680.ms</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged data. Each cell states the amount of data
+		flagged as a fraction of the specified data selection.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>
+				<td>9.6%</td>
+				<td>9.6%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>
+				<td>25.2%</td>
+				<td>25.2%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>
+				<td>25.2%</td>
+				<td>25.2%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>
+				<td>22.7%</td>
+				<td>22.7%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>
+				<td>4.4%</td>
+				<td>4.4%</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Measurement Set: uid___A002_Xd271e2_X9993.ms</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged data. Each cell states the amount of data
+		flagged as a fraction of the specified data selection.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>
+				<td>8.8%</td>
+				<td>8.8%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>
+				<td>15.8%</td>
+				<td>15.8%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>
+				<td>15.8%</td>
+				<td>15.8%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>
+				<td>14.2%</td>
+				<td>14.2%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>
+				<td>4.2%</td>
+				<td>4.2%</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Measurement Set: uid___A002_Xd395f6_X1401a.ms</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged data. Each cell states the amount of data
+		flagged as a fraction of the specified data selection.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>
+				<td>10.0%</td>
+				<td>10.0%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>
+				<td>5.4%</td>
+				<td>5.4%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>
+				<td>5.4%</td>
+				<td>5.4%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>
+				<td>14.6%</td>
+				<td>14.6%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>
+				<td>8.1%</td>
+				<td>8.1%</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Measurement Set: uid___A002_Xd3c7c2_Xa6f1.ms</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged data. Each cell states the amount of data
+		flagged as a fraction of the specified data selection.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>
+				<td>7.4%</td>
+				<td>7.4%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>
+				<td>14.9%</td>
+				<td>14.9%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>
+				<td>14.9%</td>
+				<td>14.9%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>
+				<td>12.0%</td>
+				<td>12.0%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>
+				<td>4.1%</td>
+				<td>4.1%</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Measurement Set: uid___A002_Xd3c7c2_Xb7f9.ms</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged data. Each cell states the amount of data
+		flagged as a fraction of the specified data selection.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>
+				<td>9.9%</td>
+				<td>9.9%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>
+				<td>10.0%</td>
+				<td>10.0%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>
+				<td>10.0%</td>
+				<td>10.0%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>
+				<td>9.4%</td>
+				<td>9.4%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>
+				<td>7.9%</td>
+				<td>7.9%</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+        <h3 id="amp_vs_time" class="jumptarget">
+		Amplitude vs time
+	</h3>
+
+         
+		<p>These plots show amplitude vs time for two cases: 1, the calibrated data before application of any flags;
+        and 2, where flagging was applied, the calibrated data after application of flags.</p>
+
+		<p>Data are plotted for all antennas and correlations, with different
+		correlations shown in different colours.</p>
+	
+
+        
+
+        <h4>
+                uid___A002_Xd16a1e_X4327.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd16a1e_X4327.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--3930603364497569456"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd--3930603364497569456" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd16a1e_X4327.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd16a1e_X4327.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-9136708903710834834"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd-9136708903710834834" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd16a1e_X4327.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd16a1e_X4327.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-3063705938566274452"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd-3063705938566274452" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd16a1e_X4327.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd1c06f_X545c.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd1c06f_X545c.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--4234088848161260285"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd--4234088848161260285" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd1c06f_X545c.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd1c06f_X545c.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--6184726343234016779"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd--6184726343234016779" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd1c06f_X545c.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd1c06f_X545c.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-3445680371078744095"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd-3445680371078744095" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd1c06f_X545c.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd271e2_X9680.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd271e2_X9680.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd271e2_X9680.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-2839559834575672936"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd271e2_X9680.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd-2839559834575672936" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd271e2_X9680.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd271e2_X9680.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd271e2_X9680.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd271e2_X9680.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--5393924098011535830"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd271e2_X9680.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd--5393924098011535830" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd271e2_X9680.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd271e2_X9680.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd271e2_X9680.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd271e2_X9680.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-642285183439153612"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd271e2_X9680.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd-642285183439153612" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd271e2_X9680.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd271e2_X9680.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd271e2_X9993.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd271e2_X9993.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd271e2_X9993.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-1028080899694657525"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd271e2_X9993.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd-1028080899694657525" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd271e2_X9993.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd271e2_X9993.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd271e2_X9993.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd271e2_X9993.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-2978718394767414019"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd271e2_X9993.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd-2978718394767414019" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd271e2_X9993.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd271e2_X9993.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd271e2_X9993.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd271e2_X9993.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--887325656120446199"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd271e2_X9993.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd--887325656120446199" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd271e2_X9993.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd271e2_X9993.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd395f6_X1401a.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd395f6_X1401a.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-6681139918471211107"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd-6681139918471211107" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd395f6_X1401a.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd395f6_X1401a.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-3349160439280769377"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd-3349160439280769377" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd395f6_X1401a.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd395f6_X1401a.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--5685656733157591809"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd--5685656733157591809" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd395f6_X1401a.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd3c7c2_Xa6f1.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd3c7c2_Xa6f1.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-5006790746424271038"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd-5006790746424271038" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd3c7c2_Xa6f1.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd3c7c2_Xa6f1.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--812575180742946396"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd--812575180742946396" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd3c7c2_Xa6f1.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd3c7c2_Xa6f1.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--2473007609020812254"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd--2473007609020812254" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd3c7c2_Xa6f1.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd3c7c2_Xb7f9.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd3c7c2_Xb7f9.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-8445036358763660190"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd-8445036358763660190" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd3c7c2_Xb7f9.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw22-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd3c7c2_Xb7f9.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--8054517232108837628"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd--8054517232108837628" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd3c7c2_Xb7f9.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw24-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                           data-fancybox="amp_vs_time_uid___A002_Xd3c7c2_Xb7f9.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--6909850464059803262"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png"
+                             title="Click to show amplitude vs time for spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd--6909850464059803262" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd3c7c2_Xb7f9.ms&#39;, xaxis=&#39;time&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw26-PHASE-amp_vs_time-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+
+
+
+
+
+        <h3 id="amp_vs_uvdist" class="jumptarget">
+		Amplitude vs UV distance
+	</h3>
+
+         
+		<p>These plots show amplitude vs UV distance for two cases: 1, the calibrated data before application of any
+        flags; and 2, where flagging was applied, the calibrated data after application of flags.</p>
+
+		<p>Data are plotted for all antennas and correlations, with different
+		correlations shown in different colours.</p>
+	
+
+        
+
+        <h4>
+                uid___A002_Xd16a1e_X4327.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd16a1e_X4327.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-216945147145494392"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd-216945147145494392" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd16a1e_X4327.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd16a1e_X4327.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-2886295911368937126"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd-2886295911368937126" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd16a1e_X4327.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd16a1e_X4327.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd16a1e_X4327.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--89762696622645604"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd--89762696622645604" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd16a1e_X4327.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd16a1e_X4327.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd1c06f_X545c.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd1c06f_X545c.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--5768558206607552081"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd--5768558206607552081" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd1c06f_X545c.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd1c06f_X545c.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-4449970639620374565"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd-4449970639620374565" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd1c06f_X545c.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd1c06f_X545c.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd1c06f_X545c.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-1349968811013596699"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd-1349968811013596699" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd1c06f_X545c.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd1c06f_X545c.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd271e2_X9680.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd271e2_X9680.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd271e2_X9680.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--6863928417539514464"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd271e2_X9680.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd--6863928417539514464" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd271e2_X9680.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd271e2_X9680.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd271e2_X9680.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd271e2_X9680.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-5890802587408537422"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd271e2_X9680.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd-5890802587408537422" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd271e2_X9680.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd271e2_X9680.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd271e2_X9680.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd271e2_X9680.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd271e2_X9680.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-2175060559360135492"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd271e2_X9680.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd-2175060559360135492" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd271e2_X9680.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd271e2_X9680.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd271e2_X9993.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd271e2_X9993.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd271e2_X9993.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-4935586530762556965"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd271e2_X9993.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd-4935586530762556965" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd271e2_X9993.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd271e2_X9993.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd271e2_X9993.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd271e2_X9993.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--5282942315465369681"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd271e2_X9993.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd--5282942315465369681" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd271e2_X9993.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd271e2_X9993.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd271e2_X9993.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd271e2_X9993.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd271e2_X9993.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-5290664349814956713"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd271e2_X9993.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd-5290664349814956713" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd271e2_X9993.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd271e2_X9993.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd395f6_X1401a.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd395f6_X1401a.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-7521261900029980951"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd-7521261900029980951" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd395f6_X1401a.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd395f6_X1401a.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-7292844149922626473"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd-7292844149922626473" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd395f6_X1401a.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd395f6_X1401a.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd395f6_X1401a.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-6369616151860157171"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd-6369616151860157171" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd395f6_X1401a.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd395f6_X1401a.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd3c7c2_Xa6f1.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd3c7c2_Xa6f1.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-2059996057663451826"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd-2059996057663451826" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd3c7c2_Xa6f1.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd3c7c2_Xa6f1.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-895773777758179724"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd-895773777758179724" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd3c7c2_Xa6f1.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd3c7c2_Xa6f1.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd3c7c2_Xa6f1.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-6194301100350076118"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd-6194301100350076118" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd3c7c2_Xa6f1.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd3c7c2_Xa6f1.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd3c7c2_Xb7f9.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd3c7c2_Xb7f9.ms_PHASE_J0329-2357_22"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 22<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--747409987525562734"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 22"
+                        >
+                    </a>
+
+                    <div id="plotcmd--747409987525562734" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd3c7c2_Xb7f9.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;22&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw22-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 22<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd3c7c2_Xb7f9.ms_PHASE_J0329-2357_24"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 24<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd--3890347521763526676"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 24"
+                        >
+                    </a>
+
+                    <div id="plotcmd--3890347521763526676" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd3c7c2_Xb7f9.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;24&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw24-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 24<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage14/uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                           data-fancybox="amp_vs_uvdist_uid___A002_Xd3c7c2_Xb7f9.ms_PHASE_J0329-2357_26"
+                           data-caption="
+		Calibrated data before flagging<br>
+		uid___A002_Xd3c7c2_Xb7f9.ms<br>
+		Spw 26<br>
+		Intents: PHASE<br>
+        Fields: J0329-2357
+	"
+                           data-plotCommandTarget="#plotcmd-3124836566599479606"
+                    >
+                        <img class="lazyload"
+                             data-src="stage14/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png"
+                             title="Click to show amplitude vs UV distance for J0329-2357 (PHASE) spw 26"
+                        >
+                    </a>
+
+                    <div id="plotcmd-3124836566599479606" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotms(vis=&#39;uid___A002_Xd3c7c2_Xb7f9.ms&#39;, xaxis=&#39;uvdist&#39;, yaxis=&#39;amp&#39;, ydatacolumn=&#39;corrected&#39;, field=&#39;J0329-2357&#39;, spw=&#39;26&#39;, correlation=&#39;XX,YY&#39;, intent=&#39;CALIBRATE_PHASE#ON_SOURCE&#39;, avgchannel=&#39;9000&#39;, avgscan=False, avgbaseline=False, coloraxis=&#39;corr&#39;, plotrange=[0, 0, 0, 0], plotfile=&#39;uid___A002_Xd3c7c2_Xb7f9.ms-J0329-2357-spw26-PHASE-amp_vs_uvdist-before-XX_YY.png&#39;, overwrite=True, showgui=False, clearplots=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                        
+		Spectral Window 26<br>
+	
+                        </h4>
+                            <h6>
+		Intents: PHASE<br>
+        Field: J0329-2357
+	</h6>
+
+                        <p>
+		Calibrated data before flagging.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+
+
+
+
+<div class="clearfix"></div>
+<div class="panel-group" id="details-accordion" role="tablist" aria-multiselectable="true">
+
+    
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Pipeline QA
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+                <table class="table table-bordered" summary="Pipeline QA summary">
+                    <caption>Pipeline QA summary for this task.</caption>
+                    <thead>
+                        <tr>
+                            <th>Score</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>0.00% of unflagged data with intent PHASE in uid___A002_Xd16a1e_X4327.ms was newly flagged.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>0.00% of unflagged data with intent PHASE in uid___A002_Xd1c06f_X545c.ms was newly flagged.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>0.00% of unflagged data with intent PHASE in uid___A002_Xd3c7c2_Xb7f9.ms was newly flagged.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>0.00% of unflagged data with intent PHASE in uid___A002_Xd395f6_X1401a.ms was newly flagged.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>0.00% of unflagged data with intent PHASE in uid___A002_Xd3c7c2_Xa6f1.ms was newly flagged.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>0.00% of unflagged data with intent PHASE in uid___A002_Xd271e2_X9993.ms was newly flagged.</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>0.00% of unflagged data with intent PHASE in uid___A002_Xd271e2_X9680.ms was newly flagged.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Input Parameters
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>niter</dt>
+                    <dd>2</dd>
+                    <dt>antblpossig</dt>
+                    <dd>3.2</dd>
+                    <dt>tmint</dt>
+                    <dd>0.085</dd>
+                    <dt>solint</dt>
+                    <dd>inf</dd>
+                    <dt>antpossig</dt>
+                    <dd>4.6</dd>
+                    <dt>minsnr</dt>
+                    <dd>2.0</dd>
+                    <dt>spw</dt>
+                    <dd>22,24,26</dd>
+                    <dt>vis</dt>
+                    <dd>['/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms']</dd>
+                    <dt>antblnegsig</dt>
+                    <dd>3.4</dd>
+                    <dt>intent</dt>
+                    <dd>PHASE</dd>
+                    <dt>output_dir</dt>
+                    <dd>/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working</dd>
+                    <dt>relaxed_factor</dt>
+                    <dd>2.0</dd>
+                    <dt>field</dt>
+                    <dd>J0329-2357</dd>
+                    <dt>tmantint</dt>
+                    <dd>0.063</dd>
+                    <dt>tmbl</dt>
+                    <dd>0.175</dd>
+                    <dt>refant</dt>
+                    <dd>&nbsp;</dd>
+                    <dt>phaseupsolint</dt>
+                    <dd>int</dd>
+                    <dt>antnegsig</dt>
+                    <dd>4.0</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Tasks Execution Statistics
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>Start time</dt>
+                    <dd>2019-01-25 12:50:48.079</dd>
+                    <dt>End</dt>
+                    <dd>2019-01-25 16:37:28.373</dd>
+                    <dt>Duration</dt>
+                    <dd>3:46:40.293</dd>
+                </dl>
+            Note, WebLog generation is not included in the time.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">CASA logs for stage 14</h3>
+    </div>
+    <div class="panel-body">
+        <ul>
+    
+        <li><a href="stage14/casapy.log" class="replace-pre" data-title="CASA log for stage 14">View</a> or <a href="stage14/casapy.log" download="stage14/casapy.log">download</a> stage14/casapy.log (1.3 MB)</li>
+</ul>
+    </div>
+</div>
+
+</html>

@@ -1,0 +1,4061 @@
+
+<html>
+<head>
+    <script>
+        lazyload();
+    </script>
+</head>
+
+
+
+<div class="page-header">
+    <h1>9. WVR Calibration and Flagging<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+
+
+
+
+
+
+
+<p>This task checks whether the WVR radiometers are working as intended,
+interpolating for antennas that are not. The WVR caltable is only added to 
+subsequent pre-applys if it gives a tangible improvement.</p>
+
+<h2>Results</h2>
+
+
+<h2>Plots</h2>
+
+<p>The pipeline tests whether application of WVR correction improves the data
+by performing a gaincal for a chosen field, usually the bandpass calibrator,
+and comparing the resulting phase corrections evaluated both with and without
+application of WVR correction. Plots based on these data in these evaluation
+caltables are presented below.</p>
+
+
+        <h3>
+		Flagging metric view(s)
+	</h3>
+
+         
+		<p>The following plots show the flagging metric used by the pipeline
+		to determine which antennas' WVR corrections to flag. The RMS phase
+		during observation of the bandpass calibrator is calculated without
+		WVR corrections applied, and with WVR corrections applied, and the
+		metric is the ratio of those two RMS values. If the WVR measurements
+		are corrupted, or the wvrgcal task itself flags the WVR data on a
+		given antenna, then the pipeline will not calculate a metric here.</p>
+	
+
+        
+
+        <h4>
+            <a class="replace"
+               href="stage9/flagging_antenna_vs_time-all_data.html">
+                uid___A002_Xd16a1e_X4327.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/flagging_antenna_vs_time-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd16a1e_X4327.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to enlarge flag plot for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/flagging_antenna_vs_time-all_data.html"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               href="stage9/flagging_antenna_vs_time-all_data.html">
+                uid___A002_Xd1c06f_X545c.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/flagging_antenna_vs_time-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd1c06f_X545c.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to enlarge flag plot for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/flagging_antenna_vs_time-all_data.html"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               href="stage9/flagging_antenna_vs_time-all_data.html">
+                uid___A002_Xd271e2_X9680.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/flagging_antenna_vs_time-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd271e2_X9680.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to enlarge flag plot for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/flagging_antenna_vs_time-all_data.html"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               href="stage9/flagging_antenna_vs_time-all_data.html">
+                uid___A002_Xd271e2_X9993.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/flagging_antenna_vs_time-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd271e2_X9993.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to enlarge flag plot for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/flagging_antenna_vs_time-all_data.html"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               href="stage9/flagging_antenna_vs_time-all_data.html">
+                uid___A002_Xd395f6_X1401a.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/flagging_antenna_vs_time-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd395f6_X1401a.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to enlarge flag plot for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/flagging_antenna_vs_time-all_data.html"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               href="stage9/flagging_antenna_vs_time-all_data.html">
+                uid___A002_Xd3c7c2_Xa6f1.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/flagging_antenna_vs_time-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd3c7c2_Xa6f1.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to enlarge flag plot for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/flagging_antenna_vs_time-all_data.html"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               href="stage9/flagging_antenna_vs_time-all_data.html">
+                uid___A002_Xd3c7c2_Xb7f9.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/flagging_antenna_vs_time-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/flag_with_wvr_phase_rms___no_wvr_phase_rms_Time_vs_Antenna_File_uid___A002_Xd3c7c2_Xb7f9.ms_Intent_BANDPASS_Field_None__SpW_26___.png"
+                             title="Click to enlarge flag plot for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/flagging_antenna_vs_time-all_data.html"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+
+
+
+
+        <h3>
+		Phase correction with/without WVR
+	</h3>
+
+         
+
+            <p>The following set of plots show the improvement in the rms phase
+            after applying the WVR corrections. These plots are calculated for
+            various data intents after both the pipeline and wvrgcal task have
+            selected antennas whose WVR correction needs flagging. The
+            correction applied to those antennas in these plots is the
+            correction interpolated from neighboring antennas. Sometimes
+            antennas can have sufficiently corrupted data that the metric can
+            still not be calculated, but those antennas will in most cases be
+            flagged for the rest of the calibration process. Click on a link
+            below to show all flagging metric views for that measurement set.
+            </p>
+
+            <ul>
+                <li>
+                    <a href="stage9/rms_phase_improvement-all_data.html"
+                       data-vis="uid___A002_Xd16a1e_X4327.ms"
+                       class="replace">
+                        uid___A002_Xd16a1e_X4327.ms
+                    </a>
+                </li>
+                <li>
+                    <a href="stage9/rms_phase_improvement-all_data.html"
+                       data-vis="uid___A002_Xd1c06f_X545c.ms"
+                       class="replace">
+                        uid___A002_Xd1c06f_X545c.ms
+                    </a>
+                </li>
+                <li>
+                    <a href="stage9/rms_phase_improvement-all_data.html"
+                       data-vis="uid___A002_Xd271e2_X9680.ms"
+                       class="replace">
+                        uid___A002_Xd271e2_X9680.ms
+                    </a>
+                </li>
+                <li>
+                    <a href="stage9/rms_phase_improvement-all_data.html"
+                       data-vis="uid___A002_Xd271e2_X9993.ms"
+                       class="replace">
+                        uid___A002_Xd271e2_X9993.ms
+                    </a>
+                </li>
+                <li>
+                    <a href="stage9/rms_phase_improvement-all_data.html"
+                       data-vis="uid___A002_Xd395f6_X1401a.ms"
+                       class="replace">
+                        uid___A002_Xd395f6_X1401a.ms
+                    </a>
+                </li>
+                <li>
+                    <a href="stage9/rms_phase_improvement-all_data.html"
+                       data-vis="uid___A002_Xd3c7c2_Xa6f1.ms"
+                       class="replace">
+                        uid___A002_Xd3c7c2_Xa6f1.ms
+                    </a>
+                </li>
+                <li>
+                    <a href="stage9/rms_phase_improvement-all_data.html"
+                       data-vis="uid___A002_Xd3c7c2_Xb7f9.ms"
+                       class="replace">
+                        uid___A002_Xd3c7c2_Xb7f9.ms
+                    </a>
+                </li>
+            </ul>
+
+		<p>The next set of plots show the deviation about the scan median phase
+        before and after WVR application. Points are plotted per integration
+        and per correlation.</p>
+
+		<p>Click the summary plots to enlarge, or click the summary title for a
+        gallery of more detailed plots for individual antennas.</p>
+	
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd16a1e_X4327.ms"
+               href="stage9/phase_offsets-all_data.html">
+                uid___A002_Xd16a1e_X4327.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd16a1e_X4327.ms.phase_offset.spw26.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_offset.spw26.png"
+                             title="Click to show WVR phase offset plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd16a1e_X4327.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd1c06f_X545c.ms"
+               href="stage9/phase_offsets-all_data.html">
+                uid___A002_Xd1c06f_X545c.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd1c06f_X545c.ms.phase_offset.spw26.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_offset.spw26.png"
+                             title="Click to show WVR phase offset plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd1c06f_X545c.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd271e2_X9680.ms"
+               href="stage9/phase_offsets-all_data.html">
+                uid___A002_Xd271e2_X9680.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9680.ms.phase_offset.spw26.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_offset.spw26.png"
+                             title="Click to show WVR phase offset plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd271e2_X9680.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd271e2_X9993.ms"
+               href="stage9/phase_offsets-all_data.html">
+                uid___A002_Xd271e2_X9993.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9993.ms.phase_offset.spw26.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_offset.spw26.png"
+                             title="Click to show WVR phase offset plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd271e2_X9993.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd395f6_X1401a.ms"
+               href="stage9/phase_offsets-all_data.html">
+                uid___A002_Xd395f6_X1401a.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd395f6_X1401a.ms.phase_offset.spw26.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_offset.spw26.png"
+                             title="Click to show WVR phase offset plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd395f6_X1401a.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd3c7c2_Xa6f1.ms"
+               href="stage9/phase_offsets-all_data.html">
+                uid___A002_Xd3c7c2_Xa6f1.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_offset.spw26.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_offset.spw26.png"
+                             title="Click to show WVR phase offset plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd3c7c2_Xa6f1.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd3c7c2_Xb7f9.ms"
+               href="stage9/phase_offsets-all_data.html">
+                uid___A002_Xd3c7c2_Xb7f9.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_offset.spw26.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_offset.spw26.png"
+                             title="Click to show WVR phase offset plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd3c7c2_Xb7f9.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+
+
+
+
+        <h3>
+		Phase correction vs distance to reference antenna
+	</h3>
+
+         
+		<p>Plots show the phase offset (lower panel) and improvement ratio
+		(upper panel) vs distance to the reference antenna before and after
+        WVR application.</p>
+
+		<p>The lower panel of these plots show the median absolute deviation of
+        the gaincal corrections with and without WVR correction applied. The
+        upper panel shows the ratio of the RMS deviations about the median for
+        data with WVR correction applied to the RMS deviations without WVR
+        correction. One plot is generated per scan, with points plotted per
+		correlation and antenna as a function of distance from the reference
+        antenna.</p>
+
+		<p>Click the summary plots to enlarge them, or the summary plot title
+        to show a gallery of phase offset plots for individual antenna.</p>
+	
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd16a1e_X4327.ms"
+               href="stage9/phase_offsets_vs_baseline-all_data.html">
+                uid___A002_Xd16a1e_X4327.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan03.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets_vs_baseline-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd16a1e_X4327.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to show WVR phase offset vs baseline plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets_vs_baseline-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd16a1e_X4327.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd1c06f_X545c.ms"
+               href="stage9/phase_offsets_vs_baseline-all_data.html">
+                uid___A002_Xd1c06f_X545c.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan03.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets_vs_baseline-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd1c06f_X545c.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to show WVR phase offset vs baseline plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets_vs_baseline-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd1c06f_X545c.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd271e2_X9680.ms"
+               href="stage9/phase_offsets_vs_baseline-all_data.html">
+                uid___A002_Xd271e2_X9680.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan03.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets_vs_baseline-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9680.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to show WVR phase offset vs baseline plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets_vs_baseline-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd271e2_X9680.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd271e2_X9993.ms"
+               href="stage9/phase_offsets_vs_baseline-all_data.html">
+                uid___A002_Xd271e2_X9993.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan03.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets_vs_baseline-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd271e2_X9993.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to show WVR phase offset vs baseline plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets_vs_baseline-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd271e2_X9993.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd395f6_X1401a.ms"
+               href="stage9/phase_offsets_vs_baseline-all_data.html">
+                uid___A002_Xd395f6_X1401a.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan03.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets_vs_baseline-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd395f6_X1401a.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to show WVR phase offset vs baseline plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets_vs_baseline-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd395f6_X1401a.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd3c7c2_Xa6f1.ms"
+               href="stage9/phase_offsets_vs_baseline-all_data.html">
+                uid___A002_Xd3c7c2_Xa6f1.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan03.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets_vs_baseline-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to show WVR phase offset vs baseline plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets_vs_baseline-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd3c7c2_Xa6f1.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd3c7c2_Xb7f9.ms"
+               href="stage9/phase_offsets_vs_baseline-all_data.html">
+                uid___A002_Xd3c7c2_Xb7f9.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage9/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan03.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage9/phase_offsets_vs_baseline-all_data.html"
+                           data-caption="
+		Spectral window: 26
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage9/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms.phase_vs_baseline.spw26.scan03.png"
+                             title="Click to show WVR phase offset vs baseline plots for spw 26"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage9/phase_offsets_vs_baseline-all_data.html"
+                               data-spw="26"
+                               data-vis="uid___A002_Xd3c7c2_Xb7f9.ms"
+                               class="replace">
+                        
+		Spectral window 26
+	
+                            </a>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+
+
+
+
+<h4>Flagging results and WVR application</h4>
+<table class="table table-bordered" summary="Flagging Results">
+	<caption>Flagging results and applications for WVR</caption>
+    <thead>
+        <tr>
+            <th>Measurement Set</th>
+			<th>WVR Table</th>
+            <th>Interpolated Antennas</th>
+			<th>Applied</th>
+        </tr>
+    </thead>
+	<tbody>
+		<tr>
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>uid___A002_Xd16a1e_X4327.ms.hifa_wvrgcalflag.s9_6.sm6_048s.wvrcal.tbl
+		  	<td>DA53</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>uid___A002_Xd1c06f_X545c.ms.hifa_wvrgcalflag.s9_7.sm6_048s.wvrcal.tbl
+		  	<td>DA43</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>uid___A002_Xd3c7c2_Xb7f9.ms.hifa_wvrgcalflag.s9_6.sm6_048s.wvrcal.tbl
+		  	<td>DV06</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>uid___A002_Xd395f6_X1401a.ms.hifa_wvrgcalflag.s9_7.sm6_048s.wvrcal.tbl
+		  	<td>DV08 and DA60</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>uid___A002_Xd3c7c2_Xa6f1.ms.hifa_wvrgcalflag.s9_8.sm6_048s.wvrcal.tbl
+		  	<td></td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>uid___A002_Xd271e2_X9993.ms.hifa_wvrgcalflag.s9_9.sm6_048s.wvrcal.tbl
+		  	<td></td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>uid___A002_Xd271e2_X9680.ms.hifa_wvrgcalflag.s9_10.sm6_048s.wvrcal.tbl
+		  	<td></td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>CASA wvrgcal report</h4>
+<table class="table table-bordered table-condensed" summary="Antenna/WVR Information">
+	<caption>Antenna/WVR Information captured from CASA wvrgcal task</caption>
+    <thead>
+        <tr>
+            <th>Measurement Set</th>
+			<th>Antenna</th>
+			<th>WVR?</th>
+            <th>Interpolated Correction</th>
+            <th>RMS</th>
+            <th>Disc</th>
+		</tr>
+    </thead>
+	<tbody>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA41</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>921.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA42</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>920.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA43</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>921.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA44</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>919.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA45</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>929.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA46</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>925.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA47</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>921.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA48</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>943.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA49</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>937.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA50</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>924.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA51</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>930.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA52</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>938.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="danger alert-danger">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA53</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td>936.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA54</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>918.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA55</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>908.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA56</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>916.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA57</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>911.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA58</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>929.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA59</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>929.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA60</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>915.0 &#181;m</td>
+		  	<td>1.0 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA61</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>916.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA63</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>931.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA64</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>894.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DA65</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>908.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV01</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>924.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV02</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>948.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV03</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>922.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV04</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>917.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV05</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>922.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV06</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>939.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV07</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>931.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV08</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>929.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV09</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>933.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV10</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>932.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV11</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>927.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV12</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>939.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV13</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>907.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV14</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>925.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV15</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>918.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV17</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>943.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV18</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>935.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV19</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>915.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV20</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>934.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV21</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>929.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV22</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>900.0 &#181;m</td>
+		  	<td>1.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV24</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>919.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+		  	<td>DV25</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>933.0 &#181;m</td>
+		  	<td>1.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA41</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA42</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.1 mm</td>
+		</tr>
+		<tr class="danger alert-danger">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA43</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA44</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA45</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA46</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.2 mm</td>
+		  	<td>3.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA47</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA48</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA49</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA50</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>901.0 &#181;m</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA51</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA52</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.0 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA53</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA55</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA56</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.2 mm</td>
+		  	<td>3.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA57</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA58</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.0 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA59</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA60</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.0 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA61</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.2 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA62</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA63</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA64</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DA65</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.0 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV01</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV02</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV03</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV05</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV06</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV07</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV09</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.0 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV10</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV11</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV12</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>983.0 &#181;m</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV13</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV14</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>970.0 &#181;m</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV15</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV17</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV18</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV19</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV20</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV21</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.1 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV22</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.2 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV23</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV24</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.1 mm</td>
+		  	<td>3.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+		  	<td>DV25</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>1.2 mm</td>
+		  	<td>3.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA42</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>181.0 &#181;m</td>
+		  	<td>38.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA43</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>489.0 &#181;m</td>
+		  	<td>264.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA44</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>499.0 &#181;m</td>
+		  	<td>247.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA45</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>524.0 &#181;m</td>
+		  	<td>247.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA46</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>489.0 &#181;m</td>
+		  	<td>300.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA47</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>527.0 &#181;m</td>
+		  	<td>276.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA48</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>501.0 &#181;m</td>
+		  	<td>242.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA49</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>474.0 &#181;m</td>
+		  	<td>283.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA51</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>484.0 &#181;m</td>
+		  	<td>229.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA52</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>523.0 &#181;m</td>
+		  	<td>265.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA53</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>487.0 &#181;m</td>
+		  	<td>375.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA55</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>437.0 &#181;m</td>
+		  	<td>288.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA56</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>461.0 &#181;m</td>
+		  	<td>282.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA57</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>514.0 &#181;m</td>
+		  	<td>277.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA58</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>503.0 &#181;m</td>
+		  	<td>247.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA59</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>508.0 &#181;m</td>
+		  	<td>239.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA60</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>175.0 &#181;m</td>
+		  	<td>55.1 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA61</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>499.0 &#181;m</td>
+		  	<td>259.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA62</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>490.0 &#181;m</td>
+		  	<td>259.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA63</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>447.0 &#181;m</td>
+		  	<td>174.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA64</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>509.0 &#181;m</td>
+		  	<td>262.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DA65</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>496.0 &#181;m</td>
+		  	<td>291.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV01</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>515.0 &#181;m</td>
+		  	<td>204.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV02</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>462.0 &#181;m</td>
+		  	<td>248.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV03</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>473.0 &#181;m</td>
+		  	<td>228.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV04</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>533.0 &#181;m</td>
+		  	<td>183.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV05</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>505.0 &#181;m</td>
+		  	<td>216.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV06</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>510.0 &#181;m</td>
+		  	<td>193.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV08</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>180.0 &#181;m</td>
+		  	<td>30.4 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV09</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>508.0 &#181;m</td>
+		  	<td>236.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV10</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>512.0 &#181;m</td>
+		  	<td>190.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV11</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>178.0 &#181;m</td>
+		  	<td>26.2 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV12</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>500.0 &#181;m</td>
+		  	<td>195.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV13</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>400.0 &#181;m</td>
+		  	<td>197.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV14</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>500.0 &#181;m</td>
+		  	<td>193.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV15</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>509.0 &#181;m</td>
+		  	<td>217.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV16</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>509.0 &#181;m</td>
+		  	<td>210.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV17</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>513.0 &#181;m</td>
+		  	<td>189.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV18</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>497.0 &#181;m</td>
+		  	<td>193.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV19</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>499.0 &#181;m</td>
+		  	<td>201.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV20</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>488.0 &#181;m</td>
+		  	<td>203.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV21</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>490.0 &#181;m</td>
+		  	<td>260.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV22</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>491.0 &#181;m</td>
+		  	<td>229.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV23</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>496.0 &#181;m</td>
+		  	<td>193.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV24</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>498.0 &#181;m</td>
+		  	<td>217.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>DV25</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>468.0 &#181;m</td>
+		  	<td>187.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>PM02</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>495.0 &#181;m</td>
+		  	<td>208.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>PM03</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>505.0 &#181;m</td>
+		  	<td>197.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+		  	<td>PM04</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>491.0 &#181;m</td>
+		  	<td>225.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA42</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>212.0 &#181;m</td>
+		  	<td>157.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA43</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>212.0 &#181;m</td>
+		  	<td>189.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA44</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>218.0 &#181;m</td>
+		  	<td>210.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA45</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>197.0 &#181;m</td>
+		  	<td>194.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA46</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>205.0 &#181;m</td>
+		  	<td>156.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA47</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>208.0 &#181;m</td>
+		  	<td>177.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA48</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>227.0 &#181;m</td>
+		  	<td>204.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA49</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>221.0 &#181;m</td>
+		  	<td>171.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA51</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>215.0 &#181;m</td>
+		  	<td>219.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA52</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>217.0 &#181;m</td>
+		  	<td>197.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA53</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>231.0 &#181;m</td>
+		  	<td>168.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA55</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>228.0 &#181;m</td>
+		  	<td>153.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA56</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>229.0 &#181;m</td>
+		  	<td>166.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA57</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>191.0 &#181;m</td>
+		  	<td>172.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA58</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>222.0 &#181;m</td>
+		  	<td>206.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA59</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>224.0 &#181;m</td>
+		  	<td>216.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA60</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>207.0 &#181;m</td>
+		  	<td>126.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA61</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>198.0 &#181;m</td>
+		  	<td>176.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA62</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>225.0 &#181;m</td>
+		  	<td>201.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA63</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>231.0 &#181;m</td>
+		  	<td>202.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA64</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>207.0 &#181;m</td>
+		  	<td>181.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DA65</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>204.0 &#181;m</td>
+		  	<td>155.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV01</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>213.0 &#181;m</td>
+		  	<td>212.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV02</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>222.0 &#181;m</td>
+		  	<td>192.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV03</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>220.0 &#181;m</td>
+		  	<td>186.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV04</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>212.0 &#181;m</td>
+		  	<td>237.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV05</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>212.0 &#181;m</td>
+		  	<td>195.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV06</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>215.0 &#181;m</td>
+		  	<td>224.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV08</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>128.0 &#181;m</td>
+		  	<td>28.9 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV09</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>202.0 &#181;m</td>
+		  	<td>171.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV10</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>210.0 &#181;m</td>
+		  	<td>215.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV11</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>215.0 &#181;m</td>
+		  	<td>185.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV12</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>200.0 &#181;m</td>
+		  	<td>204.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV13</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>242.0 &#181;m</td>
+		  	<td>210.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV14</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>206.0 &#181;m</td>
+		  	<td>195.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV15</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>205.0 &#181;m</td>
+		  	<td>192.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV16</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>213.0 &#181;m</td>
+		  	<td>205.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV17</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>209.0 &#181;m</td>
+		  	<td>207.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV18</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>216.0 &#181;m</td>
+		  	<td>216.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV19</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>212.0 &#181;m</td>
+		  	<td>210.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV20</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>233.0 &#181;m</td>
+		  	<td>209.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV21</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>215.0 &#181;m</td>
+		  	<td>161.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV22</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>204.0 &#181;m</td>
+		  	<td>180.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV23</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>221.0 &#181;m</td>
+		  	<td>216.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV24</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>210.0 &#181;m</td>
+		  	<td>193.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>DV25</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>223.0 &#181;m</td>
+		  	<td>226.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>PM02</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>221.0 &#181;m</td>
+		  	<td>195.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>PM03</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>216.0 &#181;m</td>
+		  	<td>207.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+		  	<td>PM04</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>214.0 &#181;m</td>
+		  	<td>204.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA42</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>520.0 &#181;m</td>
+		  	<td>143.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA43</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>528.0 &#181;m</td>
+		  	<td>126.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA44</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>539.0 &#181;m</td>
+		  	<td>119.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA45</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>528.0 &#181;m</td>
+		  	<td>133.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA46</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>517.0 &#181;m</td>
+		  	<td>153.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA47</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>549.0 &#181;m</td>
+		  	<td>140.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA48</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>527.0 &#181;m</td>
+		  	<td>119.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA49</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>509.0 &#181;m</td>
+		  	<td>145.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA50</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>531.0 &#181;m</td>
+		  	<td>124.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA51</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>524.0 &#181;m</td>
+		  	<td>115.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA52</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>544.0 &#181;m</td>
+		  	<td>129.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA53</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>521.0 &#181;m</td>
+		  	<td>219.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA54</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>547.0 &#181;m</td>
+		  	<td>125.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA55</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>469.0 &#181;m</td>
+		  	<td>142.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA56</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>507.0 &#181;m</td>
+		  	<td>140.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA57</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>525.0 &#181;m</td>
+		  	<td>145.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA58</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>521.0 &#181;m</td>
+		  	<td>120.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA59</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>539.0 &#181;m</td>
+		  	<td>120.0 &#181;m</td>
+		</tr>
+		<tr class="danger alert-danger">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA60</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td>534.0 &#181;m</td>
+		  	<td>113.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA61</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>507.0 &#181;m</td>
+		  	<td>129.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA62</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>511.0 &#181;m</td>
+		  	<td>124.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA63</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>483.0 &#181;m</td>
+		  	<td>83.5 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA64</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>537.0 &#181;m</td>
+		  	<td>127.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DA65</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>530.0 &#181;m</td>
+		  	<td>150.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV01</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>548.0 &#181;m</td>
+		  	<td>89.4 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV02</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>502.0 &#181;m</td>
+		  	<td>111.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV03</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>477.0 &#181;m</td>
+		  	<td>81.1 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV04</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>571.0 &#181;m</td>
+		  	<td>88.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV05</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>540.0 &#181;m</td>
+		  	<td>101.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV06</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>546.0 &#181;m</td>
+		  	<td>92.3 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV07</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>529.0 &#181;m</td>
+		  	<td>111.0 &#181;m</td>
+		</tr>
+		<tr class="danger alert-danger">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV08</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td>535.0 &#181;m</td>
+		  	<td>118.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV09</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>536.0 &#181;m</td>
+		  	<td>107.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV10</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>539.0 &#181;m</td>
+		  	<td>87.4 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV11</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>530.0 &#181;m</td>
+		  	<td>99.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV12</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>529.0 &#181;m</td>
+		  	<td>93.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV13</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>457.0 &#181;m</td>
+		  	<td>79.1 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV14</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>528.0 &#181;m</td>
+		  	<td>92.2 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV15</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>541.0 &#181;m</td>
+		  	<td>102.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV16</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>539.0 &#181;m</td>
+		  	<td>98.6 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV17</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>539.0 &#181;m</td>
+		  	<td>82.6 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV18</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>536.0 &#181;m</td>
+		  	<td>92.3 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV19</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>530.0 &#181;m</td>
+		  	<td>93.5 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV20</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>531.0 &#181;m</td>
+		  	<td>84.7 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV21</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>520.0 &#181;m</td>
+		  	<td>125.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV22</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>529.0 &#181;m</td>
+		  	<td>110.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV23</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>537.0 &#181;m</td>
+		  	<td>84.7 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV24</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>531.0 &#181;m</td>
+		  	<td>93.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+		  	<td>DV25</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>519.0 &#181;m</td>
+		  	<td>80.9 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA41</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>339.0 &#181;m</td>
+		  	<td>1.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA42</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>330.0 &#181;m</td>
+		  	<td>1.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA43</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>337.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA44</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>339.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA45</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>362.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA46</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>323.0 &#181;m</td>
+		  	<td>1.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA47</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>332.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA48</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>334.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA49</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>336.0 &#181;m</td>
+		  	<td>1.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA50</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>319.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA51</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>329.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA52</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>325.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA53</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>333.0 &#181;m</td>
+		  	<td>1.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA56</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>348.0 &#181;m</td>
+		  	<td>1.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA57</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>334.0 &#181;m</td>
+		  	<td>1.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA58</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>316.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA59</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>355.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA60</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>339.0 &#181;m</td>
+		  	<td>40.5 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA61</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>351.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA62</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>312.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA63</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>327.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA64</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>332.0 &#181;m</td>
+		  	<td>1.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DA65</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>330.0 &#181;m</td>
+		  	<td>1.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV01</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>342.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV02</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>351.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV03</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>347.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV04</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>343.0 &#181;m</td>
+		  	<td>1.5 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV05</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>338.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV06</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>345.0 &#181;m</td>
+		  	<td>1.5 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV07</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>334.0 &#181;m</td>
+		  	<td>875.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV08</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>347.0 &#181;m</td>
+		  	<td>33.8 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV09</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>335.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV10</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>345.0 &#181;m</td>
+		  	<td>1.5 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV11</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>333.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV12</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>320.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV13</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>337.0 &#181;m</td>
+		  	<td>1.5 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV14</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>340.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV15</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>340.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV16</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>348.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV17</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>342.0 &#181;m</td>
+		  	<td>1.5 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV18</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>332.0 &#181;m</td>
+		  	<td>1.5 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV19</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>321.0 &#181;m</td>
+		  	<td>1.5 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV20</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>328.0 &#181;m</td>
+		  	<td>1.5 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV21</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>334.0 &#181;m</td>
+		  	<td>1.3 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV22</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>330.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV23</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>341.0 &#181;m</td>
+		  	<td>1.5 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV24</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>323.0 &#181;m</td>
+		  	<td>1.4 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+		  	<td>DV25</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>365.0 &#181;m</td>
+		  	<td>1.5 mm</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA41</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>583.0 &#181;m</td>
+		  	<td>148.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA42</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>590.0 &#181;m</td>
+		  	<td>141.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA43</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>592.0 &#181;m</td>
+		  	<td>174.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA44</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>603.0 &#181;m</td>
+		  	<td>190.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA45</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>584.0 &#181;m</td>
+		  	<td>178.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA46</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>592.0 &#181;m</td>
+		  	<td>139.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA47</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>603.0 &#181;m</td>
+		  	<td>160.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA48</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>604.0 &#181;m</td>
+		  	<td>186.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA49</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>585.0 &#181;m</td>
+		  	<td>153.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA50</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>569.0 &#181;m</td>
+		  	<td>169.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA51</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>606.0 &#181;m</td>
+		  	<td>195.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA52</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>621.0 &#181;m</td>
+		  	<td>175.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA53</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>599.0 &#181;m</td>
+		  	<td>159.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA56</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>581.0 &#181;m</td>
+		  	<td>150.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA57</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>597.0 &#181;m</td>
+		  	<td>155.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA58</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>637.0 &#181;m</td>
+		  	<td>179.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA59</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>609.0 &#181;m</td>
+		  	<td>191.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA60</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>579.0 &#181;m</td>
+		  	<td>120.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA61</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>596.0 &#181;m</td>
+		  	<td>159.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA62</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>643.0 &#181;m</td>
+		  	<td>173.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA63</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>611.0 &#181;m</td>
+		  	<td>185.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA64</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>602.0 &#181;m</td>
+		  	<td>161.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DA65</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>587.0 &#181;m</td>
+		  	<td>139.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV01</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>603.0 &#181;m</td>
+		  	<td>187.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV02</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>595.0 &#181;m</td>
+		  	<td>163.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV03</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>584.0 &#181;m</td>
+		  	<td>169.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV04</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>633.0 &#181;m</td>
+		  	<td>209.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV05</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>607.0 &#181;m</td>
+		  	<td>178.0 &#181;m</td>
+		</tr>
+		<tr class="danger alert-danger">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV06</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td>595.0 &#181;m</td>
+		  	<td>166.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV07</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>599.0 &#181;m</td>
+		  	<td>149.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV08</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>602.0 &#181;m</td>
+		  	<td>189.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV09</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>603.0 &#181;m</td>
+		  	<td>152.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV10</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>602.0 &#181;m</td>
+		  	<td>195.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV11</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>608.0 &#181;m</td>
+		  	<td>168.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV12</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>606.0 &#181;m</td>
+		  	<td>187.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV13</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>622.0 &#181;m</td>
+		  	<td>208.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV14</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>609.0 &#181;m</td>
+		  	<td>181.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV15</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>597.0 &#181;m</td>
+		  	<td>170.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV16</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>598.0 &#181;m</td>
+		  	<td>180.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV17</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>607.0 &#181;m</td>
+		  	<td>190.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV18</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>624.0 &#181;m</td>
+		  	<td>190.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV19</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>638.0 &#181;m</td>
+		  	<td>189.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV20</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>624.0 &#181;m</td>
+		  	<td>187.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV21</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>594.0 &#181;m</td>
+		  	<td>145.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV22</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>606.0 &#181;m</td>
+		  	<td>162.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV23</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>612.0 &#181;m</td>
+		  	<td>198.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV24</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>624.0 &#181;m</td>
+		  	<td>175.0 &#181;m</td>
+		</tr>
+		<tr class="">
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+		  	<td>DV25</td>
+		  	<td><span class="glyphicon glyphicon-ok"></span></td>
+		  	<td><span class="glyphicon glyphicon-remove"></span></td>
+		  	<td>584.0 &#181;m</td>
+		  	<td>207.0 &#181;m</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<div class="clearfix"></div>
+<div class="panel-group" id="details-accordion" role="tablist" aria-multiselectable="true">
+
+    
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Pipeline QA
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+                <table class="table table-bordered" summary="Pipeline QA summary">
+                    <caption>Pipeline QA summary for this task.</caption>
+                    <thead>
+                        <tr>
+                            <th>Score</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="info alert-info">
+                        <td>0.76</td>
+                        <td>RMS improvement was 1.51 for uid___A002_Xd271e2_X9680.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>RMS improvement was 2.18 for uid___A002_Xd16a1e_X4327.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>RMS improvement was 2.83 for uid___A002_Xd1c06f_X545c.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>RMS improvement was 2.97 for uid___A002_Xd3c7c2_Xb7f9.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>0.97</td>
+                        <td>RMS improvement was 1.94 for uid___A002_Xd395f6_X1401a.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>RMS improvement was 2.68 for uid___A002_Xd3c7c2_Xa6f1.ms</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>RMS improvement was 2.01 for uid___A002_Xd271e2_X9993.ms</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Input Parameters
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>ants_with_wvr_nr_thresh</dt>
+                    <dd>3</dd>
+                    <dt>sourceflag</dt>
+                    <dd>[]</dd>
+                    <dt>qa_intent</dt>
+                    <dd>PHASE,BANDPASS</dd>
+                    <dt>vis</dt>
+                    <dd>['/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms']</dd>
+                    <dt>flag_hi</dt>
+                    <dd>True</dd>
+                    <dt>disperse</dt>
+                    <dd>False</dd>
+                    <dt>hm_tie</dt>
+                    <dd>automatic</dd>
+                    <dt>scale</dt>
+                    <dd>1.0</dd>
+                    <dt>flag_intent</dt>
+                    <dd>BANDPASS</dd>
+                    <dt>output_dir</dt>
+                    <dd>/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working</dd>
+                    <dt>maxdistm</dt>
+                    <dd>500.0</dd>
+                    <dt>accept_threshold</dt>
+                    <dd>1.0</dd>
+                    <dt>tie</dt>
+                    <dd>[]</dd>
+                    <dt>wvrflag</dt>
+                    <dd>[]</dd>
+                    <dt>hm_smooth</dt>
+                    <dd>automatic</dd>
+                    <dt>minnumants</dt>
+                    <dd>2</dd>
+                    <dt>segsource</dt>
+                    <dd>True</dd>
+                    <dt>offsetstable</dt>
+                    <dd>&nbsp;</dd>
+                    <dt>ants_with_wvr_thresh</dt>
+                    <dd>0.2</dd>
+                    <dt>fhi_limit</dt>
+                    <dd>10.0</dd>
+                    <dt>hm_toffset</dt>
+                    <dd>automatic</dd>
+                    <dt>refant</dt>
+                    <dd>&nbsp;</dd>
+                    <dt>fhi_minsample</dt>
+                    <dd>5</dd>
+                    <dt>nsol</dt>
+                    <dd>1</dd>
+                    <dt>qa_bandpass_intent</dt>
+                    <dd>&nbsp;</dd>
+                    <dt>smooth</dt>
+                    <dd>&nbsp;</dd>
+                    <dt>mingoodfrac</dt>
+                    <dd>0.8</dd>
+                    <dt>toffset</dt>
+                    <dd>0</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Tasks Execution Statistics
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>Start time</dt>
+                    <dd>2019-01-24 07:27:11.774</dd>
+                    <dt>End</dt>
+                    <dd>2019-01-24 09:04:11.930</dd>
+                    <dt>Duration</dt>
+                    <dd>1:37:00.156</dd>
+                </dl>
+            Note, WebLog generation is not included in the time.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">CASA logs for stage 9</h3>
+    </div>
+    <div class="panel-body">
+        <ul>
+    
+        <li><a href="stage9/casapy.log" class="replace-pre" data-title="CASA log for stage 9">View</a> or <a href="stage9/casapy.log" download="stage9/casapy.log">download</a> stage9/casapy.log (593.0 KB)</li>
+</ul>
+    </div>
+</div>
+
+</html>

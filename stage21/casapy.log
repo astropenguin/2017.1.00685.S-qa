@@ -1,0 +1,2 @@
+2019-01-27 11:40:52	INFO	hif_makeimages::pipeline.infrastructure.basetask::	Starting execution for stage 21
+2019-01-27 11:40:53	INFO	hif_makeimages::pipeline.infrastructure.basetask::	Equivalent CASA call: hif_makeimages(pipelinemode="automatic")

@@ -1,0 +1,541 @@
+2019-01-24 15:34:29	INFO	hif_setmodels::pipeline.infrastructure.basetask::	Starting execution for stage 11
+2019-01-24 15:34:29	INFO	hif_setmodels::pipeline.infrastructure.basetask::	Equivalent CASA call: hif_setmodels(pipelinemode="automatic")
+2019-01-24 15:34:31	INFO	hif_setmodels::pipeline.infrastructure.basetask::	Equivalent CASA call: hif_setjy(fluxdensity=-1, field='J0522-3627', reffile='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/flux.csv', vis='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms', intent='AMPLITUDE', output_dir='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working', normfluxes=False)
+2019-01-24 15:34:34	INFO	hif_setmodels::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd16a1e_X4327.ms', field='J0522-3627', spw='22', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.3107, 0.0, 0.0, 0.0], spix=-0.237728603621, reffreq='TOPO 259.394GHz', usescratch=True)
+2019-01-24 15:34:34	INFO	setjy::::	
+2019-01-24 15:34:34	INFO	setjy::::	##########################################
+2019-01-24 15:34:34	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 15:34:34	INFO	setjy::::	
+2019-01-24 15:34:35	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '22'}
+2019-01-24 15:34:38	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms
+2019-01-24 15:34:38	INFO		Clearing all model records in MS header.
+2019-01-24 15:34:43	INFO	VisSetUtil::addScrCols	Adding MODEL_DATA column(s).
+2019-01-24 15:40:18	INFO	VisSetUtil::initScrCols	Initializing MODEL_DATA to (unity).
+2019-01-24 16:03:00	INFO	VisSetUtil::initScrCols	Initialized 47679291 rows.
+2019-01-24 16:03:00	INFO		Clearing all model records in MS header.
+2019-01-24 16:03:44	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 16:03:44	INFO	setjy::::	
+2019-01-24 16:03:48	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 16:03:53	INFO		Clearing all model records in MS header.
+2019-01-24 16:03:53	INFO	imager::data selection	Selected 56400 out of 47679291 rows.
+2019-01-24 16:03:56	INFO		Clearing all model records in MS header.
+2019-01-24 16:03:56	INFO	imager::data selection	Selected 56400 out of 47679291 rows.
+2019-01-24 16:03:56	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 16:03:56	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms_setjy_spw0_J0522-3627_259.394GHz58362.4d.cl
+2019-01-24 16:03:56	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 16:04:40	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 16:04:40	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 16:04:40	INFO	imager::setjy()	     258.457         4.31441
+2019-01-24 16:04:41	INFO	setjy::::	
+2019-01-24 16:04:41	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 16:04:41	INFO	setjy::::	##########################################
+2019-01-24 16:04:43	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd16a1e_X4327.ms', field='J0522-3627', spw='24', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.3167, 0.0, 0.0, 0.0], spix=-0.237728603621, reffreq='TOPO 257.894GHz', usescratch=True)
+2019-01-24 16:04:43	INFO	setjy::::	
+2019-01-24 16:04:43	INFO	setjy::::	##########################################
+2019-01-24 16:04:43	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 16:04:43	INFO	setjy::::	
+2019-01-24 16:04:44	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '24'}
+2019-01-24 16:04:46	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms
+2019-01-24 16:04:46	INFO		Clearing all model records in MS header.
+2019-01-24 16:05:39	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 16:05:39	INFO	setjy::::	
+2019-01-24 16:05:43	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 16:05:45	INFO		Clearing all model records in MS header.
+2019-01-24 16:05:46	INFO	imager::data selection	Selected 56400 out of 47679291 rows.
+2019-01-24 16:05:48	INFO		Clearing all model records in MS header.
+2019-01-24 16:05:48	INFO	imager::data selection	Selected 56400 out of 47679291 rows.
+2019-01-24 16:05:48	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 16:05:48	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms_setjy_spw0_J0522-3627_257.894GHz58362.4d.cl
+2019-01-24 16:05:48	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 16:06:35	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 16:06:35	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 16:06:35	INFO	imager::setjy()	     256.957         4.32044
+2019-01-24 16:06:35	INFO	setjy::::	
+2019-01-24 16:06:35	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 16:06:35	INFO	setjy::::	##########################################
+2019-01-24 16:06:37	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd16a1e_X4327.ms', field='J0522-3627', spw='26', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.3744, 0.0, 0.0, 0.0], spix=-0.237728603621, reffreq='TOPO 243.879GHz', usescratch=True)
+2019-01-24 16:06:37	INFO	setjy::::	
+2019-01-24 16:06:37	INFO	setjy::::	##########################################
+2019-01-24 16:06:37	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 16:06:37	INFO	setjy::::	
+2019-01-24 16:06:38	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '26'}
+2019-01-24 16:06:40	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms
+2019-01-24 16:06:40	INFO		Clearing all model records in MS header.
+2019-01-24 16:07:26	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 16:07:26	INFO	setjy::::	
+2019-01-24 16:07:30	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 16:07:33	INFO		Clearing all model records in MS header.
+2019-01-24 16:07:33	INFO	imager::data selection	Selected 56400 out of 47679291 rows.
+2019-01-24 16:07:35	INFO		Clearing all model records in MS header.
+2019-01-24 16:07:35	INFO	imager::data selection	Selected 56400 out of 47679291 rows.
+2019-01-24 16:07:35	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 16:07:35	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms_setjy_spw0_J0522-3627_243.879GHz58362.4d.cl
+2019-01-24 16:07:35	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 16:08:23	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 16:08:23	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 16:08:23	INFO	imager::setjy()	     244.816         4.37041
+2019-01-24 16:08:23	INFO	setjy::::	
+2019-01-24 16:08:23	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 16:08:23	INFO	setjy::::	##########################################
+2019-01-24 16:08:27	INFO	pipeline.infrastructure.basetask::pipeline.infrastructure.basetask::	Equivalent CASA call: hif_setjy(fluxdensity=-1, field='J0522-3627', reffile='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/flux.csv', vis='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms', intent='AMPLITUDE', output_dir='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working', normfluxes=False)
+2019-01-24 16:08:28	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd1c06f_X545c.ms', field='J0522-3627', spw='22', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.3214, 0.0, 0.0, 0.0], spix=-0.246409023535, reffreq='TOPO 259.392GHz', usescratch=True)
+2019-01-24 16:08:28	INFO	setjy::::	
+2019-01-24 16:08:28	INFO	setjy::::	##########################################
+2019-01-24 16:08:28	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 16:08:28	INFO	setjy::::	
+2019-01-24 16:08:28	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '22'}
+2019-01-24 16:08:30	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms
+2019-01-24 16:08:30	INFO		Clearing all model records in MS header.
+2019-01-24 16:08:33	INFO	VisSetUtil::addScrCols	Adding MODEL_DATA column(s).
+2019-01-24 16:12:05	INFO	VisSetUtil::initScrCols	Initializing MODEL_DATA to (unity).
+2019-01-24 16:28:10	INFO	VisSetUtil::initScrCols	Initialized 32724699 rows.
+2019-01-24 16:28:10	INFO		Clearing all model records in MS header.
+2019-01-24 16:28:42	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 16:28:42	INFO	setjy::::	
+2019-01-24 16:28:46	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 16:28:49	INFO		Clearing all model records in MS header.
+2019-01-24 16:28:49	INFO	imager::data selection	Selected 54050 out of 32724699 rows.
+2019-01-24 16:28:51	INFO		Clearing all model records in MS header.
+2019-01-24 16:28:51	INFO	imager::data selection	Selected 54050 out of 32724699 rows.
+2019-01-24 16:28:51	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 16:28:51	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms_setjy_spw0_J0522-3627_259.392GHz58370.3d.cl
+2019-01-24 16:28:51	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 16:29:31	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 16:29:31	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 16:29:31	INFO	imager::setjy()	     258.455         4.32526
+2019-01-24 16:29:32	INFO	setjy::::	
+2019-01-24 16:29:32	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 16:29:32	INFO	setjy::::	##########################################
+2019-01-24 16:29:35	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd1c06f_X545c.ms', field='J0522-3627', spw='24', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.3276, 0.0, 0.0, 0.0], spix=-0.246409023535, reffreq='TOPO 257.892GHz', usescratch=True)
+2019-01-24 16:29:35	INFO	setjy::::	
+2019-01-24 16:29:35	INFO	setjy::::	##########################################
+2019-01-24 16:29:35	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 16:29:35	INFO	setjy::::	
+2019-01-24 16:29:35	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '24'}
+2019-01-24 16:29:38	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms
+2019-01-24 16:29:38	INFO		Clearing all model records in MS header.
+2019-01-24 16:30:10	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 16:30:10	INFO	setjy::::	
+2019-01-24 16:30:12	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 16:30:13	INFO		Clearing all model records in MS header.
+2019-01-24 16:30:14	INFO	imager::data selection	Selected 54050 out of 32724699 rows.
+2019-01-24 16:30:15	INFO		Clearing all model records in MS header.
+2019-01-24 16:30:15	INFO	imager::data selection	Selected 54050 out of 32724699 rows.
+2019-01-24 16:30:15	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 16:30:15	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms_setjy_spw0_J0522-3627_257.892GHz58370.3d.cl
+2019-01-24 16:30:15	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 16:31:18	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 16:31:18	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 16:31:18	INFO	imager::setjy()	     256.955         4.33148
+2019-01-24 16:31:18	INFO	setjy::::	
+2019-01-24 16:31:18	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 16:31:18	INFO	setjy::::	##########################################
+2019-01-24 16:31:22	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd1c06f_X545c.ms', field='J0522-3627', spw='26', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.3876, 0.0, 0.0, 0.0], spix=-0.246409023535, reffreq='TOPO 243.877GHz', usescratch=True)
+2019-01-24 16:31:22	INFO	setjy::::	
+2019-01-24 16:31:22	INFO	setjy::::	##########################################
+2019-01-24 16:31:22	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 16:31:22	INFO	setjy::::	
+2019-01-24 16:31:22	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '26'}
+2019-01-24 16:31:24	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms
+2019-01-24 16:31:24	INFO		Clearing all model records in MS header.
+2019-01-24 16:32:02	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 16:32:02	INFO	setjy::::	
+2019-01-24 16:32:04	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 16:32:06	INFO		Clearing all model records in MS header.
+2019-01-24 16:32:06	INFO	imager::data selection	Selected 54050 out of 32724699 rows.
+2019-01-24 16:32:08	INFO		Clearing all model records in MS header.
+2019-01-24 16:32:08	INFO	imager::data selection	Selected 54050 out of 32724699 rows.
+2019-01-24 16:32:08	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 16:32:08	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms_setjy_spw0_J0522-3627_243.877GHz58370.3d.cl
+2019-01-24 16:32:08	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 16:33:06	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 16:33:06	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 16:33:06	INFO	imager::setjy()	     244.814         4.38345
+2019-01-24 16:33:06	INFO	setjy::::	
+2019-01-24 16:33:06	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 16:33:06	INFO	setjy::::	##########################################
+2019-01-24 16:33:12	INFO	pipeline.infrastructure.basetask::pipeline.infrastructure.basetask::	Equivalent CASA call: hif_setjy(fluxdensity=-1, field='J0522-3627', reffile='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/flux.csv', vis='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms', intent='AMPLITUDE', output_dir='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working', normfluxes=False)
+2019-01-24 16:33:12	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd3c7c2_Xb7f9.ms', field='J0522-3627', spw='22', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.5531, 0.0, 0.0, 0.0], spix=-0.186669519495, reffreq='TOPO 259.379GHz', usescratch=True)
+2019-01-24 16:33:12	INFO	setjy::::	
+2019-01-24 16:33:12	INFO	setjy::::	##########################################
+2019-01-24 16:33:12	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 16:33:12	INFO	setjy::::	
+2019-01-24 16:33:13	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '22'}
+2019-01-24 16:33:17	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms
+2019-01-24 16:33:17	INFO		Clearing all model records in MS header.
+2019-01-24 16:33:26	INFO	VisSetUtil::addScrCols	Adding MODEL_DATA column(s).
+2019-01-24 16:39:17	INFO	VisSetUtil::initScrCols	Initializing MODEL_DATA to (unity).
+2019-01-24 17:03:44	INFO	VisSetUtil::initScrCols	Initialized 48764304 rows.
+2019-01-24 17:03:44	INFO		Clearing all model records in MS header.
+2019-01-24 17:04:33	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 17:04:33	INFO	setjy::::	
+2019-01-24 17:04:35	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 17:04:38	INFO		Clearing all model records in MS header.
+2019-01-24 17:04:38	INFO	imager::data selection	Selected 58800 out of 48764304 rows.
+2019-01-24 17:04:40	INFO		Clearing all model records in MS header.
+2019-01-24 17:04:41	INFO	imager::data selection	Selected 58800 out of 48764304 rows.
+2019-01-24 17:04:41	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 17:04:41	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms_setjy_spw0_J0522-3627_259.379GHz58415.3d.cl
+2019-01-24 17:04:41	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 17:05:25	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 17:05:25	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 17:05:25	INFO	imager::setjy()	     258.441         4.55618
+2019-01-24 17:05:25	INFO	setjy::::	
+2019-01-24 17:05:25	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 17:05:25	INFO	setjy::::	##########################################
+2019-01-24 17:05:29	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd3c7c2_Xb7f9.ms', field='J0522-3627', spw='24', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.558, 0.0, 0.0, 0.0], spix=-0.186669519495, reffreq='TOPO 257.879GHz', usescratch=True)
+2019-01-24 17:05:29	INFO	setjy::::	
+2019-01-24 17:05:29	INFO	setjy::::	##########################################
+2019-01-24 17:05:29	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 17:05:29	INFO	setjy::::	
+2019-01-24 17:05:29	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '24'}
+2019-01-24 17:05:32	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms
+2019-01-24 17:05:32	INFO		Clearing all model records in MS header.
+2019-01-24 17:06:19	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 17:06:19	INFO	setjy::::	
+2019-01-24 17:06:23	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 17:06:24	INFO		Clearing all model records in MS header.
+2019-01-24 17:06:24	INFO	imager::data selection	Selected 58800 out of 48764304 rows.
+2019-01-24 17:06:26	INFO		Clearing all model records in MS header.
+2019-01-24 17:06:27	INFO	imager::data selection	Selected 58800 out of 48764304 rows.
+2019-01-24 17:06:27	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 17:06:27	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms_setjy_spw0_J0522-3627_257.879GHz58415.3d.cl
+2019-01-24 17:06:27	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 17:07:17	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 17:07:17	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 17:07:17	INFO	imager::setjy()	     256.942         4.5611
+2019-01-24 17:07:17	INFO	setjy::::	
+2019-01-24 17:07:17	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 17:07:17	INFO	setjy::::	##########################################
+2019-01-24 17:07:20	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd3c7c2_Xb7f9.ms', field='J0522-3627', spw='26', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.6058, 0.0, 0.0, 0.0], spix=-0.186669519495, reffreq='TOPO 243.864GHz', usescratch=True)
+2019-01-24 17:07:21	INFO	setjy::::	
+2019-01-24 17:07:21	INFO	setjy::::	##########################################
+2019-01-24 17:07:21	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 17:07:21	INFO	setjy::::	
+2019-01-24 17:07:21	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '26'}
+2019-01-24 17:07:24	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms
+2019-01-24 17:07:24	INFO		Clearing all model records in MS header.
+2019-01-24 17:08:05	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 17:08:05	INFO	setjy::::	
+2019-01-24 17:08:08	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 17:08:11	INFO		Clearing all model records in MS header.
+2019-01-24 17:08:11	INFO	imager::data selection	Selected 58800 out of 48764304 rows.
+2019-01-24 17:08:14	INFO		Clearing all model records in MS header.
+2019-01-24 17:08:14	INFO	imager::data selection	Selected 58800 out of 48764304 rows.
+2019-01-24 17:08:14	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 17:08:14	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms_setjy_spw0_J0522-3627_243.864GHz58415.3d.cl
+2019-01-24 17:08:14	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 17:09:13	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 17:09:13	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 17:09:13	INFO	imager::setjy()	     244.802         4.6025
+2019-01-24 17:09:14	INFO	setjy::::	
+2019-01-24 17:09:14	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 17:09:14	INFO	setjy::::	##########################################
+2019-01-24 17:09:18	INFO	pipeline.infrastructure.basetask::pipeline.infrastructure.basetask::	Equivalent CASA call: hif_setjy(fluxdensity=-1, field='J0006-0623', reffile='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/flux.csv', vis='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms', intent='AMPLITUDE', output_dir='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working', normfluxes=False)
+2019-01-24 17:09:19	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd395f6_X1401a.ms', field='J0006-0623', spw='22', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[1.0668, 0.0, 0.0, 0.0], spix=-0.645230946754, reffreq='TOPO 259.380GHz', usescratch=True)
+2019-01-24 17:09:19	INFO	setjy::::	
+2019-01-24 17:09:19	INFO	setjy::::	##########################################
+2019-01-24 17:09:19	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 17:09:19	INFO	setjy::::	
+2019-01-24 17:09:19	INFO	setjy::::	{'field': 'J0006-0623', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '22'}
+2019-01-24 17:09:23	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms
+2019-01-24 17:09:23	INFO		Clearing all model records in MS header.
+2019-01-24 17:09:31	INFO	VisSetUtil::addScrCols	Adding MODEL_DATA column(s).
+2019-01-24 17:15:27	INFO	VisSetUtil::initScrCols	Initializing MODEL_DATA to (unity).
+2019-01-24 17:36:19	INFO	VisSetUtil::initScrCols	Initialized 50112349 rows.
+2019-01-24 17:36:19	INFO		Clearing all model records in MS header.
+2019-01-24 17:37:18	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 17:37:18	INFO	setjy::::	
+2019-01-24 17:37:21	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 17:37:26	INFO		Clearing all model records in MS header.
+2019-01-24 17:37:26	INFO	imager::data selection	Selected 61250 out of 50112349 rows.
+2019-01-24 17:37:30	INFO		Clearing all model records in MS header.
+2019-01-24 17:37:30	INFO	imager::data selection	Selected 61250 out of 50112349 rows.
+2019-01-24 17:37:30	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 17:37:30	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms_setjy_spw0_J0006-0623_259.38GHz58413.1d.cl
+2019-01-24 17:37:30	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 17:38:20	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 17:38:20	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 17:38:20	INFO	imager::setjy()	     258.443         1.0693
+2019-01-24 17:38:20	INFO	setjy::::	
+2019-01-24 17:38:20	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 17:38:20	INFO	setjy::::	##########################################
+2019-01-24 17:38:22	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd395f6_X1401a.ms', field='J0006-0623', spw='24', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[1.0708, 0.0, 0.0, 0.0], spix=-0.645230946754, reffreq='TOPO 257.880GHz', usescratch=True)
+2019-01-24 17:38:22	INFO	setjy::::	
+2019-01-24 17:38:22	INFO	setjy::::	##########################################
+2019-01-24 17:38:22	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 17:38:22	INFO	setjy::::	
+2019-01-24 17:38:23	INFO	setjy::::	{'field': 'J0006-0623', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '24'}
+2019-01-24 17:38:26	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms
+2019-01-24 17:38:26	INFO		Clearing all model records in MS header.
+2019-01-24 17:39:20	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 17:39:20	INFO	setjy::::	
+2019-01-24 17:39:23	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 17:39:25	INFO		Clearing all model records in MS header.
+2019-01-24 17:39:25	INFO	imager::data selection	Selected 61250 out of 50112349 rows.
+2019-01-24 17:39:28	INFO		Clearing all model records in MS header.
+2019-01-24 17:39:28	INFO	imager::data selection	Selected 61250 out of 50112349 rows.
+2019-01-24 17:39:28	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 17:39:28	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms_setjy_spw0_J0006-0623_257.88GHz58413.1d.cl
+2019-01-24 17:39:28	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 17:40:33	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 17:40:33	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 17:40:33	INFO	imager::setjy()	     256.943         1.07332
+2019-01-24 17:40:33	INFO	setjy::::	
+2019-01-24 17:40:33	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 17:40:33	INFO	setjy::::	##########################################
+2019-01-24 17:40:36	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd395f6_X1401a.ms', field='J0006-0623', spw='26', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[1.1101, 0.0, 0.0, 0.0], spix=-0.645230946754, reffreq='TOPO 243.865GHz', usescratch=True)
+2019-01-24 17:40:36	INFO	setjy::::	
+2019-01-24 17:40:36	INFO	setjy::::	##########################################
+2019-01-24 17:40:36	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 17:40:36	INFO	setjy::::	
+2019-01-24 17:40:36	INFO	setjy::::	{'field': 'J0006-0623', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '26'}
+2019-01-24 17:40:40	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms
+2019-01-24 17:40:40	INFO		Clearing all model records in MS header.
+2019-01-24 17:41:28	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 17:41:28	INFO	setjy::::	
+2019-01-24 17:41:32	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 17:41:35	INFO		Clearing all model records in MS header.
+2019-01-24 17:41:35	INFO	imager::data selection	Selected 61250 out of 50112349 rows.
+2019-01-24 17:41:38	INFO		Clearing all model records in MS header.
+2019-01-24 17:41:38	INFO	imager::data selection	Selected 61250 out of 50112349 rows.
+2019-01-24 17:41:38	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 17:41:38	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms_setjy_spw0_J0006-0623_243.865GHz58413.1d.cl
+2019-01-24 17:41:38	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 17:42:36	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 17:42:36	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 17:42:36	INFO	imager::setjy()	     244.803         1.10735
+2019-01-24 17:42:37	INFO	setjy::::	
+2019-01-24 17:42:37	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 17:42:37	INFO	setjy::::	##########################################
+2019-01-24 17:42:41	INFO	pipeline.infrastructure.basetask::pipeline.infrastructure.basetask::	Equivalent CASA call: hif_setjy(fluxdensity=-1, field='J0522-3627', reffile='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/flux.csv', vis='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms', intent='AMPLITUDE', output_dir='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working', normfluxes=False)
+2019-01-24 17:42:41	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd3c7c2_Xa6f1.ms', field='J0522-3627', spw='22', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.5531, 0.0, 0.0, 0.0], spix=-0.186669519495, reffreq='TOPO 259.379GHz', usescratch=True)
+2019-01-24 17:42:42	INFO	setjy::::	
+2019-01-24 17:42:42	INFO	setjy::::	##########################################
+2019-01-24 17:42:42	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 17:42:42	INFO	setjy::::	
+2019-01-24 17:42:42	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '22'}
+2019-01-24 17:42:45	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms
+2019-01-24 17:42:45	INFO		Clearing all model records in MS header.
+2019-01-24 17:42:51	INFO	VisSetUtil::addScrCols	Adding MODEL_DATA column(s).
+2019-01-24 17:48:35	INFO	VisSetUtil::initScrCols	Initializing MODEL_DATA to (unity).
+2019-01-24 18:15:37	INFO	VisSetUtil::initScrCols	Initialized 48764544 rows.
+2019-01-24 18:15:37	INFO		Clearing all model records in MS header.
+2019-01-24 18:16:29	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 18:16:29	INFO	setjy::::	
+2019-01-24 18:16:32	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 18:16:35	INFO		Clearing all model records in MS header.
+2019-01-24 18:16:35	INFO	imager::data selection	Selected 58800 out of 48764544 rows.
+2019-01-24 18:16:39	INFO		Clearing all model records in MS header.
+2019-01-24 18:16:39	INFO	imager::data selection	Selected 58800 out of 48764544 rows.
+2019-01-24 18:16:39	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 18:16:39	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms_setjy_spw0_J0522-3627_259.379GHz58415.2d.cl
+2019-01-24 18:16:39	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 18:17:21	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 18:17:21	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 18:17:21	INFO	imager::setjy()	     258.442         4.55618
+2019-01-24 18:17:21	INFO	setjy::::	
+2019-01-24 18:17:21	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 18:17:21	INFO	setjy::::	##########################################
+2019-01-24 18:17:24	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd3c7c2_Xa6f1.ms', field='J0522-3627', spw='24', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.558, 0.0, 0.0, 0.0], spix=-0.186669519495, reffreq='TOPO 257.879GHz', usescratch=True)
+2019-01-24 18:17:24	INFO	setjy::::	
+2019-01-24 18:17:24	INFO	setjy::::	##########################################
+2019-01-24 18:17:24	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 18:17:24	INFO	setjy::::	
+2019-01-24 18:17:25	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '24'}
+2019-01-24 18:17:28	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms
+2019-01-24 18:17:28	INFO		Clearing all model records in MS header.
+2019-01-24 18:18:28	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 18:18:28	INFO	setjy::::	
+2019-01-24 18:18:33	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 18:18:35	INFO		Clearing all model records in MS header.
+2019-01-24 18:18:35	INFO	imager::data selection	Selected 58800 out of 48764544 rows.
+2019-01-24 18:18:37	INFO		Clearing all model records in MS header.
+2019-01-24 18:18:37	INFO	imager::data selection	Selected 58800 out of 48764544 rows.
+2019-01-24 18:18:37	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 18:18:37	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms_setjy_spw0_J0522-3627_257.879GHz58415.2d.cl
+2019-01-24 18:18:37	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 18:19:38	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 18:19:38	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 18:19:38	INFO	imager::setjy()	     256.942         4.5611
+2019-01-24 18:19:38	INFO	setjy::::	
+2019-01-24 18:19:38	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 18:19:38	INFO	setjy::::	##########################################
+2019-01-24 18:19:41	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd3c7c2_Xa6f1.ms', field='J0522-3627', spw='26', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.6058, 0.0, 0.0, 0.0], spix=-0.186669519495, reffreq='TOPO 243.865GHz', usescratch=True)
+2019-01-24 18:19:41	INFO	setjy::::	
+2019-01-24 18:19:41	INFO	setjy::::	##########################################
+2019-01-24 18:19:41	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 18:19:41	INFO	setjy::::	
+2019-01-24 18:19:41	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '26'}
+2019-01-24 18:19:43	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms
+2019-01-24 18:19:43	INFO		Clearing all model records in MS header.
+2019-01-24 18:20:31	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 18:20:31	INFO	setjy::::	
+2019-01-24 18:20:35	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 18:20:36	INFO		Clearing all model records in MS header.
+2019-01-24 18:20:36	INFO	imager::data selection	Selected 58800 out of 48764544 rows.
+2019-01-24 18:20:38	INFO		Clearing all model records in MS header.
+2019-01-24 18:20:38	INFO	imager::data selection	Selected 58800 out of 48764544 rows.
+2019-01-24 18:20:38	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 18:20:38	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms_setjy_spw0_J0522-3627_243.865GHz58415.2d.cl
+2019-01-24 18:20:38	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 18:21:34	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 18:21:34	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 18:21:34	INFO	imager::setjy()	     244.802         4.6025
+2019-01-24 18:21:34	INFO	setjy::::	
+2019-01-24 18:21:34	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 18:21:34	INFO	setjy::::	##########################################
+2019-01-24 18:21:38	INFO	pipeline.infrastructure.basetask::pipeline.infrastructure.basetask::	Equivalent CASA call: hif_setjy(fluxdensity=-1, field='J0522-3627', reffile='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/flux.csv', vis='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms', intent='AMPLITUDE', output_dir='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working', normfluxes=False)
+2019-01-24 18:21:38	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd271e2_X9993.ms', field='J0522-3627', spw='22', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.0469, 0.0, 0.0, 0.0], spix=-0.268620607596, reffreq='TOPO 259.388GHz', usescratch=True)
+2019-01-24 18:21:39	INFO	setjy::::	
+2019-01-24 18:21:39	INFO	setjy::::	##########################################
+2019-01-24 18:21:39	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 18:21:39	INFO	setjy::::	
+2019-01-24 18:21:39	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '22'}
+2019-01-24 18:21:40	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms
+2019-01-24 18:21:40	INFO		Clearing all model records in MS header.
+2019-01-24 18:21:43	INFO	VisSetUtil::addScrCols	Adding MODEL_DATA column(s).
+2019-01-24 18:24:30	INFO	VisSetUtil::initScrCols	Initializing MODEL_DATA to (unity).
+2019-01-24 18:41:14	INFO	VisSetUtil::initScrCols	Initialized 35983003 rows.
+2019-01-24 18:41:14	INFO		Clearing all model records in MS header.
+2019-01-24 18:41:53	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 18:41:53	INFO	setjy::::	
+2019-01-24 18:41:55	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 18:41:58	INFO		Clearing all model records in MS header.
+2019-01-24 18:41:58	INFO	imager::data selection	Selected 61250 out of 35983003 rows.
+2019-01-24 18:42:01	INFO		Clearing all model records in MS header.
+2019-01-24 18:42:01	INFO	imager::data selection	Selected 61250 out of 35983003 rows.
+2019-01-24 18:42:01	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 18:42:01	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms_setjy_spw0_J0522-3627_259.388GHz58387.3d.cl
+2019-01-24 18:42:01	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 18:42:55	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 18:42:55	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 18:42:55	INFO	imager::setjy()	     258.45         4.05084
+2019-01-24 18:42:56	INFO	setjy::::	
+2019-01-24 18:42:56	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 18:42:56	INFO	setjy::::	##########################################
+2019-01-24 18:42:59	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd271e2_X9993.ms', field='J0522-3627', spw='24', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.0532, 0.0, 0.0, 0.0], spix=-0.268620607596, reffreq='TOPO 257.888GHz', usescratch=True)
+2019-01-24 18:42:59	INFO	setjy::::	
+2019-01-24 18:42:59	INFO	setjy::::	##########################################
+2019-01-24 18:42:59	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 18:42:59	INFO	setjy::::	
+2019-01-24 18:42:59	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '24'}
+2019-01-24 18:43:02	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms
+2019-01-24 18:43:02	INFO		Clearing all model records in MS header.
+2019-01-24 18:43:45	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 18:43:45	INFO	setjy::::	
+2019-01-24 18:43:47	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 18:43:49	INFO		Clearing all model records in MS header.
+2019-01-24 18:43:49	INFO	imager::data selection	Selected 61250 out of 35983003 rows.
+2019-01-24 18:43:52	INFO		Clearing all model records in MS header.
+2019-01-24 18:43:52	INFO	imager::data selection	Selected 61250 out of 35983003 rows.
+2019-01-24 18:43:52	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 18:43:52	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms_setjy_spw0_J0522-3627_257.888GHz58387.3d.cl
+2019-01-24 18:43:52	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 18:44:57	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 18:44:57	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 18:44:57	INFO	imager::setjy()	     256.951         4.05717
+2019-01-24 18:44:58	INFO	setjy::::	
+2019-01-24 18:44:58	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 18:44:58	INFO	setjy::::	##########################################
+2019-01-24 18:45:01	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd271e2_X9993.ms', field='J0522-3627', spw='26', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.1145, 0.0, 0.0, 0.0], spix=-0.268620607596, reffreq='TOPO 243.873GHz', usescratch=True)
+2019-01-24 18:45:01	INFO	setjy::::	
+2019-01-24 18:45:01	INFO	setjy::::	##########################################
+2019-01-24 18:45:01	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 18:45:01	INFO	setjy::::	
+2019-01-24 18:45:01	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '26'}
+2019-01-24 18:45:03	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms
+2019-01-24 18:45:03	INFO		Clearing all model records in MS header.
+2019-01-24 18:45:28	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 18:45:28	INFO	setjy::::	
+2019-01-24 18:45:30	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 18:45:32	INFO		Clearing all model records in MS header.
+2019-01-24 18:45:32	INFO	imager::data selection	Selected 61250 out of 35983003 rows.
+2019-01-24 18:45:33	INFO		Clearing all model records in MS header.
+2019-01-24 18:45:33	INFO	imager::data selection	Selected 61250 out of 35983003 rows.
+2019-01-24 18:45:33	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 18:45:33	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms_setjy_spw0_J0522-3627_243.873GHz58387.3d.cl
+2019-01-24 18:45:33	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 18:46:16	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 18:46:16	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 18:46:16	INFO	imager::setjy()	     244.81         4.11026
+2019-01-24 18:46:16	INFO	setjy::::	
+2019-01-24 18:46:16	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 18:46:16	INFO	setjy::::	##########################################
+2019-01-24 18:46:20	INFO	pipeline.infrastructure.basetask::pipeline.infrastructure.basetask::	Equivalent CASA call: hif_setjy(fluxdensity=-1, field='J0522-3627', reffile='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/flux.csv', vis='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms', intent='AMPLITUDE', output_dir='/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working', normfluxes=False)
+2019-01-24 18:46:20	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd271e2_X9680.ms', field='J0522-3627', spw='22', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.0469, 0.0, 0.0, 0.0], spix=-0.268620607596, reffreq='TOPO 259.388GHz', usescratch=True)
+2019-01-24 18:46:20	INFO	setjy::::	
+2019-01-24 18:46:20	INFO	setjy::::	##########################################
+2019-01-24 18:46:20	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 18:46:20	INFO	setjy::::	
+2019-01-24 18:46:20	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '22'}
+2019-01-24 18:46:23	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms
+2019-01-24 18:46:23	INFO		Clearing all model records in MS header.
+2019-01-24 18:46:26	INFO	VisSetUtil::addScrCols	Adding MODEL_DATA column(s).
+2019-01-24 18:50:15	INFO	VisSetUtil::initScrCols	Initializing MODEL_DATA to (unity).
+2019-01-24 19:13:23	INFO	VisSetUtil::initScrCols	Initialized 50909775 rows.
+2019-01-24 19:13:23	INFO		Clearing all model records in MS header.
+2019-01-24 19:14:17	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 19:14:17	INFO	setjy::::	
+2019-01-24 19:14:20	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 19:14:23	INFO		Clearing all model records in MS header.
+2019-01-24 19:14:23	INFO	imager::data selection	Selected 61250 out of 50909775 rows.
+2019-01-24 19:14:25	INFO		Clearing all model records in MS header.
+2019-01-24 19:14:25	INFO	imager::data selection	Selected 61250 out of 50909775 rows.
+2019-01-24 19:14:25	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 19:14:25	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms_setjy_spw0_J0522-3627_259.388GHz58387.2d.cl
+2019-01-24 19:14:25	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 19:15:14	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 19:15:14	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 19:15:14	INFO	imager::setjy()	     258.451         4.05084
+2019-01-24 19:15:14	INFO	setjy::::	
+2019-01-24 19:15:14	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 19:15:14	INFO	setjy::::	##########################################
+2019-01-24 19:15:19	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd271e2_X9680.ms', field='J0522-3627', spw='24', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.0532, 0.0, 0.0, 0.0], spix=-0.268620607596, reffreq='TOPO 257.888GHz', usescratch=True)
+2019-01-24 19:15:19	INFO	setjy::::	
+2019-01-24 19:15:19	INFO	setjy::::	##########################################
+2019-01-24 19:15:19	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 19:15:19	INFO	setjy::::	
+2019-01-24 19:15:19	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '24'}
+2019-01-24 19:15:22	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms
+2019-01-24 19:15:22	INFO		Clearing all model records in MS header.
+2019-01-24 19:16:18	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 19:16:18	INFO	setjy::::	
+2019-01-24 19:16:21	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 19:16:25	INFO		Clearing all model records in MS header.
+2019-01-24 19:16:25	INFO	imager::data selection	Selected 61250 out of 50909775 rows.
+2019-01-24 19:16:28	INFO		Clearing all model records in MS header.
+2019-01-24 19:16:28	INFO	imager::data selection	Selected 61250 out of 50909775 rows.
+2019-01-24 19:16:28	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 19:16:28	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms_setjy_spw0_J0522-3627_257.888GHz58387.2d.cl
+2019-01-24 19:16:28	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 19:17:20	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 19:17:20	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 19:17:20	INFO	imager::setjy()	     256.951         4.05717
+2019-01-24 19:17:20	INFO	setjy::::	
+2019-01-24 19:17:20	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 19:17:20	INFO	setjy::::	##########################################
+2019-01-24 19:17:24	INFO	pipeline.infrastructure.jobrequest::pipeline.infrastructure.jobrequest::	Executing setjy(vis='uid___A002_Xd271e2_X9680.ms', field='J0522-3627', spw='26', selectdata=True, intent='CALIBRATE_FLUX#ON_SOURCE', scalebychan=True, standard='manual', fluxdensity=[4.1145, 0.0, 0.0, 0.0], spix=-0.268620607596, reffreq='TOPO 243.873GHz', usescratch=True)
+2019-01-24 19:17:24	INFO	setjy::::	
+2019-01-24 19:17:24	INFO	setjy::::	##########################################
+2019-01-24 19:17:24	INFO	setjy::::	##### Begin Task: setjy           #####
+2019-01-24 19:17:24	INFO	setjy::::	
+2019-01-24 19:17:24	INFO	setjy::::	{'field': 'J0522-3627', 'scanintent': 'CALIBRATE_FLUX#ON_SOURCE', 'spw': '26'}
+2019-01-24 19:17:28	INFO	Imager::open() 	Opening MeasurementSet /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms
+2019-01-24 19:17:28	INFO		Clearing all model records in MS header.
+2019-01-24 19:18:16	INFO	setjy::::	CASA Version 5.4.0-68  
+2019-01-24 19:18:16	INFO	setjy::::	
+2019-01-24 19:18:20	INFO	imager::setjy()	Using channel dependent flux densities
+2019-01-24 19:18:23	INFO		Clearing all model records in MS header.
+2019-01-24 19:18:23	INFO	imager::data selection	Selected 61250 out of 50909775 rows.
+2019-01-24 19:18:25	INFO		Clearing all model records in MS header.
+2019-01-24 19:18:25	INFO	imager::data selection	Selected 61250 out of 50909775 rows.
+2019-01-24 19:18:25	INFO	imager::ft() 	Fourier transforming: replacing MODEL_DATA column
+2019-01-24 19:18:25	INFO	imager::createSkyEquation() 	Processing after subtracting componentlist /opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms_setjy_spw0_J0522-3627_243.873GHz58387.2d.cl
+2019-01-24 19:18:25	INFO	imager::createFTMachine() 	Performing interferometric gridding...
+2019-01-24 19:19:13	INFO	imager::setjy()	Flux density as a function of frequency (channel 0 of each spw):
+2019-01-24 19:19:13	INFO	imager::setjy()+	  Frequency (GHz)    Flux Density (Jy, Stokes I)
+2019-01-24 19:19:13	INFO	imager::setjy()	     244.81         4.11026
+2019-01-24 19:19:13	INFO	setjy::::	
+2019-01-24 19:19:13	INFO	setjy::::	##### End Task: setjy           #####
+2019-01-24 19:19:13	INFO	setjy::::	##########################################

@@ -1,0 +1,344 @@
+
+<html>
+<head>
+    <script>
+        lazyload();
+    </script>
+</head>
+
+
+
+<div class="page-header">
+    <h1>13. Compute Spw Phaseup Map and Offsets<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+
+
+
+
+
+
+<p>This task computes the spectral window map that will be used to apply the time gaincal phase solutions
+and the caltable containing per spw phase offsets</p>
+
+<h2>Results</h2>
+<table class="table table-bordered table-striped" summary="Narrow to wide spw mapping results">
+	<caption>Phase solution spw map per measurement set.</caption>
+        <thead>
+	    <tr>
+	        <th>Measurement Set</th>
+	        <th>Spectral Window Map</th>
+	    </tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="table table-bordered" summary="Application Results">
+        <caption>Applied calibrations and parameters used for caltable generation</caption>
+    <thead>
+        <tr>
+            <th scope="col" rowspan="2">Measurement Set</th>
+                        <th scope="col" colspan="2">Solution Parameters</th>
+                        <th scope="col" colspan="2">Applied To</th>
+            <th scope="col" rowspan="2">Calibration Table</th>
+                </tr>
+                <tr>
+                        <th>Type</th>
+            <th>Interval</th>
+                        <th>Scan Intent</th>
+                        <th>Spectral Windows</th>
+        </tr>
+    </thead>
+        <tbody>
+                <tr>
+                        <td>uid___A002_Xd16a1e_X4327.ms</td>
+                        <td>Phase only</td>
+                        <td>Infinite</td>
+                        <td>ALL</td>
+                        <td>22, 24, 26</td>
+                        <td>uid___A002_Xd16a1e_X4327.ms.hifa_spwphaseup.s13_3.spw22_24_26.solintinf.gpcal.tbl</td>
+                </tr>
+                <tr>
+                        <td>uid___A002_Xd1c06f_X545c.ms</td>
+                        <td>Phase only</td>
+                        <td>Infinite</td>
+                        <td>ALL</td>
+                        <td>22, 24, 26</td>
+                        <td>uid___A002_Xd1c06f_X545c.ms.hifa_spwphaseup.s13_4.spw22_24_26.solintinf.gpcal.tbl</td>
+                </tr>
+                <tr>
+                        <td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+                        <td>Phase only</td>
+                        <td>Infinite</td>
+                        <td>ALL</td>
+                        <td>22, 24, 26</td>
+                        <td>uid___A002_Xd3c7c2_Xb7f9.ms.hifa_spwphaseup.s13_5.spw22_24_26.solintinf.gpcal.tbl</td>
+                </tr>
+                <tr>
+                        <td>uid___A002_Xd395f6_X1401a.ms</td>
+                        <td>Phase only</td>
+                        <td>Infinite</td>
+                        <td>ALL</td>
+                        <td>22, 24, 26</td>
+                        <td>uid___A002_Xd395f6_X1401a.ms.hifa_spwphaseup.s13_6.spw22_24_26.solintinf.gpcal.tbl</td>
+                </tr>
+                <tr>
+                        <td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+                        <td>Phase only</td>
+                        <td>Infinite</td>
+                        <td>ALL</td>
+                        <td>22, 24, 26</td>
+                        <td>uid___A002_Xd3c7c2_Xa6f1.ms.hifa_spwphaseup.s13_7.spw22_24_26.solintinf.gpcal.tbl</td>
+                </tr>
+                <tr>
+                        <td>uid___A002_Xd271e2_X9993.ms</td>
+                        <td>Phase only</td>
+                        <td>Infinite</td>
+                        <td>ALL</td>
+                        <td>22, 24, 26</td>
+                        <td>uid___A002_Xd271e2_X9993.ms.hifa_spwphaseup.s13_8.spw22_24_26.solintinf.gpcal.tbl</td>
+                </tr>
+                <tr>
+                        <td>uid___A002_Xd271e2_X9680.ms</td>
+                        <td>Phase only</td>
+                        <td>Infinite</td>
+                        <td>ALL</td>
+                        <td>22, 24, 26</td>
+                        <td>uid___A002_Xd271e2_X9680.ms.hifa_spwphaseup.s13_9.spw22_24_26.solintinf.gpcal.tbl</td>
+                </tr>
+        </tbody>
+</table>
+
+
+
+<div class="clearfix"></div>
+<div class="panel-group" id="details-accordion" role="tablist" aria-multiselectable="true">
+
+    
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Pipeline QA
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+                <table class="table table-bordered" summary="Pipeline QA summary">
+                    <caption>Pipeline QA summary for this task.</caption>
+                    <thead>
+                        <tr>
+                            <th>Score</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No spw mapping for uid___A002_Xd16a1e_X4327.ms </td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>The caltable file uid___A002_Xd16a1e_X4327.ms.hifa_spwphaseup.s13_3.spw22_24_26.solintinf.gpcal.tbl for uid___A002_Xd16a1e_X4327.ms was created</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No spw mapping for uid___A002_Xd1c06f_X545c.ms </td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>The caltable file uid___A002_Xd1c06f_X545c.ms.hifa_spwphaseup.s13_4.spw22_24_26.solintinf.gpcal.tbl for uid___A002_Xd1c06f_X545c.ms was created</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No spw mapping for uid___A002_Xd3c7c2_Xb7f9.ms </td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>The caltable file uid___A002_Xd3c7c2_Xb7f9.ms.hifa_spwphaseup.s13_5.spw22_24_26.solintinf.gpcal.tbl for uid___A002_Xd3c7c2_Xb7f9.ms was created</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No spw mapping for uid___A002_Xd395f6_X1401a.ms </td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>The caltable file uid___A002_Xd395f6_X1401a.ms.hifa_spwphaseup.s13_6.spw22_24_26.solintinf.gpcal.tbl for uid___A002_Xd395f6_X1401a.ms was created</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No spw mapping for uid___A002_Xd3c7c2_Xa6f1.ms </td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>The caltable file uid___A002_Xd3c7c2_Xa6f1.ms.hifa_spwphaseup.s13_7.spw22_24_26.solintinf.gpcal.tbl for uid___A002_Xd3c7c2_Xa6f1.ms was created</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No spw mapping for uid___A002_Xd271e2_X9993.ms </td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>The caltable file uid___A002_Xd271e2_X9993.ms.hifa_spwphaseup.s13_8.spw22_24_26.solintinf.gpcal.tbl for uid___A002_Xd271e2_X9993.ms was created</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>No spw mapping for uid___A002_Xd271e2_X9680.ms </td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>The caltable file uid___A002_Xd271e2_X9680.ms.hifa_spwphaseup.s13_9.spw22_24_26.solintinf.gpcal.tbl for uid___A002_Xd271e2_X9680.ms was created</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Input Parameters
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>scan</dt>
+                    <dd>&nbsp;</dd>
+                    <dt>hm_nantennas</dt>
+                    <dd>all</dd>
+                    <dt>spw</dt>
+                    <dd>22,24,26</dd>
+                    <dt>vis</dt>
+                    <dd>['/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms']</dd>
+                    <dt>calmode</dt>
+                    <dd>ap</dd>
+                    <dt>bwedgefrac</dt>
+                    <dd>0.03125</dd>
+                    <dt>parang</dt>
+                    <dd>False</dd>
+                    <dt>append</dt>
+                    <dd>False</dd>
+                    <dt>antenna</dt>
+                    <dd>&nbsp;</dd>
+                    <dt>solint</dt>
+                    <dd>inf</dd>
+                    <dt>samebb</dt>
+                    <dd>True</dd>
+                    <dt>field</dt>
+                    <dd>['J0522-3627', 'J0522-3627', 'J0522-3627', 'J0006-0623', 'J0522-3627', 'J0522-3627', 'J0522-3627']</dd>
+                    <dt>combine</dt>
+                    <dd>&nbsp;</dd>
+                    <dt>output_dir</dt>
+                    <dd>/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working</dd>
+                    <dt>solnorm</dt>
+                    <dd>False</dd>
+                    <dt>opacity</dt>
+                    <dd>&nbsp;</dd>
+                    <dt>preavg</dt>
+                    <dd>-1</dd>
+                    <dt>maxfracflagged</dt>
+                    <dd>0.9</dd>
+                    <dt>intent</dt>
+                    <dd>BANDPASS</dd>
+                    <dt>uvrange</dt>
+                    <dd>&nbsp;</dd>
+                    <dt>minfracmaxbw</dt>
+                    <dd>0.8</dd>
+                    <dt>refant</dt>
+                    <dd>['DA47,DA45,DV07,DA46,DV13,DV08,DA51,DA60,DA55,DV15,DA42,DV01,DV21,DV05,DV02,DV03,DV06,DA49,DV11,DA41,DA50,DA64,DA44,DV10,DA43,DV04,DV17,DA48,DA65,DV09,DV20,DA59,DV18,DA52,DV14,DV25,DV22,DA63,DV24,DA58,DA57,DA56,DV12,DA61,DV19', 'DA45,DA47,DV13,DV07,DA51,DV15,DA60,DV01,DA55,DV11,DV06,DV03,DV02,DV21,DA42,DV05,DA49,DA53,DA41,DV23,DA64,DV10,DA44,DV17,DA48,DA65,DV09,DA59,DV20,DV18,DA52,DV25,DV22,DV14,DA63,DV24,DA57,DA58,DA56,DV12,DA61,DV19,DA46,DA50', 'DA43,DA44,DV08,DA49,DV01,DV05,DV03,DV07,DA60,DV15,DA42,DA53,DV21,DV23,DA47,DA64,DV11,DV10,DV04,DA41,DA65,DV16,DV17,DA48,DV09,DA59,DV18,DA52,DV22,DV25,DV14,DV24,DA63,DA56,DA57,DA58,DV12,DA61,DV19,DA46,DA45,DA51,DV02,DA50,DV13,DV20,DA62', 'DA43,DA44,DV05,DA49,DV07,DV06,DA42,DV01,DV15,DV21,DV23,DA53,DA64,DA47,DV11,DV04,DV10,DA65,DV17,DV16,DA48,DA54,DV20,DV09,DA59,DV18,DV03,DA52,DV22,DV25,DV14,DA63,DV24,DA58,DA56,DA57,DV12,DA61,DV19,DA46,DA45,DA51,DV02,DA50,DA55,DV13,DA62', 'DA43,DA44,DV06,DA49,DV01,DV05,DV03,DV15,DA42,DA53,DV21,DV23,DA47,DA64,DV11,DV10,DV04,DA41,DA65,DV16,DV17,DA48,DV09,DV20,DA59,DV18,DA52,DV22,DV25,DV14,DV24,DA63,DA56,DA57,DA58,DV07,DV12,DA61,DV19,DA46,DA45,DA62,DA51,DV02,DA50,DV13,DV08,DA60', 'DA47,DA49,DV23,DA42,DA64,DV05,DA44,DA53,DV04,DV11,DV01,DV21,DV06,DA60,DV15,DV03,DA65,PM03,DV10,DA43,DV16,DA48,PM02,DV17,DV18,PM04,DV09,DA59,DV22,DA52,DV24,DV25,DA63,DV14,DA56,DA58,DA57,DV19,DA61,DV12,DA46,DA51,DA45,DV02,DA55,DV13,DV08,DV20', 'DA47,DA49,DV23,DV06,DA64,DV05,DA44,DA53,DV01,DV21,DV15,DV04,DV03,DA65,PM03,DV10,DA43,DV16,DA48,PM02,DV17,DV20,PM04,DV18,DV09,DA59,DV22,DA52,DV24,DA63,DV25,DV14,DA56,DA58,DA57,DV19,DA61,DV12,DA46,DA51,DV02,DA45,DA55,DV13,DA42,DV08,DV11,DA60']</dd>
+                    <dt>maxnarrowbw</dt>
+                    <dd>300MHz</dd>
+                    <dt>minblperant</dt>
+                    <dd>4</dd>
+                    <dt>hm_spwmapmode</dt>
+                    <dd>auto</dd>
+                    <dt>caltable</dt>
+                    <dd>None</dd>
+                    <dt>minsnr</dt>
+                    <dd>3</dd>
+                    <dt>gaintype</dt>
+                    <dd>G</dd>
+                    <dt>selectdata</dt>
+                    <dd>False</dd>
+                    <dt>phasesnr</dt>
+                    <dd>32.0</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Tasks Execution Statistics
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>Start time</dt>
+                    <dd>2019-01-25 12:10:16.704</dd>
+                    <dt>End</dt>
+                    <dd>2019-01-25 12:49:34.838</dd>
+                    <dt>Duration</dt>
+                    <dd>0:39:18.134</dd>
+                </dl>
+            Note, WebLog generation is not included in the time.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">CASA logs for stage 13</h3>
+    </div>
+    <div class="panel-body">
+        <ul>
+    
+        <li><a href="stage13/casapy.log" class="replace-pre" data-title="CASA log for stage 13">View</a> or <a href="stage13/casapy.log" download="stage13/casapy.log">download</a> stage13/casapy.log (134.5 KB)</li>
+</ul>
+    </div>
+</div>
+
+</html>

@@ -1,0 +1,1088 @@
+
+<html>
+<head>
+    <script>
+        lazyload();
+    </script>
+</head>
+
+
+
+<div class="page-header">
+    <h1>2. Deterministic Flagging<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+
+
+
+
+<script>
+$(document).ready(function(){
+    $("th.rotate").each(function(){ $(this).height($(this).find('span').width() + 8) });
+});
+</script>
+
+
+
+
+
+<h2>Flagging agents</h2>
+<table class="table table-bordered table-striped">
+	<caption>Flagging agent status per measurement set.</caption>	   
+	<thead>
+		<tr>
+			<th>Measurement Set</th>
+			<th>Unwanted Intents</th>
+			<th>QA0</th>
+			<th>QA2</th>
+			<th>Online Flags</th>
+			<th>Flagging Template</th>
+			<th>Autocorrelations</th>
+			<th>Shadowed Antennas</th>
+			<th>Edge Channels</th>
+			<th>Agent Commands</th>
+		</tr>				
+	</thead>
+	<tbody>
+		<tr>
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-remove"></span></td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd16a1e_X4327.ms-agent_flagcmds.txt">View</a></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-remove"></span></td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd1c06f_X545c.ms-agent_flagcmds.txt">View</a></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-remove"></span></td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd271e2_X9680.ms-agent_flagcmds.txt">View</a></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-remove"></span></td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd271e2_X9993.ms-agent_flagcmds.txt">View</a></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-remove"></span></td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd395f6_X1401a.ms-agent_flagcmds.txt">View</a></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-remove"></span></td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd3c7c2_Xa6f1.ms-agent_flagcmds.txt">View</a></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-ok"></span></td>
+			<td><span class="glyphicon glyphicon-remove"></span></td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd3c7c2_Xb7f9.ms-agent_flagcmds.txt">View</a></td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+<h2>Template Files</h2>
+<table class="table table-bordered table-striped">
+	<caption>Files used for template flagging steps.</caption>	   
+	<thead>
+		<tr>
+			<th rowspan="2">Measurement Set</th>
+			<th colspan="2">Online Flags</th>
+			<th colspan="2">Flagging Template</th>
+		</tr>	
+		<tr>
+			<th>File</th><th>Number of Statements</th>
+			<th>File</th><th>Number of Statements</th>
+		</tr>			
+	</thead>
+	<tbody>
+		<tr>
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd16a1e_X4327.flagonline.txt">uid___A002_Xd16a1e_X4327.flagonline.txt</a></td><td>6601</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd16a1e_X4327.flagtemplate.txt">uid___A002_Xd16a1e_X4327.flagtemplate.txt</a></td><td>0</td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd1c06f_X545c.ms</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd1c06f_X545c.flagonline.txt">uid___A002_Xd1c06f_X545c.flagonline.txt</a></td><td>4944</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd1c06f_X545c.flagtemplate.txt">uid___A002_Xd1c06f_X545c.flagtemplate.txt</a></td><td>0</td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9680.ms</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd271e2_X9680.flagonline.txt">uid___A002_Xd271e2_X9680.flagonline.txt</a></td><td>6813</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd271e2_X9680.flagtemplate.txt">uid___A002_Xd271e2_X9680.flagtemplate.txt</a></td><td>0</td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9993.ms</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd271e2_X9993.flagonline.txt">uid___A002_Xd271e2_X9993.flagonline.txt</a></td><td>5306</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd271e2_X9993.flagtemplate.txt">uid___A002_Xd271e2_X9993.flagtemplate.txt</a></td><td>0</td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd395f6_X1401a.ms</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd395f6_X1401a.flagonline.txt">uid___A002_Xd395f6_X1401a.flagonline.txt</a></td><td>5844</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd395f6_X1401a.flagtemplate.txt">uid___A002_Xd395f6_X1401a.flagtemplate.txt</a></td><td>0</td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd3c7c2_Xa6f1.flagonline.txt">uid___A002_Xd3c7c2_Xa6f1.flagonline.txt</a></td><td>5669</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd3c7c2_Xa6f1.flagtemplate.txt">uid___A002_Xd3c7c2_Xa6f1.flagtemplate.txt</a></td><td>0</td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd3c7c2_Xb7f9.flagonline.txt">uid___A002_Xd3c7c2_Xb7f9.flagonline.txt</a></td><td>5602</td>
+			<td><a class="replace-pre" href="stage2/uid___A002_Xd3c7c2_Xb7f9.flagtemplate.txt">uid___A002_Xd3c7c2_Xb7f9.flagtemplate.txt</a></td><td>0</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Flagged data summary</h2>
+<table class="table table-bordered table-striped"
+	   summary="Flagged Data">
+	<caption>Summary of flagged data. Each cell states the amount of data 
+	flagged as a fraction of the spec ified data selection, with the
+	<em>Flagging Agent</em> columns giving this information per flagging agent.
+	<br>The percentages in each successive column represent the additional data flagged by applying that column's agent (after the previous agents have been applied).
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection (by intent)</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">Before Task</th>
+			<th colspan="8">Flagging Agent</th>
+			<th rowspan="2">Total</th>
+			<th colspan="7">Measurement Set</th>
+		</tr>
+		<tr>
+			<th>Unwanted Intents</th>
+			<th>QA0</th>
+			<th>QA2</th>
+			<th>Online Flags</th>
+			<th>Flagging Template</th>
+			<th>Autocorrelations</th>
+			<th>Shadowed Antennas</th>
+			<th>Edge Channels</th>
+			<th rowspan="2" class="rotate"><div><span>uid___A002_Xd16a1e_X4327.ms</span></div></th>
+			<th rowspan="2" class="rotate"><div><span>uid___A002_Xd1c06f_X545c.ms</span></div></th>
+			<th rowspan="2" class="rotate"><div><span>uid___A002_Xd271e2_X9680.ms</span></div></th>
+			<th rowspan="2" class="rotate"><div><span>uid___A002_Xd271e2_X9993.ms</span></div></th>
+			<th rowspan="2" class="rotate"><div><span>uid___A002_Xd395f6_X1401a.ms</span></div></th>
+			<th rowspan="2" class="rotate"><div><span>uid___A002_Xd3c7c2_Xa6f1.ms</span></div></th>
+			<th rowspan="2" class="rotate"><div><span>uid___A002_Xd3c7c2_Xb7f9.ms</span></div></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>All Data</th>		
+			<td>0.0%</td>
+			<td>2.1%</td>
+			<td>0.6%</td>
+			<td>0.0%</td>
+			<td>0.7%</td>
+			<td>0.0%</td>
+			<td>3.9%</td>
+			<td>1.5%</td>
+			<td>0.0%</td>
+			<td>8.8%</td>
+			<td>13.1%</td>
+			<td>6.9%</td>
+			<td>8.0%</td>
+			<td>7.2%</td>
+			<td>9.8%</td>
+			<td>6.8%</td>
+			<td>9.1%</td>
+		</tr>
+		<tr>
+			<th>Science Spectral Windows</th>		
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.6%</td>
+			<td>0.0%</td>
+			<td>0.7%</td>
+			<td>0.0%</td>
+			<td>4.0%</td>
+			<td>1.5%</td>
+			<td>0.0%</td>
+			<td>6.9%</td>
+			<td>11.3%</td>
+			<td>4.4%</td>
+			<td>5.9%</td>
+			<td>4.8%</td>
+			<td>8.1%</td>
+			<td>5.0%</td>
+			<td>7.3%</td>
+		</tr>
+		<tr>
+			<th>Bandpass</th>		
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.6%</td>
+			<td>0.0%</td>
+			<td>0.5%</td>
+			<td>0.0%</td>
+			<td>4.0%</td>
+			<td>4.3%</td>
+			<td>0.0%</td>
+			<td>9.4%</td>
+			<td>8.6%</td>
+			<td>4.6%</td>
+			<td>20.4%</td>
+			<td>9.0%</td>
+			<td>4.1%</td>
+			<td>14.3%</td>
+			<td>4.1%</td>
+		</tr>
+		<tr>
+			<th>Flux</th>		
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.6%</td>
+			<td>0.0%</td>
+			<td>0.5%</td>
+			<td>0.0%</td>
+			<td>4.0%</td>
+			<td>4.3%</td>
+			<td>0.0%</td>
+			<td>9.4%</td>
+			<td>8.6%</td>
+			<td>4.6%</td>
+			<td>20.4%</td>
+			<td>9.0%</td>
+			<td>4.1%</td>
+			<td>14.3%</td>
+			<td>4.1%</td>
+		</tr>
+		<tr>
+			<th>Phase</th>		
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.6%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>4.0%</td>
+			<td>1.5%</td>
+			<td>0.0%</td>
+			<td>6.2%</td>
+			<td>8.2%</td>
+			<td>4.2%</td>
+			<td>4.0%</td>
+			<td>4.0%</td>
+			<td>13.4%</td>
+			<td>4.1%</td>
+			<td>4.1%</td>
+		</tr>
+		<tr>
+			<th>Target (science spws)</th>		
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.6%</td>
+			<td>0.0%</td>
+			<td>0.8%</td>
+			<td>0.0%</td>
+			<td>4.0%</td>
+			<td>1.2%</td>
+			<td>0.0%</td>
+			<td>6.6%</td>
+			<td>11.8%</td>
+			<td>4.4%</td>
+			<td>4.4%</td>
+			<td>4.2%</td>
+			<td>8.1%</td>
+			<td>4.1%</td>
+			<td>7.9%</td>
+		</tr>
+		<tr>
+			<th>uid___A002_Xd16a1e_X4327.ms</th>
+			<td>0.0%</td>
+			<td>2.0%</td>
+			<td>4.0%</td>
+			<td>0.0%</td>
+			<td>3.1%</td>
+			<td>0.0%</td>
+			<td>3.9%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>13.1%</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>uid___A002_Xd1c06f_X545c.ms</th>
+			<td>0.0%</td>
+			<td>2.6%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.2%</td>
+			<td>0.0%</td>
+			<td>4.1%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>6.9%</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>uid___A002_Xd271e2_X9680.ms</th>
+			<td>0.0%</td>
+			<td>2.3%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.5%</td>
+			<td>0.0%</td>
+			<td>3.9%</td>
+			<td>1.4%</td>
+			<td>0.0%</td>
+			<td>8.0%</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>uid___A002_Xd271e2_X9993.ms</th>
+			<td>0.0%</td>
+			<td>2.5%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.3%</td>
+			<td>0.0%</td>
+			<td>3.9%</td>
+			<td>0.5%</td>
+			<td>0.0%</td>
+			<td>7.2%</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>uid___A002_Xd395f6_X1401a.ms</th>
+			<td>0.0%</td>
+			<td>1.9%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>3.9%</td>
+			<td>4.0%</td>
+			<td>0.0%</td>
+			<td>9.8%</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>uid___A002_Xd3c7c2_Xa6f1.ms</th>
+			<td>0.0%</td>
+			<td>1.9%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>4.0%</td>
+			<td>0.9%</td>
+			<td>0.0%</td>
+			<td>6.8%</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<th>uid___A002_Xd3c7c2_Xb7f9.ms</th>
+			<td>0.0%</td>
+			<td>1.9%</td>
+			<td>0.0%</td>
+			<td>0.0%</td>
+			<td>0.6%</td>
+			<td>0.0%</td>
+			<td>4.0%</td>
+			<td>2.6%</td>
+			<td>0.0%</td>
+			<td>9.1%</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+
+        <h3>
+		Flagging reason vs time
+	</h3>
+
+         
+		Plots of flagging reason vs time (from the online flags file).
+	
+
+        
+
+        <h4>
+                uid___A002_Xd16a1e_X4327.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd16a1e_X4327.ms-flags-001.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd16a1e_X4327.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd16a1e_X4327.ms-flags-001.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd16a1e_X4327.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd16a1e_X4327.ms-flags-002.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd16a1e_X4327.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd16a1e_X4327.ms-flags-002.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd16a1e_X4327.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd1c06f_X545c.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd1c06f_X545c.ms-flags-001.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd1c06f_X545c.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd1c06f_X545c.ms-flags-001.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd1c06f_X545c.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd1c06f_X545c.ms-flags-002.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd1c06f_X545c.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd1c06f_X545c.ms-flags-002.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd1c06f_X545c.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd271e2_X9680.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd271e2_X9680.ms-flags-001.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd271e2_X9680.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd271e2_X9680.ms-flags-001.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd271e2_X9680.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd271e2_X9680.ms-flags-002.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd271e2_X9680.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd271e2_X9680.ms-flags-002.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd271e2_X9680.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd271e2_X9993.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd271e2_X9993.ms-flags-001.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd271e2_X9993.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd271e2_X9993.ms-flags-001.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd271e2_X9993.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd271e2_X9993.ms-flags-002.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd271e2_X9993.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd271e2_X9993.ms-flags-002.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd271e2_X9993.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd395f6_X1401a.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd395f6_X1401a.ms-flags-001.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd395f6_X1401a.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd395f6_X1401a.ms-flags-001.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd395f6_X1401a.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd395f6_X1401a.ms-flags-002.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd395f6_X1401a.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd395f6_X1401a.ms-flags-002.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd395f6_X1401a.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd3c7c2_Xa6f1.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd3c7c2_Xa6f1.ms-flags-001.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd3c7c2_Xa6f1.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms-flags-001.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd3c7c2_Xa6f1.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd3c7c2_Xa6f1.ms-flags-002.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd3c7c2_Xa6f1.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd3c7c2_Xa6f1.ms-flags-002.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd3c7c2_Xa6f1.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+                uid___A002_Xd3c7c2_Xb7f9.ms
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd3c7c2_Xb7f9.ms-flags-001.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd3c7c2_Xb7f9.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms-flags-001.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd3c7c2_Xb7f9.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage2/uid___A002_Xd3c7c2_Xb7f9.ms-flags-002.png"
+                           data-fancybox="junk"
+                           data-caption="
+        MS: uid___A002_Xd3c7c2_Xb7f9.ms
+	"
+                    >
+                        <img class="lazyload"
+                             data-src="stage2/thumbs/uid___A002_Xd3c7c2_Xb7f9.ms-flags-002.png"
+                             title="Click to show flagging reason vs time for uid___A002_Xd3c7c2_Xb7f9.ms"
+                        >
+                    </a>
+
+
+                    <div class="caption">
+                        <h4>
+                        
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+
+
+
+
+<div class="clearfix"></div>
+<div class="panel-group" id="details-accordion" role="tablist" aria-multiselectable="true">
+
+    
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Pipeline QA
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+                <table class="table table-bordered" summary="Pipeline QA summary">
+                    <caption>Pipeline QA summary for this task.</caption>
+                    <thead>
+                        <tr>
+                            <th>Score</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="success alert-success">
+                        <td>0.96</td>
+                        <td>7.14% data in uid___A002_Xd16a1e_X4327.ms flagged by online, shadow, qa0, qa2, before and template flagging agents</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>0.20% data in uid___A002_Xd1c06f_X545c.ms flagged by online, shadow, qa0, qa2, before and template flagging agents</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>3.21% data in uid___A002_Xd3c7c2_Xb7f9.ms flagged by online, shadow, qa0, qa2, before and template flagging agents</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>4.01% data in uid___A002_Xd395f6_X1401a.ms flagged by online, shadow, qa0, qa2, before and template flagging agents</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>0.94% data in uid___A002_Xd3c7c2_Xa6f1.ms flagged by online, shadow, qa0, qa2, before and template flagging agents</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>0.79% data in uid___A002_Xd271e2_X9993.ms flagged by online, shadow, qa0, qa2, before and template flagging agents</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>1.83% data in uid___A002_Xd271e2_X9680.ms flagged by online, shadow, qa0, qa2, before and template flagging agents</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Input Parameters
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>intents</dt>
+                    <dd>ATMOSPHERE,POINTING</dd>
+                    <dt>fracspw</dt>
+                    <dd>0.03125</dd>
+                    <dt>filetemplate</dt>
+                    <dd>['/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.flagtemplate.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.flagtemplate.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.flagtemplate.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.flagtemplate.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.flagtemplate.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.flagtemplate.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.flagtemplate.txt']</dd>
+                    <dt>fileonline</dt>
+                    <dd>['/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.flagonline.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.flagonline.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.flagonline.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.flagonline.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.flagonline.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.flagonline.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.flagonline.txt']</dd>
+                    <dt>flagbackup</dt>
+                    <dd>True</dd>
+                    <dt>qa2</dt>
+                    <dd>True</dd>
+                    <dt>autocorr</dt>
+                    <dd>True</dd>
+                    <dt>tbuff</dt>
+                    <dd>[2.976, 3.024]</dd>
+                    <dt>scannumber</dt>
+                    <dd>&nbsp;</dd>
+                    <dt>hm_tbuff</dt>
+                    <dd>halfint</dd>
+                    <dt>vis</dt>
+                    <dd>['/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms']</dd>
+                    <dt>edgespw</dt>
+                    <dd>True</dd>
+                    <dt>output_dir</dt>
+                    <dd>/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working</dd>
+                    <dt>template</dt>
+                    <dd>True</dd>
+                    <dt>online</dt>
+                    <dd>True</dd>
+                    <dt>scan</dt>
+                    <dd>True</dd>
+                    <dt>shadow</dt>
+                    <dd>True</dd>
+                    <dt>fracspwfps</dt>
+                    <dd>0.048387</dd>
+                    <dt>inpfile</dt>
+                    <dd>['/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.flagcmds.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.flagcmds.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.flagcmds.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.flagcmds.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.flagcmds.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.flagcmds.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.flagcmds.txt']</dd>
+                    <dt>qa0</dt>
+                    <dd>True</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Tasks Execution Statistics
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>Start time</dt>
+                    <dd>2019-01-23 13:37:48.856</dd>
+                    <dt>End</dt>
+                    <dd>2019-01-23 22:56:58.099</dd>
+                    <dt>Duration</dt>
+                    <dd>9:19:09.244</dd>
+                </dl>
+            Note, WebLog generation is not included in the time.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">CASA logs for stage 2</h3>
+    </div>
+    <div class="panel-body">
+        <ul>
+    
+        <li><a href="stage2/casapy.log" class="replace-pre" data-title="CASA log for stage 2">View</a> or <a href="stage2/casapy.log" download="stage2/casapy.log">download</a> stage2/casapy.log (6.7 MB)</li>
+</ul>
+    </div>
+</div>
+
+</html>

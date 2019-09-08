@@ -1,0 +1,2799 @@
+
+<html>
+<head>
+    <script>
+        lazyload();
+    </script>
+</head>
+
+
+
+<div class="page-header">
+    <h1>7. Flag T<sub>sys</sub> calibration<button class="btn btn-default pull-right" onClick="javascript:window.history.back();">Back</button></h1>
+</div>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Task notifications</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag nmedian - uid___A002_Xd16a1e_X4327.ms iteration 1 raised 27 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag edgechans - uid___A002_Xd16a1e_X4327.ms iteration 1 raised 9 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag birdies - uid___A002_Xd16a1e_X4327.ms iteration 1 raised 1 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> uid___A002_Xd16a1e_X4327.ms - for intent AMPLITUDE (field 0: J0522-3627) and spw 16, the following antennas are fully flagged: DA54</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> uid___A002_Xd16a1e_X4327.ms - for intent AMPLITUDE (field 0: J0522-3627) and spw 18, the following antennas are fully flagged: DA54</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> uid___A002_Xd16a1e_X4327.ms - for intent AMPLITUDE (field 0: J0522-3627) and spw 20, the following antennas are fully flagged: DA54</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> uid___A002_Xd16a1e_X4327.ms - for intent BANDPASS (field 0: J0522-3627) and spw 16, the following antennas are fully flagged: DA54</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> uid___A002_Xd16a1e_X4327.ms - for intent BANDPASS (field 0: J0522-3627) and spw 18, the following antennas are fully flagged: DA54</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> uid___A002_Xd16a1e_X4327.ms - for intent BANDPASS (field 0: J0522-3627) and spw 20, the following antennas are fully flagged: DA54</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> uid___A002_Xd16a1e_X4327.ms - for intent PHASE (field 1: J0329-2357) and spw 16, the following antennas are fully flagged: DA54</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> uid___A002_Xd16a1e_X4327.ms - for intent PHASE (field 1: J0329-2357) and spw 18, the following antennas are fully flagged: DA54</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> uid___A002_Xd16a1e_X4327.ms - for intent PHASE (field 1: J0329-2357) and spw 20, the following antennas are fully flagged: DA54</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> uid___A002_Xd16a1e_X4327.ms - the following antennas are fully flagged in all Tsys spws for one or more fields with the intent "BANDPASS", "PHASE", and/or "AMPLITUDE": DA54</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> uid___A002_Xd16a1e_X4327.ms - the following reference antennas are removed from the refant list because they are fully flagged in all Tsys spws in the "BANDPASS", "PHASE", and/or "AMPLITUDE" intents: DA54</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag edgechans - uid___A002_Xd1c06f_X545c.ms iteration 1 raised 9 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag birdies - uid___A002_Xd1c06f_X545c.ms iteration 1 raised 1 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag edgechans - uid___A002_Xd3c7c2_Xb7f9.ms iteration 1 raised 9 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag birdies - uid___A002_Xd3c7c2_Xb7f9.ms iteration 1 raised 1 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag edgechans - uid___A002_Xd395f6_X1401a.ms iteration 1 raised 9 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag birdies - uid___A002_Xd395f6_X1401a.ms iteration 1 raised 1 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag edgechans - uid___A002_Xd3c7c2_Xa6f1.ms iteration 1 raised 9 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag birdies - uid___A002_Xd3c7c2_Xa6f1.ms iteration 1 raised 1 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag edgechans - uid___A002_Xd271e2_X9993.ms iteration 1 raised 9 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag birdies - uid___A002_Xd271e2_X9993.ms iteration 1 raised 1 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag edgechans - uid___A002_Xd271e2_X9680.ms iteration 1 raised 9 flagging commands</td></tr>
+        <tr class="warning alert-warning"><td><strong>Warning!</strong> flag birdies - uid___A002_Xd271e2_X9680.ms iteration 1 raised 1 flagging commands</td></tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+<h2>Contents</h2>
+<ul>
+    <li><a href="#refants">Reference antenna update</a></li>
+<li><a href="#plots">T<sub>sys</sub> after flagging</a></li>
+<li><a href="#summarytable">Flagged data summary</a></li>
+<li>Flag step details</li>
+    <ul>
+        <li><a href="#manual">manual</a></li>
+        <li><a href="#nmedian">nmedian</a></li>
+        <li><a href="#derivative">derivative</a></li>
+        <li><a href="#edgechans">edgechans</a></li>
+        <li><a href="#fieldshape">fieldshape</a></li>
+        <li><a href="#birdies">birdies</a></li>
+        <li><a href="#toomany">toomany</a></li>
+    </ul>
+</ul>
+
+<h2 id="refants" class="jumptarget">Reference Antenna update</h2>
+
+<p>For the measurement set(s) listed below, the reference antenna
+    list was updated due to significant flagging (antennas moved to
+    end and/or removed). See warnings in task notifications
+    for details. Shown below are the updated reference antenna lists,
+    only for those measurement sets where it was modified.</p>
+
+<table class="table table-bordered table-striped"
+	   summary="Reference Antennas">
+	<caption>Updated reference antenna selection per measurement set. Antennas are
+	listed in order of highest to lowest priority.</caption>
+	<thead>
+		<tr>
+			<th>Measurement Set</th>
+			<th>Reference Antennas (Highest to Lowest)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>uid___A002_Xd16a1e_X4327.ms</td>
+			<td>DA47, DA45, DV07, DA46, DV13, DV08, DA51, DA60, DA55, DV15, DA42, DV01, DV21, DV05, DV02, DV03, DV06, DA49, DV11, DA41, DA53, DA50, DA64, DA44, DV10, DA43, DV04, DV17, DA48, DA65, DV09, DV20, DA59, DV18, DA52, DV14, DV25, DV22, DA63, DV24, DA58, DA57, DA56, DV12, DA61, DV19</td>
+		</tr>
+	</tbody>
+</table>
+
+
+        <h3 id="plots" class="jumptarget">
+		T<sub>sys</sub> vs frequency after flagging
+	</h3>
+
+         
+		<p>Plots of time-averaged T<sub>sys</sub> vs frequency, colored by antenna.</p>
+	
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd16a1e_X4327.ms"
+               href="stage7/tsys-all_data.html">
+                uid___A002_Xd16a1e_X4327.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd16a1e_X4327.ms-summary.spw16.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 16<br/>
+		Science spws: 22
+	"
+                           data-plotCommandTarget="#plotcmd-7784197134947747375"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd16a1e_X4327.ms-summary.spw16.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 16"
+                        >
+                    </a>
+
+                    <div id="plotcmd-7784197134947747375" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd16a1e_X4327.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd16a1e_X4327.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="16"
+                               data-vis="uid___A002_Xd16a1e_X4327.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 16
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 22.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd16a1e_X4327.ms-summary.spw18.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 18<br/>
+		Science spws: 24
+	"
+                           data-plotCommandTarget="#plotcmd-2659651891027846305"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd16a1e_X4327.ms-summary.spw18.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 18"
+                        >
+                    </a>
+
+                    <div id="plotcmd-2659651891027846305" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd16a1e_X4327.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd16a1e_X4327.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="18"
+                               data-vis="uid___A002_Xd16a1e_X4327.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 18
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 24.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd16a1e_X4327.ms-summary.spw20.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 20<br/>
+		Science spws: 26
+	"
+                           data-plotCommandTarget="#plotcmd--6443443815018692284"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd16a1e_X4327.ms-summary.spw20.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 20"
+                        >
+                    </a>
+
+                    <div id="plotcmd--6443443815018692284" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd16a1e_X4327.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd16a1e_X4327.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="20"
+                               data-vis="uid___A002_Xd16a1e_X4327.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 20
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 26.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd1c06f_X545c.ms"
+               href="stage7/tsys-all_data.html">
+                uid___A002_Xd1c06f_X545c.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd1c06f_X545c.ms-summary.spw16.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 16<br/>
+		Science spws: 22
+	"
+                           data-plotCommandTarget="#plotcmd--4315837363770839824"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd1c06f_X545c.ms-summary.spw16.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 16"
+                        >
+                    </a>
+
+                    <div id="plotcmd--4315837363770839824" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd1c06f_X545c.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd1c06f_X545c.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="16"
+                               data-vis="uid___A002_Xd1c06f_X545c.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 16
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 22.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd1c06f_X545c.ms-summary.spw18.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 18<br/>
+		Science spws: 24
+	"
+                           data-plotCommandTarget="#plotcmd-808707879925060894"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd1c06f_X545c.ms-summary.spw18.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 18"
+                        >
+                    </a>
+
+                    <div id="plotcmd-808707879925060894" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd1c06f_X545c.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd1c06f_X545c.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="18"
+                               data-vis="uid___A002_Xd1c06f_X545c.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 18
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 24.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd1c06f_X545c.ms-summary.spw20.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 20<br/>
+		Science spws: 26
+	"
+                           data-plotCommandTarget="#plotcmd-2392676907652543919"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd1c06f_X545c.ms-summary.spw20.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 20"
+                        >
+                    </a>
+
+                    <div id="plotcmd-2392676907652543919" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd1c06f_X545c.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd1c06f_X545c.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="20"
+                               data-vis="uid___A002_Xd1c06f_X545c.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 20
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 26.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd271e2_X9680.ms"
+               href="stage7/tsys-all_data.html">
+                uid___A002_Xd271e2_X9680.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd271e2_X9680.ms-summary.spw16.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 16<br/>
+		Science spws: 22
+	"
+                           data-plotCommandTarget="#plotcmd-7060769375257109087"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd271e2_X9680.ms-summary.spw16.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 16"
+                        >
+                    </a>
+
+                    <div id="plotcmd-7060769375257109087" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd271e2_X9680.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd271e2_X9680.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="16"
+                               data-vis="uid___A002_Xd271e2_X9680.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 16
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 22.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd271e2_X9680.ms-summary.spw18.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 18<br/>
+		Science spws: 24
+	"
+                           data-plotCommandTarget="#plotcmd-809911617482348817"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd271e2_X9680.ms-summary.spw18.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 18"
+                        >
+                    </a>
+
+                    <div id="plotcmd-809911617482348817" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd271e2_X9680.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd271e2_X9680.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="18"
+                               data-vis="uid___A002_Xd271e2_X9680.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 18
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 24.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd271e2_X9680.ms-summary.spw20.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 20<br/>
+		Science spws: 26
+	"
+                           data-plotCommandTarget="#plotcmd-1493344205250014900"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd271e2_X9680.ms-summary.spw20.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 20"
+                        >
+                    </a>
+
+                    <div id="plotcmd-1493344205250014900" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd271e2_X9680.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd271e2_X9680.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="20"
+                               data-vis="uid___A002_Xd271e2_X9680.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 20
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 26.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd271e2_X9993.ms"
+               href="stage7/tsys-all_data.html">
+                uid___A002_Xd271e2_X9993.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd271e2_X9993.ms-summary.spw16.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 16<br/>
+		Science spws: 22
+	"
+                           data-plotCommandTarget="#plotcmd--3861068581639292442"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd271e2_X9993.ms-summary.spw16.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 16"
+                        >
+                    </a>
+
+                    <div id="plotcmd--3861068581639292442" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd271e2_X9993.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd271e2_X9993.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="16"
+                               data-vis="uid___A002_Xd271e2_X9993.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 16
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 22.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd271e2_X9993.ms-summary.spw18.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 18<br/>
+		Science spws: 24
+	"
+                           data-plotCommandTarget="#plotcmd-7268156502694984328"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd271e2_X9993.ms-summary.spw18.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 18"
+                        >
+                    </a>
+
+                    <div id="plotcmd-7268156502694984328" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd271e2_X9993.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd271e2_X9993.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="18"
+                               data-vis="uid___A002_Xd271e2_X9993.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 18
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 24.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd271e2_X9993.ms-summary.spw20.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 20<br/>
+		Science spws: 26
+	"
+                           data-plotCommandTarget="#plotcmd-6584691914927318213"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd271e2_X9993.ms-summary.spw20.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 20"
+                        >
+                    </a>
+
+                    <div id="plotcmd-6584691914927318213" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd271e2_X9993.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd271e2_X9993.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="20"
+                               data-vis="uid___A002_Xd271e2_X9993.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 20
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 26.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd395f6_X1401a.ms"
+               href="stage7/tsys-all_data.html">
+                uid___A002_Xd395f6_X1401a.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd395f6_X1401a.ms-summary.spw16.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 16<br/>
+		Science spws: 22
+	"
+                           data-plotCommandTarget="#plotcmd--1063576123495476644"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd395f6_X1401a.ms-summary.spw16.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 16"
+                        >
+                    </a>
+
+                    <div id="plotcmd--1063576123495476644" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd395f6_X1401a.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd395f6_X1401a.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="16"
+                               data-vis="uid___A002_Xd395f6_X1401a.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 16
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 22.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd395f6_X1401a.ms-summary.spw18.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 18<br/>
+		Science spws: 24
+	"
+                           data-plotCommandTarget="#plotcmd--1309754041079861550"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd395f6_X1401a.ms-summary.spw18.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 18"
+                        >
+                    </a>
+
+                    <div id="plotcmd--1309754041079861550" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd395f6_X1401a.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd395f6_X1401a.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="18"
+                               data-vis="uid___A002_Xd395f6_X1401a.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 18
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 24.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd395f6_X1401a.ms-summary.spw20.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 20<br/>
+		Science spws: 26
+	"
+                           data-plotCommandTarget="#plotcmd-5766492711088001795"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd395f6_X1401a.ms-summary.spw20.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 20"
+                        >
+                    </a>
+
+                    <div id="plotcmd-5766492711088001795" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd395f6_X1401a.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd395f6_X1401a.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="20"
+                               data-vis="uid___A002_Xd395f6_X1401a.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 20
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 26.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd3c7c2_Xa6f1.ms"
+               href="stage7/tsys-all_data.html">
+                uid___A002_Xd3c7c2_Xa6f1.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd3c7c2_Xa6f1.ms-summary.spw16.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 16<br/>
+		Science spws: 22
+	"
+                           data-plotCommandTarget="#plotcmd-4776444245361588001"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd3c7c2_Xa6f1.ms-summary.spw16.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 16"
+                        >
+                    </a>
+
+                    <div id="plotcmd-4776444245361588001" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd3c7c2_Xa6f1.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd3c7c2_Xa6f1.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="16"
+                               data-vis="uid___A002_Xd3c7c2_Xa6f1.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 16
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 22.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd3c7c2_Xa6f1.ms-summary.spw18.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 18<br/>
+		Science spws: 24
+	"
+                           data-plotCommandTarget="#plotcmd--8545754584428063057"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd3c7c2_Xa6f1.ms-summary.spw18.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 18"
+                        >
+                    </a>
+
+                    <div id="plotcmd--8545754584428063057" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd3c7c2_Xa6f1.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd3c7c2_Xa6f1.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="18"
+                               data-vis="uid___A002_Xd3c7c2_Xa6f1.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 18
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 24.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd3c7c2_Xa6f1.ms-summary.spw20.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 20<br/>
+		Science spws: 26
+	"
+                           data-plotCommandTarget="#plotcmd--7429593211759817394"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd3c7c2_Xa6f1.ms-summary.spw20.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 20"
+                        >
+                    </a>
+
+                    <div id="plotcmd--7429593211759817394" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd3c7c2_Xa6f1.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd3c7c2_Xa6f1.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="20"
+                               data-vis="uid___A002_Xd3c7c2_Xa6f1.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 20
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 26.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+        
+
+        <h4>
+            <a class="replace"
+               data-vis="uid___A002_Xd3c7c2_Xb7f9.ms"
+               href="stage7/tsys-all_data.html">
+                uid___A002_Xd3c7c2_Xb7f9.ms
+            </a>
+        </h4>
+
+
+        <div class="row">
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd3c7c2_Xb7f9.ms-summary.spw16.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 16<br/>
+		Science spws: 22
+	"
+                           data-plotCommandTarget="#plotcmd-2972605504448614593"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd3c7c2_Xb7f9.ms-summary.spw16.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 16"
+                        >
+                    </a>
+
+                    <div id="plotcmd-2972605504448614593" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd3c7c2_Xb7f9.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd3c7c2_Xb7f9.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="16"
+                               data-vis="uid___A002_Xd3c7c2_Xb7f9.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 16
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 22.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd3c7c2_Xb7f9.ms-summary.spw18.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 18<br/>
+		Science spws: 24
+	"
+                           data-plotCommandTarget="#plotcmd-9223207260879373519"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd3c7c2_Xb7f9.ms-summary.spw18.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 18"
+                        >
+                    </a>
+
+                    <div id="plotcmd-9223207260879373519" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd3c7c2_Xb7f9.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd3c7c2_Xb7f9.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="18"
+                               data-vis="uid___A002_Xd3c7c2_Xb7f9.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 18
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 24.
+	</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3 col-sm-4">
+                
+
+                <div class="thumbnail">
+                    <a href="stage7/tsys-uid___A002_Xd3c7c2_Xb7f9.ms-summary.spw20.png"
+                           data-fancybox="/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/pipeline-20190123T104250/html/stage7/tsys-all_data.html"
+                           data-caption="
+		T<sub>sys</sub> spw: 20<br/>
+		Science spws: 26
+	"
+                           data-plotCommandTarget="#plotcmd--8107375440161932434"
+                    >
+                        <img class="lazyload"
+                             data-src="stage7/thumbs/tsys-uid___A002_Xd3c7c2_Xb7f9.ms-summary.spw20.png"
+                             title="Click to show Tsys vs frequency for Tsys spw 20"
+                        >
+                    </a>
+
+                    <div id="plotcmd--8107375440161932434" class="modal-content pipeline-plotcommand" style="display:none;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-fancybox-close aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">Plot Command</h4>
+                        </div>
+                        <div class="modal-body" data-selectable="true">
+                            <p>plotbandpass(caltable=&#39;uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl&#39;, spw=&#39;16,18,20&#39;, yaxis=&#39;tsys&#39;, xaxis=&#39;freq&#39;, figfile=&#39;tsys-uid___A002_Xd3c7c2_Xb7f9.ms-summary.png&#39;, overlay=&#39;antenna,time&#39;, interactive=False, subplot=11, showatm=True, chanrange=&#39;90%&#39;, vis=&#39;uid___A002_Xd3c7c2_Xb7f9.ms&#39;, showfdm=True)</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-fancybox-close>Close</button>
+                        </div>
+                    </div>
+
+                    <div class="caption">
+                        <h4>
+                            <a href="stage7/tsys-all_data.html"
+                               data-tsys_spw="20"
+                               data-vis="uid___A002_Xd3c7c2_Xb7f9.ms"
+                               class="replace">
+                        
+		T<sub>sys</sub> spw 20
+	
+                            </a>
+                        </h4>
+
+                        <p>
+		Science spw 26.
+	</p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end row -->
+
+
+
+
+<h2 id="summarytable" class="jumptarget">Flagging steps</h2>
+<table class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th>Measurement Set</th>
+			<th>manual</th>
+			<th>nmedian</th>
+			<th>derivative</th>
+			<th>edgechans</th>
+			<th>fieldshape</th>
+			<th>birdies</th>
+			<th>toomany</th>
+		</tr>                           
+	</thead>
+	<tbody>
+		<tr>
+			<td>uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl</td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl</td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl</td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl</td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl</td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl</td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+		<tr>
+			<td>uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl</td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+      		<td><span class="glyphicon glyphicon-ok"></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Flagged data summary</h2>
+
+<h4>Table: uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged solutions. Each cell states the amount of
+        solutions flagged as a fraction of the specified data selection, with
+        the <em>Flagging Step</em> columns giving this information per flagging
+		step. Note: for each data selection intent, the flagging statistics
+        are calculated for the T<sub>sys</sub> scans (with intent=ATMOSPHERE)
+        that cover those fields that also match the data selection intent. A
+        value of "N/A" in a row means that no T<sub>sys</sub> scan was acquired
+        on the object(s) observed for the corresponding intent.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th colspan="7">Flagging Step</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+		<tr>
+			<th>manual</th>
+			<th>nmedian</th>
+			<th>derivative</th>
+			<th>edgechans</th>
+			<th>fieldshape</th>
+			<th>birdies</th>
+			<th>toomany</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.1%</td>
+				<td>0.0%</td>
+				<td>3.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>6.0%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.1%</td>
+				<td>0.0%</td>
+				<td>3.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>6.0%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.1%</td>
+				<td>0.0%</td>
+				<td>3.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>6.0%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.1%</td>
+				<td>0.0%</td>
+				<td>3.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>6.0%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.1%</td>
+				<td>0.0%</td>
+				<td>3.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>6.0%</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Table: uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged solutions. Each cell states the amount of
+        solutions flagged as a fraction of the specified data selection, with
+        the <em>Flagging Step</em> columns giving this information per flagging
+		step. Note: for each data selection intent, the flagging statistics
+        are calculated for the T<sub>sys</sub> scans (with intent=ATMOSPHERE)
+        that cover those fields that also match the data selection intent. A
+        value of "N/A" in a row means that no T<sub>sys</sub> scan was acquired
+        on the object(s) observed for the corresponding intent.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th colspan="7">Flagging Step</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+		<tr>
+			<th>manual</th>
+			<th>nmedian</th>
+			<th>derivative</th>
+			<th>edgechans</th>
+			<th>fieldshape</th>
+			<th>birdies</th>
+			<th>toomany</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Table: uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged solutions. Each cell states the amount of
+        solutions flagged as a fraction of the specified data selection, with
+        the <em>Flagging Step</em> columns giving this information per flagging
+		step. Note: for each data selection intent, the flagging statistics
+        are calculated for the T<sub>sys</sub> scans (with intent=ATMOSPHERE)
+        that cover those fields that also match the data selection intent. A
+        value of "N/A" in a row means that no T<sub>sys</sub> scan was acquired
+        on the object(s) observed for the corresponding intent.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th colspan="7">Flagging Step</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+		<tr>
+			<th>manual</th>
+			<th>nmedian</th>
+			<th>derivative</th>
+			<th>edgechans</th>
+			<th>fieldshape</th>
+			<th>birdies</th>
+			<th>toomany</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.9%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.9%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.9%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.9%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.9%</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Table: uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged solutions. Each cell states the amount of
+        solutions flagged as a fraction of the specified data selection, with
+        the <em>Flagging Step</em> columns giving this information per flagging
+		step. Note: for each data selection intent, the flagging statistics
+        are calculated for the T<sub>sys</sub> scans (with intent=ATMOSPHERE)
+        that cover those fields that also match the data selection intent. A
+        value of "N/A" in a row means that no T<sub>sys</sub> scan was acquired
+        on the object(s) observed for the corresponding intent.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th colspan="7">Flagging Step</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+		<tr>
+			<th>manual</th>
+			<th>nmedian</th>
+			<th>derivative</th>
+			<th>edgechans</th>
+			<th>fieldshape</th>
+			<th>birdies</th>
+			<th>toomany</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.9%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.9%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.9%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.9%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.8%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>2.9%</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Table: uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged solutions. Each cell states the amount of
+        solutions flagged as a fraction of the specified data selection, with
+        the <em>Flagging Step</em> columns giving this information per flagging
+		step. Note: for each data selection intent, the flagging statistics
+        are calculated for the T<sub>sys</sub> scans (with intent=ATMOSPHERE)
+        that cover those fields that also match the data selection intent. A
+        value of "N/A" in a row means that no T<sub>sys</sub> scan was acquired
+        on the object(s) observed for the corresponding intent.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th colspan="7">Flagging Step</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+		<tr>
+			<th>manual</th>
+			<th>nmedian</th>
+			<th>derivative</th>
+			<th>edgechans</th>
+			<th>fieldshape</th>
+			<th>birdies</th>
+			<th>toomany</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.9%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>5.0%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.9%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>5.0%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.9%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>5.0%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.9%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>5.0%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.9%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>5.0%</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Table: uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged solutions. Each cell states the amount of
+        solutions flagged as a fraction of the specified data selection, with
+        the <em>Flagging Step</em> columns giving this information per flagging
+		step. Note: for each data selection intent, the flagging statistics
+        are calculated for the T<sub>sys</sub> scans (with intent=ATMOSPHERE)
+        that cover those fields that also match the data selection intent. A
+        value of "N/A" in a row means that no T<sub>sys</sub> scan was acquired
+        on the object(s) observed for the corresponding intent.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th colspan="7">Flagging Step</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+		<tr>
+			<th>manual</th>
+			<th>nmedian</th>
+			<th>derivative</th>
+			<th>edgechans</th>
+			<th>fieldshape</th>
+			<th>birdies</th>
+			<th>toomany</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4>Table: uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl</h4>
+<table class="table table-bordered table-striped ">
+	<caption>Summary of flagged solutions. Each cell states the amount of
+        solutions flagged as a fraction of the specified data selection, with
+        the <em>Flagging Step</em> columns giving this information per flagging
+		step. Note: for each data selection intent, the flagging statistics
+        are calculated for the T<sub>sys</sub> scans (with intent=ATMOSPHERE)
+        that cover those fields that also match the data selection intent. A
+        value of "N/A" in a row means that no T<sub>sys</sub> scan was acquired
+        on the object(s) observed for the corresponding intent.
+	</caption>
+	<thead>
+		<tr>
+			<th rowspan="2">Data Selection</th>
+			<!-- flags before task is always first agent -->
+			<th rowspan="2">flagged before</th>
+			<th colspan="7">Flagging Step</th>
+			<th rowspan="2">flagged after</th>
+		</tr>
+		<tr>
+			<th>manual</th>
+			<th>nmedian</th>
+			<th>derivative</th>
+			<th>edgechans</th>
+			<th>fieldshape</th>
+			<th>birdies</th>
+			<th>toomany</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>TOTAL</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.1%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+		<tr>
+			<th>BANDPASS</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.1%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+		<tr>
+			<th>AMPLITUDE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.1%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+		<tr>
+			<th>PHASE</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.1%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+		<tr>
+			<th>TARGET</th>               
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>0.0%</td>
+				<td>4.2%</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<h2>Flag Step Details</h2>
+<p>
+    The following section provides plots showing the flagging metrics that the
+    pipeline uses to determine deviant T<sub>sys</sub> measurements, and the
+    flagging commands that resulted from each flagging metric. For certain
+    flagging metrics, the pipeline evaluates the metric separately for each
+    polarisation. However, if the T<sub>sys</sub> measurement for an antenna is
+    found to be deviant in one polarisation, the pipeline will flag the antenna
+    for both polarisations.
+</p>
+
+	<h3 id="manual" class="jumptarget">manual</h3>
+	Flag T<sub>sys</sub> spectra with manual flag commands from template file.
+
+    <h4>Template files</h4>
+    <table class="table table-bordered table-striped">
+	<thead>
+	    <tr>
+	    	<th>Table</th>
+	        <th>File</th>
+	        <th>Number of Statements</th>
+	    </tr>
+	</thead>
+	<tbody>
+        <tr>
+            <td>uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl</td><td><a class="replace-pre" href="stage7/uid___A002_Xd16a1e_X4327.flagtsystemplate.txt" data-title="Flagging Commands">uid___A002_Xd16a1e_X4327.flagtsystemplate.txt</a></td><td>1</td>
+        </tr>
+        <tr>
+            <td>uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl</td><td><a class="replace-pre" href="stage7/uid___A002_Xd1c06f_X545c.flagtsystemplate.txt" data-title="Flagging Commands">uid___A002_Xd1c06f_X545c.flagtsystemplate.txt</a></td><td>1</td>
+        </tr>
+        <tr>
+            <td>uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl</td><td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9680.flagtsystemplate.txt" data-title="Flagging Commands">uid___A002_Xd271e2_X9680.flagtsystemplate.txt</a></td><td>1</td>
+        </tr>
+        <tr>
+            <td>uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl</td><td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9993.flagtsystemplate.txt" data-title="Flagging Commands">uid___A002_Xd271e2_X9993.flagtsystemplate.txt</a></td><td>1</td>
+        </tr>
+        <tr>
+            <td>uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl</td><td><a class="replace-pre" href="stage7/uid___A002_Xd395f6_X1401a.flagtsystemplate.txt" data-title="Flagging Commands">uid___A002_Xd395f6_X1401a.flagtsystemplate.txt</a></td><td>1</td>
+        </tr>
+        <tr>
+            <td>uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl</td><td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xa6f1.flagtsystemplate.txt" data-title="Flagging Commands">uid___A002_Xd3c7c2_Xa6f1.flagtsystemplate.txt</a></td><td>1</td>
+        </tr>
+        <tr>
+            <td>uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl</td><td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xb7f9.flagtsystemplate.txt" data-title="Flagging Commands">uid___A002_Xd3c7c2_Xb7f9.flagtsystemplate.txt</a></td><td>1</td>
+        </tr>
+	</tbody>
+    </table>
+
+	<h3 id="nmedian" class="jumptarget">nmedian</h3>
+	Flag T<sub>sys</sub> spectra with high median values.
+
+	<h4>Plots</h4>
+	<ul>
+		<li><a class="replace" data-vis="uid___A002_Xd16a1e_X4327.ms" href="stage7/Time_vs_Antenna1-all_data-nmedian.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd16a1e_X4327.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd1c06f_X545c.ms" href="stage7/Time_vs_Antenna1-all_data-nmedian.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd1c06f_X545c.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd271e2_X9680.ms" href="stage7/Time_vs_Antenna1-all_data-nmedian.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd271e2_X9680.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd271e2_X9993.ms" href="stage7/Time_vs_Antenna1-all_data-nmedian.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd271e2_X9993.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd395f6_X1401a.ms" href="stage7/Time_vs_Antenna1-all_data-nmedian.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd395f6_X1401a.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd3c7c2_Xa6f1.ms" href="stage7/Time_vs_Antenna1-all_data-nmedian.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd3c7c2_Xa6f1.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd3c7c2_Xb7f9.ms" href="stage7/Time_vs_Antenna1-all_data-nmedian.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd3c7c2_Xb7f9.ms.</li>
+			<li><a class="replace" data-vis="uid___A002_Xd16a1e_X4327.ms" href="stage7/Normalised_Tsys_vs_channel-uid___A002_Xd16a1e_X4327.ms-nmedian.html">Normalised T<sub>sys</sub> vs channel</a>  shows the spectra flagged in uid___A002_Xd16a1e_X4327.ms.</li>
+
+	</ul>
+
+    <h4>Flags</h4>
+    <table class="table table-bordered table-striped">
+	<thead>
+	    <tr>
+	    	<th>Table</th>
+	        <th>Flagging Commands</th>
+	        <th>Number of Statements</th>
+	        <th>Flagging Report</th>
+	    </tr>
+	</thead>
+	<tbody>
+	    <tr>
+	    	<td>uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tblnmedian-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>27</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tblnmedian.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tblnmedian-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tblnmedian.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tblnmedian-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tblnmedian.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tblnmedian-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tblnmedian.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tblnmedian-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tblnmedian.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tblnmedian-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tblnmedian.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tblnmedian-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tblnmedian.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	</tbody>
+    </table>
+	<h3 id="derivative" class="jumptarget">derivative</h3>
+	Flag T<sub>sys</sub> spectra with high median derivative (ringing).
+
+	<h4>Plots</h4>
+	<ul>
+		<li><a class="replace" data-vis="uid___A002_Xd16a1e_X4327.ms" href="stage7/Time_vs_Antenna1-all_data-derivative.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd16a1e_X4327.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd1c06f_X545c.ms" href="stage7/Time_vs_Antenna1-all_data-derivative.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd1c06f_X545c.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd271e2_X9680.ms" href="stage7/Time_vs_Antenna1-all_data-derivative.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd271e2_X9680.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd271e2_X9993.ms" href="stage7/Time_vs_Antenna1-all_data-derivative.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd271e2_X9993.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd395f6_X1401a.ms" href="stage7/Time_vs_Antenna1-all_data-derivative.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd395f6_X1401a.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd3c7c2_Xa6f1.ms" href="stage7/Time_vs_Antenna1-all_data-derivative.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd3c7c2_Xa6f1.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd3c7c2_Xb7f9.ms" href="stage7/Time_vs_Antenna1-all_data-derivative.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd3c7c2_Xb7f9.ms.</li>
+
+	</ul>
+
+    <h4>Flags</h4>
+    <table class="table table-bordered table-striped">
+	<thead>
+	    <tr>
+	    	<th>Table</th>
+	        <th>Flagging Commands</th>
+	        <th>Number of Statements</th>
+	        <th>Flagging Report</th>
+	    </tr>
+	</thead>
+	<tbody>
+	    <tr>
+	    	<td>uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tblderivative-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tblderivative.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tblderivative-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tblderivative.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tblderivative-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tblderivative.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tblderivative-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tblderivative.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tblderivative-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tblderivative.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tblderivative-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tblderivative.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tblderivative-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tblderivative.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	</tbody>
+    </table>
+	<h3 id="edgechans" class="jumptarget">edgechans</h3>
+	Flag edge channels of T<sub>sys</sub> spectra.
+
+	<h4>Plots</h4>
+	<ul>
+		<li><a class="replace" data-vis="uid___A002_Xd16a1e_X4327.ms" href="stage7/Median_Normalised_Tsys_vs_channel-all_data-edgechans.html">Median Normalised T<sub>sys</sub> vs channel</a> shows the views used to flag uid___A002_Xd16a1e_X4327.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd1c06f_X545c.ms" href="stage7/Median_Normalised_Tsys_vs_channel-all_data-edgechans.html">Median Normalised T<sub>sys</sub> vs channel</a> shows the views used to flag uid___A002_Xd1c06f_X545c.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd271e2_X9680.ms" href="stage7/Median_Normalised_Tsys_vs_channel-all_data-edgechans.html">Median Normalised T<sub>sys</sub> vs channel</a> shows the views used to flag uid___A002_Xd271e2_X9680.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd271e2_X9993.ms" href="stage7/Median_Normalised_Tsys_vs_channel-all_data-edgechans.html">Median Normalised T<sub>sys</sub> vs channel</a> shows the views used to flag uid___A002_Xd271e2_X9993.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd395f6_X1401a.ms" href="stage7/Median_Normalised_Tsys_vs_channel-all_data-edgechans.html">Median Normalised T<sub>sys</sub> vs channel</a> shows the views used to flag uid___A002_Xd395f6_X1401a.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd3c7c2_Xa6f1.ms" href="stage7/Median_Normalised_Tsys_vs_channel-all_data-edgechans.html">Median Normalised T<sub>sys</sub> vs channel</a> shows the views used to flag uid___A002_Xd3c7c2_Xa6f1.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd3c7c2_Xb7f9.ms" href="stage7/Median_Normalised_Tsys_vs_channel-all_data-edgechans.html">Median Normalised T<sub>sys</sub> vs channel</a> shows the views used to flag uid___A002_Xd3c7c2_Xb7f9.ms.</li>
+
+	</ul>
+
+    <h4>Flags</h4>
+    <table class="table table-bordered table-striped">
+	<thead>
+	    <tr>
+	    	<th>Table</th>
+	        <th>Flagging Commands</th>
+	        <th>Number of Statements</th>
+	        <th>Flagging Report</th>
+	    </tr>
+	</thead>
+	<tbody>
+	    <tr>
+	    	<td>uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbledgechans-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>9</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbledgechans.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbledgechans-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>9</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbledgechans.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbledgechans-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>9</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbledgechans.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbledgechans-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>9</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbledgechans.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbledgechans-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>9</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbledgechans.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbledgechans-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>9</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbledgechans.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbledgechans-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>9</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbledgechans.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	</tbody>
+    </table>
+	<h3 id="fieldshape" class="jumptarget">fieldshape</h3>
+	Flag T<sub>sys</sub> spectra whose shape differs from those associated with BANDPASS data.
+
+	<h4>Plots</h4>
+	<ul>
+		<li><a class="replace" data-vis="uid___A002_Xd16a1e_X4327.ms" href="stage7/Time_vs_Antenna1-all_data-fieldshape.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd16a1e_X4327.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd1c06f_X545c.ms" href="stage7/Time_vs_Antenna1-all_data-fieldshape.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd1c06f_X545c.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd271e2_X9680.ms" href="stage7/Time_vs_Antenna1-all_data-fieldshape.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd271e2_X9680.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd271e2_X9993.ms" href="stage7/Time_vs_Antenna1-all_data-fieldshape.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd271e2_X9993.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd395f6_X1401a.ms" href="stage7/Time_vs_Antenna1-all_data-fieldshape.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd395f6_X1401a.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd3c7c2_Xa6f1.ms" href="stage7/Time_vs_Antenna1-all_data-fieldshape.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd3c7c2_Xa6f1.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd3c7c2_Xb7f9.ms" href="stage7/Time_vs_Antenna1-all_data-fieldshape.html">Time vs Antenna1</a> shows the images used to flag uid___A002_Xd3c7c2_Xb7f9.ms.</li>
+
+	</ul>
+
+    <h4>Flags</h4>
+    <table class="table table-bordered table-striped">
+	<thead>
+	    <tr>
+	    	<th>Table</th>
+	        <th>Flagging Commands</th>
+	        <th>Number of Statements</th>
+	        <th>Flagging Report</th>
+	    </tr>
+	</thead>
+	<tbody>
+	    <tr>
+	    	<td>uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tblfieldshape-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tblfieldshape.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tblfieldshape-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tblfieldshape.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tblfieldshape-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tblfieldshape.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tblfieldshape-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tblfieldshape.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tblfieldshape-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tblfieldshape.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tblfieldshape-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tblfieldshape.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tblfieldshape-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tblfieldshape.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	</tbody>
+    </table>
+	<h3 id="birdies" class="jumptarget">birdies</h3>
+	Flag spikes or birdies in T<sub>sys</sub> spectra.
+
+	<h4>Plots</h4>
+	<ul>
+		<li><a class="replace" data-vis="uid___A002_Xd16a1e_X4327.ms" href="stage7/Normalised_Tsys_Difference_vs_channel-all_data-birdies.html">Normalised T<sub>sys</sub> Difference vs channel</a> shows the views used to flag uid___A002_Xd16a1e_X4327.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd1c06f_X545c.ms" href="stage7/Normalised_Tsys_Difference_vs_channel-all_data-birdies.html">Normalised T<sub>sys</sub> Difference vs channel</a> shows the views used to flag uid___A002_Xd1c06f_X545c.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd271e2_X9680.ms" href="stage7/Normalised_Tsys_Difference_vs_channel-all_data-birdies.html">Normalised T<sub>sys</sub> Difference vs channel</a> shows the views used to flag uid___A002_Xd271e2_X9680.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd271e2_X9993.ms" href="stage7/Normalised_Tsys_Difference_vs_channel-all_data-birdies.html">Normalised T<sub>sys</sub> Difference vs channel</a> shows the views used to flag uid___A002_Xd271e2_X9993.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd395f6_X1401a.ms" href="stage7/Normalised_Tsys_Difference_vs_channel-all_data-birdies.html">Normalised T<sub>sys</sub> Difference vs channel</a> shows the views used to flag uid___A002_Xd395f6_X1401a.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd3c7c2_Xa6f1.ms" href="stage7/Normalised_Tsys_Difference_vs_channel-all_data-birdies.html">Normalised T<sub>sys</sub> Difference vs channel</a> shows the views used to flag uid___A002_Xd3c7c2_Xa6f1.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd3c7c2_Xb7f9.ms" href="stage7/Normalised_Tsys_Difference_vs_channel-all_data-birdies.html">Normalised T<sub>sys</sub> Difference vs channel</a> shows the views used to flag uid___A002_Xd3c7c2_Xb7f9.ms.</li>
+
+	</ul>
+
+    <h4>Flags</h4>
+    <table class="table table-bordered table-striped">
+	<thead>
+	    <tr>
+	    	<th>Table</th>
+	        <th>Flagging Commands</th>
+	        <th>Number of Statements</th>
+	        <th>Flagging Report</th>
+	    </tr>
+	</thead>
+	<tbody>
+	    <tr>
+	    	<td>uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tblbirdies-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>1</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tblbirdies.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tblbirdies-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>1</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tblbirdies.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tblbirdies-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>1</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tblbirdies.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tblbirdies-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>1</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tblbirdies.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tblbirdies-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>1</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tblbirdies.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tblbirdies-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>1</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tblbirdies.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tblbirdies-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>1</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tblbirdies.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	</tbody>
+    </table>
+	<h3 id="toomany" class="jumptarget">toomany</h3>
+	Flag T<sub>sys</sub> spectra with too many flagged timestamps / antennas.
+
+	<h4>Plots</h4>
+	<ul>
+		<li><a class="replace" data-vis="uid___A002_Xd16a1e_X4327.ms" href="stage7/Time_vs_Antenna1-all_data-toomany.html">Time vs Antenna1</a> shows the views used to flag uid___A002_Xd16a1e_X4327.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd1c06f_X545c.ms" href="stage7/Time_vs_Antenna1-all_data-toomany.html">Time vs Antenna1</a> shows the views used to flag uid___A002_Xd1c06f_X545c.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd271e2_X9680.ms" href="stage7/Time_vs_Antenna1-all_data-toomany.html">Time vs Antenna1</a> shows the views used to flag uid___A002_Xd271e2_X9680.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd271e2_X9993.ms" href="stage7/Time_vs_Antenna1-all_data-toomany.html">Time vs Antenna1</a> shows the views used to flag uid___A002_Xd271e2_X9993.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd395f6_X1401a.ms" href="stage7/Time_vs_Antenna1-all_data-toomany.html">Time vs Antenna1</a> shows the views used to flag uid___A002_Xd395f6_X1401a.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd3c7c2_Xa6f1.ms" href="stage7/Time_vs_Antenna1-all_data-toomany.html">Time vs Antenna1</a> shows the views used to flag uid___A002_Xd3c7c2_Xa6f1.ms.</li>
+		<li><a class="replace" data-vis="uid___A002_Xd3c7c2_Xb7f9.ms" href="stage7/Time_vs_Antenna1-all_data-toomany.html">Time vs Antenna1</a> shows the views used to flag uid___A002_Xd3c7c2_Xb7f9.ms.</li>
+
+	</ul>
+
+    <h4>Flags</h4>
+    <table class="table table-bordered table-striped">
+	<thead>
+	    <tr>
+	    	<th>Table</th>
+	        <th>Flagging Commands</th>
+	        <th>Number of Statements</th>
+	        <th>Flagging Report</th>
+	    </tr>
+	</thead>
+	<tbody>
+	    <tr>
+	    	<td>uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbltoomany-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbltoomany.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbltoomany-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbltoomany.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbltoomany-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbltoomany.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbltoomany-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbltoomany.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbltoomany-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbltoomany.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbltoomany-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbltoomany.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	    <tr>
+	    	<td>uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl</td>
+	        <td><a class="replace-pre" href="stage7/uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbltoomany-flag_commands.txt" 
+                   data-title="Flagging Commands">Flag commands file</a></td>
+            <td>0</td>
+	        <td><a class="replace-pre"
+                   href="stage7/uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbltoomany.report.html" data-title="Flagging report">
+                   Flagging report</a></td>
+	    </tr>
+	</tbody>
+    </table>
+
+
+<div class="clearfix"></div>
+<div class="panel-group" id="details-accordion" role="tablist" aria-multiselectable="true">
+
+    
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Pipeline QA
+                </a>
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+                <table class="table table-bordered" summary="Pipeline QA summary">
+                    <caption>Pipeline QA summary for this task.</caption>
+                    <thead>
+                        <tr>
+                            <th>Score</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="success alert-success">
+                        <td>0.99</td>
+                        <td>5.98% of data in uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl was newly flagged</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>4.19% of data in uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl was newly flagged</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>4.17% of data in uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl was newly flagged</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>4.96% of data in uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl was newly flagged</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>4.18% of data in uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl was newly flagged</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>2.86% of data in uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl was newly flagged</td>
+                    </tr>
+                    <tr class="success alert-success">
+                        <td>1.00</td>
+                        <td>2.87% of data in uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl was newly flagged</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                Input Parameters
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>tmef1_limit</dt>
+                    <dd>0.666</dd>
+                    <dt>fe_edge_limit</dt>
+                    <dd>3.0</dd>
+                    <dt>flag_derivative</dt>
+                    <dd>True</dd>
+                    <dt>flag_fieldshape</dt>
+                    <dd>True</dd>
+                    <dt>ff_refintent</dt>
+                    <dd>BANDPASS</dd>
+                    <dt>flag_toomany</dt>
+                    <dd>True</dd>
+                    <dt>fnm_byfield</dt>
+                    <dd>True</dd>
+                    <dt>ff_max_limit</dt>
+                    <dd>5</dd>
+                    <dt>fnm_limit</dt>
+                    <dd>2.0</dd>
+                    <dt>caltable</dt>
+                    <dd>['/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms.h_tsyscal.s6_1.tsyscal.tbl', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms.h_tsyscal.s6_2.tsyscal.tbl', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms.h_tsyscal.s6_3.tsyscal.tbl', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms.h_tsyscal.s6_4.tsyscal.tbl', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms.h_tsyscal.s6_5.tsyscal.tbl', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms.h_tsyscal.s6_6.tsyscal.tbl', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms.h_tsyscal.s6_7.tsyscal.tbl']</dd>
+                    <dt>metric_order</dt>
+                    <dd>nmedian, derivative, edgechans, fieldshape, birdies, toomany</dd>
+                    <dt>vis</dt>
+                    <dd>['/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.ms', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.ms']</dd>
+                    <dt>filetemplate</dt>
+                    <dd>['/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd16a1e_X4327.flagtsystemplate.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd1c06f_X545c.flagtsystemplate.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xb7f9.flagtsystemplate.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd395f6_X1401a.flagtsystemplate.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd3c7c2_Xa6f1.flagtsystemplate.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9993.flagtsystemplate.txt', '/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working/uid___A002_Xd271e2_X9680.flagtsystemplate.txt']</dd>
+                    <dt>output_dir</dt>
+                    <dd>/opt/dared/opt/dared.2018OCT/mnt/dataproc/2017.1.00685.S_2019_01_22T17_35_03.598/SOUS_uid___A001_X1284_X113f/GOUS_uid___A001_X1284_X1140/MOUS_uid___A001_X1284_X1141/working</dd>
+                    <dt>flag_edgechans</dt>
+                    <dd>True</dd>
+                    <dt>tmf1_limit</dt>
+                    <dd>0.666</dd>
+                    <dt>fb_sharps_limit</dt>
+                    <dd>0.05</dd>
+                    <dt>flag_birdies</dt>
+                    <dd>True</dd>
+                    <dt>fd_max_limit</dt>
+                    <dd>5</dd>
+                    <dt>normalize_tsys</dt>
+                    <dd>False</dd>
+                    <dt>flag_nmedian</dt>
+                    <dd>True</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#details-accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Tasks Execution Statistics
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+            <div class="panel-body">
+                <dl class="dl-horizontal">
+                    <dt>Start time</dt>
+                    <dd>2019-01-24 05:42:48.142</dd>
+                    <dt>End</dt>
+                    <dd>2019-01-24 05:52:11.102</dd>
+                    <dt>Duration</dt>
+                    <dd>0:09:22.961</dd>
+                </dl>
+            Note, WebLog generation is not included in the time.
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">CASA logs for stage 7</h3>
+    </div>
+    <div class="panel-body">
+        <ul>
+    
+        <li><a href="stage7/casapy.log" class="replace-pre" data-title="CASA log for stage 7">View</a> or <a href="stage7/casapy.log" download="stage7/casapy.log">download</a> stage7/casapy.log (1005.4 KB)</li>
+</ul>
+    </div>
+</div>
+
+</html>
